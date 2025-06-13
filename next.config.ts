@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   compiler: {
     emotion: true,
   },
+
 };
 
 export default withNextIntl(nextConfig);

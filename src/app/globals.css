@@ -7,23 +7,23 @@
   --color-primary-light: #2e6b9e;
   --color-primary-dark: #0f3148;
   --color-primary-contrast: #ffffff;
-  
+
   --color-secondary-main: #c8a882;
   --color-secondary-light: #d4af37;
   --color-secondary-dark: #a68b5b;
   --color-secondary-contrast: #1b4d72;
-  
+
   --color-background-default: #f5f1e8;
   --color-background-paper: #ffffff;
-  
+
   --color-text-primary: #1b4d72;
   --color-text-secondary: #5a5a5a;
-  
+
   /* Typography */
   --font-sans: 'Source Sans Pro', Arial, sans-serif;
   --font-serif: 'Playfair Display', serif;
   --font-mono: 'Inter', sans-serif;
-  
+
   /* Font sizes */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -34,7 +34,7 @@
   --text-3xl: 1.75rem;
   --text-4xl: 2rem;
   --text-5xl: 2.5rem;
-  
+
   /* Font weights */
   --font-light: 200;
   --font-normal: 300;
@@ -46,6 +46,8 @@
 
 /* Base typography styles */
 body {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-sans);
   font-weight: var(--font-normal);
   font-size: var(--text-base);
@@ -54,7 +56,12 @@ body {
   background-color: var(--color-background-default);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
   color: var(--color-text-primary);
 }

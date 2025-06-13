@@ -250,9 +250,9 @@ export const themeOptions: ThemeOptions = {
         // Paper component styling
         MuiPaper: {
             styleOverrides: {
-                root: {
-                    backgroundColor: 'var(--color-background-paper)',
-                },
+                // root: {
+                //     backgroundColor: 'var(--color-background-paper)',
+                // },
             },
         },
 

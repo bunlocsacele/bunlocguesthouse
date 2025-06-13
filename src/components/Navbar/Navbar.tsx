@@ -27,6 +27,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
 import styles from './Navbar.module.css';
+import logoNavmenu from "@/../public/images/logoNavmenu.png"
 
 interface NavItem {
     key: string;
@@ -45,9 +46,7 @@ export default function Navbar() {
         { key: 'home', href: `/${locale}`, translationKey: 'home' },
         { key: 'rooms', href: `/${locale}/rooms`, translationKey: 'rooms' },
         { key: 'facilities', href: `/${locale}/facilities`, translationKey: 'facilities' },
-        { key: 'amenities', href: `/${locale}/amenities`, translationKey: 'amenities' },
         { key: 'location', href: `/${locale}/location`, translationKey: 'location' },
-        { key: 'about', href: `/${locale}/organization`, translationKey: 'about' },
         { key: 'blog', href: `/${locale}/blog`, translationKey: 'blog' },
         { key: 'contact', href: `/${locale}/contact`, translationKey: 'contact' },
     ];
@@ -72,11 +71,12 @@ export default function Navbar() {
             <div className={styles.drawerHeader}>
                 <Link href={`/${locale}`} onClick={handleDrawerClose}>
                     <Image
-                        src="/images/logo.png"
+                        src={logoNavmenu}
                         alt="Guesthouse Logo"
-                        width={120}
-                        height={40}
+                        width={140}
+                        height={60}
                         className={styles.drawerLogo}
+                        style={{ width: 'auto', height: '60px' }}
                     />
                 </Link>
                 <IconButton onClick={handleDrawerClose} className={styles.closeButton}>
@@ -102,6 +102,17 @@ export default function Navbar() {
             <Box sx={{ p: 2, borderTop: `1px solid ${theme.palette.primary.main}20` }}>
                 <LanguageSwitcher />
             </Box>
+            <Box sx={{ p: 2, borderTop: `1px solid ` }}>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d750.4976473809338!2d25.663775781089043!3d45.606683738317905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b35d38923fb641%3A0x269e81cfb982d882!2sBunloc%2C%20505600%20S%C4%83cele!5e1!3m2!1sen!2sro!4v1749811083546!5m2!1sen!2sro"
+                    width="280"
+                    height="300"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                />
+            </Box>
         </Box>
     );
 
@@ -112,7 +123,7 @@ export default function Navbar() {
                 elevation={0}
                 className={styles.navbar}
                 sx={{
-                    backgroundColor: 'var(--color-background-paper)',
+                    backgroundColor: 'var(--color-background)',
                     color: 'var(--color-text-primary)',
                     borderBottom: `1px solid ${theme.palette.primary.main}20`,
                     boxShadow: `0 2px 8px ${theme.palette.primary.main}14`
@@ -122,14 +133,17 @@ export default function Navbar() {
                     <Toolbar className={styles.toolbar} disableGutters>
                         {/* Logo */}
                         <Link href={`/${locale}`} className={styles.logoContainer}>
-                            <Image
-                                src="/images/logo.png"
-                                alt="Guesthouse Logo"
-                                width={200}
-                                height={80}
-                                className={styles.logoIcon}
-                                priority
-                            />
+                            <div className={styles.rhomboidMask}>
+                                <Image
+                                    src="/images/logo.png"
+                                    alt="Guesthouse Logo"
+                                    width={300}
+                                    height={120}
+                                    style={{ width: 'auto', height: 'auto' }}
+                                    className={styles.logoIcon}
+                                    priority
+                                />
+                            </div>
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -182,8 +196,9 @@ export default function Navbar() {
                     paper: {
                         className: styles.drawerOverlay,
                         sx: {
-                            backgroundColor: 'var(--color-background-paper)',
-                            backdropFilter: 'blur(4px)',
+                            // backgroundColor: 'var(--color-background-paper)',
+                            // backdropFilter: 'blur(4px)',
+                            // boxShadow: 'none',
                         }
                     },
                 }}

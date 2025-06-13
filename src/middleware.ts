@@ -8,15 +8,9 @@ export default createMiddleware({
 });
 
 export const config = {
-    // More comprehensive matcher that handles all routes
+
     matcher: [
-        // Match all pathnames except for
-        // - API routes
-        // - _next/static (static files)
-        // - _next/image (image optimization files)
-        // - favicon.ico (favicon file)
-        '/((?!api|_next/static|_next/image|favicon.ico).*)',
-        // However, match all pathnames within `/users`, optionally with a locale prefix
+        '/((?!api|_next/static|_next/image|favicon.ico|images).*)',
         '/([\\w-]+)?/users/(.+)'
     ]
 };

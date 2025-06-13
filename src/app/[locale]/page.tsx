@@ -1,4 +1,6 @@
+
 import { getTranslations } from 'next-intl/server';
+import HomeCarousel from '@/components/HomeCarousel/HomeCarousel';
 
 export default async function HomePage({
     params
@@ -13,8 +15,7 @@ export default async function HomePage({
 
     return (
         <div>
-            <h1>{t('title')}</h1>
-            <p>Server locale: {locale}</p>
+            <HomeCarousel />
         </div>
     );
 }
