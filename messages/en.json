@@ -1,0 +1,61 @@
+{
+    "navigation": {
+        "home": "Home",
+        "rooms": "Rooms",
+        "facilities": "Facilities",
+        "amenities": "Amenities",
+        "booking": "Book Now",
+        "location": "Location",
+        "about": "About Us",
+        "blog": "Blog",
+        "contact": "Contact"
+    },
+    "rooms": {
+        "singleRoom": "Single Room",
+        "doubleRoom": "Double Room",
+        "familySuite": "Family Suite",
+        "deluxeSuite": "Deluxe Suite",
+        "viewDetails": "View Details",
+        "bookNow": "Book Now",
+        "perNight": "per night",
+        "upToGuests": "Up to {count} guests"
+    },
+    "facilities": {
+        "conferenceRoomA": "Conference Room A",
+        "meetingRoomB": "Meeting Room B",
+        "eventHall": "Event Hall",
+        "trainingCenter": "Training Center",
+        "boardRoom": "Board Room",
+        "largeIndoorKitchen": "Large Indoor Kitchen",
+        "terrace": "Terrace",
+        "capacity": "Capacity: {count} people",
+        "features": "Features",
+        "bookFacility": "Book Facility"
+    },
+    "amenities": {
+        "breakfast": "Breakfast",
+        "wifi": "Free WiFi",
+        "parking": "Parking",
+        "laundry": "Laundry Service"
+    },
+    "booking": {
+        "checkAvailability": "Check Availability",
+        "roomRates": "Room Rates",
+        "bookingPolicies": "Booking Policies",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "guests": "Guests",
+        "searchRooms": "Search Rooms"
+    },
+    "common": {
+        "learnMore": "Learn More",
+        "viewAll": "View All",
+        "backToTop": "Back to Top",
+        "loading": "Loading...",
+        "error": "Something went wrong",
+        "tryAgain": "Try Again"
+    },
+    "HomePage": {
+        "title": "Welcome"
+    }
+}

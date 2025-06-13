@@ -1,0 +1,289 @@
+/* src/components/layout/Navbar.module.css */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    /* Background and borders will be handled by MUI theme + CSS variables */
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    min-height: 80px;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+    padding: 8px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.logoContainer:hover {
+    background: linear-gradient(45deg, var(--color-primary-light), var(--color-secondary-light));
+    background-size: 400% 400%;
+    animation: gradientShift 2s ease infinite;
+    transform: scale(1.02);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.logoIcon {
+    height: 60px !important;
+    width: auto !important;
+    max-width: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(27, 77, 114, 0.1));
+}
+
+.logoContainer:hover .logoIcon {
+    filter: drop-shadow(0 4px 8px rgba(27, 77, 114, 0.2));
+}
+
+.desktopNav {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Override MUI button styles to use our design system */
+.navButton {
+    font-family: var(--font-mono) !important;
+    font-weight: var(--font-medium) !important;
+    font-size: var(--text-sm) !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    text-transform: none !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Default state */
+.navButton:not(.active) {
+    color: var(--color-text-primary) !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+}
+
+.navButton:not(.active):hover {
+    background-color: var(--color-primary-main) !important;
+    color: var(--color-primary-contrast) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(27, 77, 114, 0.2) !important;
+}
+
+/* Active state */
+.navButton.active {
+    background-color: var(--color-secondary-main) !important;
+    color: var(--color-secondary-contrast) !important;
+    font-weight: var(--font-semibold) !important;
+    box-shadow: 0 2px 8px rgba(200, 168, 130, 0.3) !important;
+}
+
+.navButton.active:hover {
+    background-color: var(--color-secondary-dark) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(200, 168, 130, 0.4) !important;
+}
+
+/* Add a subtle animation effect */
+.navButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.navButton:hover::before {
+    left: 100%;
+}
+
+.mobileMenuButton {
+    display: flex !important;
+    padding: 8px !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+.languageSwitcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Drawer styles */
+.drawer {
+    width: 280px;
+    background: var(--color-background-paper);
+}
+
+.drawerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(27, 77, 114, 0.1);
+    background: var(--color-background-default);
+}
+
+.drawerLogo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+.drawerLogo:hover {
+    transform: scale(1.05);
+}
+
+.drawerContent {
+    padding: 1rem 0;
+}
+
+/* .drawerItem {
+    margin: 4px 16px !important;
+    padding: 12px 16px !important;
+    font-family: var(--font-mono) !important;
+    font-weight: var(--font-medium) !important;
+    color: var(--color-text-primary) !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid transparent !important;
+} */
+/* 
+.drawerItem:hover {
+    background-color: var(--color-primary-main) !important;
+    color: var(--color-primary-contrast) !important;
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(27, 77, 114, 0.2) !important;
+} */
+
+.drawerItem.active {
+    background-color: var(--color-secondary-main) !important;
+    color: var(--color-secondary-contrast) !important;
+    font-weight: var(--font-semibold) !important;
+    border-color: var(--color-secondary-dark) !important;
+    box-shadow: 0 2px 8px rgba(200, 168, 130, 0.3) !important;
+}
+
+.closeButton {
+    color: var(--color-text-primary) !important;
+    transition: all 0.2s ease !important;
+}
+
+.closeButton:hover {
+    background-color: var(--color-primary-main) !important;
+    color: var(--color-primary-contrast) !important;
+    transform: rotate(90deg);
+}
+
+/* Responsive breakpoints */
+@media (min-width: 768px) {
+    .toolbar {
+        padding: 0.75rem 2rem;
+    }
+
+    .logoIcon {
+        height: 70px !important;
+    }
+
+    .mobileMenuButton {
+        display: none !important;
+    }
+
+    .desktopNav {
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+    .toolbar {
+        padding: 1rem 3rem;
+    }
+
+    .logoIcon {
+        height: 80px !important;
+    }
+
+    .navButton {
+        padding: 12px 24px !important;
+        font-size: var(--text-base) !important;
+    }
+}
+
+/* Drawer overlay with backdrop effect */
+.drawerOverlay {
+    backdrop-filter: blur(4px) !important;
+    background-color: rgba(27, 77, 114, 0.05) !important;
+}
+
+/* Smooth entrance animation for drawer items */
+.drawerContent .drawerItem {
+    animation: slideInFromRight 0.3s ease forwards;
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.drawerContent .drawerItem:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.drawerContent .drawerItem:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.drawerContent .drawerItem:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.drawerContent .drawerItem:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.drawerContent .drawerItem:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+.drawerContent .drawerItem:nth-child(6) {
+    animation-delay: 0.35s;
+}
+
+.drawerContent .drawerItem:nth-child(7) {
+    animation-delay: 0.4s;
+}
+
+.drawerContent .drawerItem:nth-child(8) {
+    animation-delay: 0.45s;
+}
+
+@keyframes slideInFromRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "navigation": {
+        "home": "Acasă",
+        "rooms": "Camere",
+        "facilities": "Facilități",
+        "amenities": "Servicii",
+        "booking": "Rezervă Acum",
+        "location": "Locație",
+        "about": "Despre Noi",
+        "blog": "Blog",
+        "contact": "Contact"
+    },
+    "rooms": {
+        "singleRoom": "Cameră Single",
+        "doubleRoom": "Cameră Dublă",
+        "familySuite": "Suită Familie",
+        "deluxeSuite": "Suită Deluxe",
+        "viewDetails": "Vezi Detalii",
+        "bookNow": "Rezervă Acum",
+        "perNight": "pe noapte",
+        "upToGuests": "Până la {count} oaspeți"
+    },
+    "facilities": {
+        "conferenceRoomA": "Sala de Conferințe A",
+        "meetingRoomB": "Sala de Reuniuni B",
+        "eventHall": "Sala de Evenimente",
+        "trainingCenter": "Centrul de Formare",
+        "boardRoom": "Sala Consiliului",
+        "largeIndoorKitchen": "Bucătărie Mare Interioară",
+        "terrace": "Terasa",
+        "capacity": "Capacitate: {count} persoane",
+        "features": "Caracteristici",
+        "bookFacility": "Rezervă Facilitatea"
+    },
+    "amenities": {
+        "breakfast": "Mic Dejun",
+        "wifi": "WiFi Gratuit",
+        "parking": "Parcare",
+        "laundry": "Serviciu Spălătorie"
+    },
+    "booking": {
+        "checkAvailability": "Verifică Disponibilitatea",
+        "roomRates": "Tarife Camere",
+        "bookingPolicies": "Politici de Rezervare",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "guests": "Oaspeți",
+        "searchRooms": "Caută Camere"
+    },
+    "common": {
+        "learnMore": "Află Mai Mult",
+        "viewAll": "Vezi Tot",
+        "backToTop": "Înapoi Sus",
+        "loading": "Se încarcă...",
+        "error": "A apărut o eroare",
+        "tryAgain": "Încearcă Din Nou"
+    },
+    "HomePage": {
+        "title": "Bine ați venit"
+    }
+}
