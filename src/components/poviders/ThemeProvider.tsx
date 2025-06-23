@@ -1,18 +1,47 @@
+// src/components/providers/ThemeProvider.tsx
 'use client';
 
-import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { theme } from '@/theme/theme';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
+import { ReactNode, useState, useEffect } from 'react';
 
-interface ThemeProviderProps {
-    children: React.ReactNode;
+interface ClientThemeProviderProps {
+    children: ReactNode;
 }
 
-export default function ThemeProvider({ children }: ThemeProviderProps) {
+const theme = createTheme({
+    // Your theme configuration here
+    palette: {
+        primary: {
+            main: '#1976d2',
+        },
+        secondary: {
+            main: '#dc004e',
+        },
+    },
+});
+
+export default function ClientThemeProvider({ children }: ClientThemeProviderProps) {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Prevent hydration mismatch by not rendering theme-dependent content on server
+    if (!mounted) {
+        return (
+            <>
+                <CssBaseline />
+                {children}
+            </>
+        );
+    }
+
     return (
-        <MUIThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
             <CssBaseline />
             {children}
-        </MUIThemeProvider>
+        </ThemeProvider>
     );
 }

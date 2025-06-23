@@ -17,10 +17,11 @@ import {
     Fullscreen
 } from '@mui/icons-material';
 import Image from 'next/image';
+import styles from './HomeCarousel.module.css';
 
 // Define your images array
 const images = [
-    '/images/room1.jpeg',
+    '/images/homeCarousel/room1.jpeg',
     '/images/homeCarousel/room2.jpeg',
     '/images/homeCarousel/room3.jpeg',
     '/images/homeCarousel/room4.jpeg',
@@ -134,7 +135,7 @@ const HomeCarousel: React.FC = () => {
     }, []);
 
     return (
-        <Box sx={{ position: 'relative', width: '100%', maxWidth: 800, mx: 'auto' }}>
+        <Box sx={{ position: 'relative', width: '100%', maxWidth: 800, mx: 'auto', mt: 2 }}>
             {/* Main Carousel */}
             <Box
                 sx={{
@@ -143,7 +144,6 @@ const HomeCarousel: React.FC = () => {
                     height: { xs: 300, sm: 400, md: 500 },
                     overflow: 'hidden',
                     borderRadius: 2,
-                    boxShadow: theme.shadows[8],
                     cursor: 'pointer',
                 }}
                 onTouchStart={onTouchStart}
@@ -152,7 +152,8 @@ const HomeCarousel: React.FC = () => {
                 onClick={handleImageClick}
             >
                 <Fade in={fadeIn} timeout={300}>
-                    <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+                    {/* Apply the CSS module class here */}
+                    <div className={styles.imageWrapper}>
                         <Image
                             src={images[currentIndex]}
                             alt={`Room ${currentIndex + 1}`}
@@ -162,42 +163,20 @@ const HomeCarousel: React.FC = () => {
                             priority={currentIndex === 0}
                         />
 
-                        {/* Fullscreen icon overlay */}
-                        <Box
-                            sx={{
-                                position: 'absolute',
-                                top: 16,
-                                right: 16,
-                                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                                borderRadius: 1,
-                                p: 1,
-                                opacity: 0.8,
-                                '&:hover': { opacity: 1 }
-                            }}
-                        >
-                            <Fullscreen sx={{ color: 'white', fontSize: 20 }} />
-                        </Box>
-                    </Box>
+                        {/* Fullscreen icon overlay - positioned above the gradient */}
+                        <div className={styles.fullscreenIcon}>
+                            <Fullscreen />
+                        </div>
+                    </div>
                 </Fade>
 
-                {/* Navigation Arrows */}
+                {/* Navigation Arrows - positioned above the gradient */}
                 <IconButton
                     onClick={(e) => {
                         e.stopPropagation();
                         handlePrev();
                     }}
-                    sx={{
-                        position: 'absolute',
-                        left: 16,
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                        color: 'white',
-                        '&:hover': {
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                        },
-                        zIndex: 2,
-                    }}
+                    className={`${styles.navButton} ${styles.navButtonLeft}`}
                 >
                     <ArrowBackIos />
                 </IconButton>
@@ -207,55 +186,31 @@ const HomeCarousel: React.FC = () => {
                         e.stopPropagation();
                         handleNext();
                     }}
-                    sx={{
-                        position: 'absolute',
-                        right: 16,
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                        color: 'white',
-                        '&:hover': {
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                        },
-                        zIndex: 2,
-                    }}
+                    className={`${styles.navButton} ${styles.navButtonRight}`}
                 >
                     <ArrowForwardIos />
                 </IconButton>
             </Box>
 
             {/* Dots Indicator */}
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    gap: 1,
-                    mt: 2,
-                }}
-            >
+            <div className={styles.dotsContainer}>
                 {images.map((_, index) => (
-                    <Box
+                    <div
                         key={index}
                         onClick={() => {
                             setCurrentIndex(index);
                             pauseAutoplay();
                         }}
-                        sx={{
-                            width: 12,
-                            height: 12,
-                            borderRadius: '50%',
-                            backgroundColor: index === currentIndex
-                                ? theme.palette.primary.main
-                                : theme.palette.grey[400],
-                            cursor: 'pointer',
-                            transition: 'all 0.3s ease',
-                            '&:hover': {
-                                backgroundColor: theme.palette.primary.light,
-                            },
-                        }}
+                        className={`${styles.dot} ${index === currentIndex ? styles.dotActive : styles.dotInactive
+                            }`}
+                        style={{
+                            '--primary-main': theme.palette.primary.main,
+                            '--primary-light': theme.palette.primary.light,
+                            '--grey-400': theme.palette.grey[400],
+                        } as React.CSSProperties}
                     />
                 ))}
-            </Box>
+            </div>
 
             {/* Fullscreen Modal */}
             <Modal

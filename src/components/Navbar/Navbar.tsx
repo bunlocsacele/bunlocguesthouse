@@ -73,10 +73,10 @@ export default function Navbar() {
                     <Image
                         src={logoNavmenu}
                         alt="Guesthouse Logo"
-                        width={140}
+                        width={100}
                         height={60}
+                        style={{ height: 'auto', width: 'auto' }}
                         className={styles.drawerLogo}
-                        style={{ width: 'auto', height: '60px' }}
                     />
                 </Link>
                 <IconButton onClick={handleDrawerClose} className={styles.closeButton}>
@@ -139,7 +139,7 @@ export default function Navbar() {
                                     alt="Guesthouse Logo"
                                     width={300}
                                     height={120}
-                                    style={{ width: 'auto', height: 'auto' }}
+                                    style={{ height: 'auto', width: 'auto' }}
                                     className={styles.logoIcon}
                                     priority
                                 />

@@ -4,13 +4,14 @@ export default createMiddleware({
     locales: ['en', 'ro'],
     defaultLocale: 'ro',
     localePrefix: 'always',
-    localeDetection: true
+    localeDetection: true,
 });
 
 export const config = {
 
     matcher: [
         '/((?!api|_next/static|_next/image|favicon.ico|images).*)',
-        '/([\\w-]+)?/users/(.+)'
+        '/([\\w-]+)?/users/(.+)',
+
     ]
 };

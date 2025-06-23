@@ -57,5 +57,10 @@
     },
     "HomePage": {
         "title": "Welcome"
+    },
+    "footer": {
+        "location": "Location",
+        "address": "Address",
+        "fullAddress": "Address: Str. Bunloc 68B, Brașov"
     }
 }
