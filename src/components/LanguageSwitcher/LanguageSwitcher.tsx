@@ -1,4 +1,3 @@
-// src/components/layout/LanguageSwitcher.tsx
 'use client';
 
 import { useState } from 'react';
@@ -24,14 +23,11 @@ export default function LanguageSwitcher() {
     };
 
     const handleLocaleChange = (newLocale: string) => {
-        // More robust pathname handling
-        let newPathname: string;
-
         // Remove current locale from pathname
         const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
 
-        // Add new locale
-        newPathname = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
+        // Add new locale - using const instead of let
+        const newPathname = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
 
         console.log('Switching from', locale, 'to', newLocale);
         console.log('Current pathname:', pathname);

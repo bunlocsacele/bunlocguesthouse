@@ -272,7 +272,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
                                 <LocationOn
                                     sx={{
                                         color: theme.palette.primary.light,
-                                        mr: 0.5,
+
                                         fontSize: { xs: 16, md: 18 }
                                     }}
                                 />
@@ -287,7 +287,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
                                         fontSize: { xs: '0.7rem', md: '0.75rem' }
                                     }}
                                 >
-                                    View time & distance on Maps
+                                    Check time & distance on Maps
                                     <Launch sx={{ fontSize: { xs: 12, md: 14 } }} />
                                 </Typography>
                             </Box>

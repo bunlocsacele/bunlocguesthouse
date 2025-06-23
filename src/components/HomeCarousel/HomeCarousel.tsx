@@ -5,7 +5,6 @@ import {
     Box,
     IconButton,
     useTheme,
-    useMediaQuery,
     Fade,
     Modal,
     Backdrop
@@ -34,7 +33,6 @@ const images = [
 
 const HomeCarousel: React.FC = () => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoplay, setIsAutoplay] = useState(true);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -42,7 +40,7 @@ const HomeCarousel: React.FC = () => {
     const timerRef = useRef<NodeJS.Timeout | null>(null);
     const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-    // Auto-advance slides
+    // Auto-advance slides - Fixed dependency array
     useEffect(() => {
         if (!isAutoplay) return;
 
@@ -57,7 +55,7 @@ const HomeCarousel: React.FC = () => {
                 clearInterval(autoplayTimerRef.current);
             }
         };
-    }, [isAutoplay, images.length]);
+    }, [isAutoplay]); // Removed images.length - it's a constant
 
     const pauseAutoplay = () => {
         setIsAutoplay(false);
