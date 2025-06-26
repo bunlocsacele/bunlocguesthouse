@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import ClientThemeProvider from '@/components/poviders/ThemeProvider'
+import ClientThemeProvider from '@/components/providers/ThemeProvider'
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from '@/components/Footer/Footer';
 import CustomFloatButton from '@/components/CustomFloatButton/CustomFloatButton';

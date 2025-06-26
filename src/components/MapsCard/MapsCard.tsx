@@ -384,4 +384,4 @@ const MapsCard: React.FC<MapsCardProps> = ({
     );
 };
 
-export default MapsCard;
+export default MapsCard
