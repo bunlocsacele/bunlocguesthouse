@@ -199,7 +199,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
         }
     };
 
-    const handleTouchEnd = (e: React.TouchEvent) => {
+    const handleTouchEnd = () => {
         if (touchStartTime > 0) {
             handleEnd();
             setTouchStartTime(0);
