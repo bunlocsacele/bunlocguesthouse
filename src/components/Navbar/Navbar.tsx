@@ -73,8 +73,8 @@ export default function Navbar() {
                     <Image
                         src={logoNavmenu}
                         alt="Guesthouse Logo"
-                        width={100}
-                        height={60}
+                        width={40}
+                        height={30}
                         style={{ height: 'auto', width: 'auto' }}
                         className={styles.drawerLogo}
                     />

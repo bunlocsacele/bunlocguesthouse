@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import ClientThemeProvider from '@/components/poviders/ThemeProvider'
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from '@/components/Footer/Footer';
+import CustomFloatButton from '@/components/CustomFloatButton/CustomFloatButton';
 
 const locales = ['en', 'ro'];
 
@@ -39,6 +40,7 @@ export default async function LocaleLayout({
                         {children}
 
                         <Footer />
+                        <CustomFloatButton />
                     </NextIntlClientProvider>
                 </ClientThemeProvider>
             </body>
