@@ -3,14 +3,18 @@
 
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import { ReactNode, useState, useEffect } from 'react';
+import { ReactNode } from 'react';
+import createEmotionCache from '@/lib/createEmotionCache';
+import { CacheProvider } from '@emotion/react';
 
 interface ClientThemeProviderProps {
     children: ReactNode;
+    emotionCache?: any;
 }
 
+const clientSideEmotionCache = createEmotionCache();
+
 const theme = createTheme({
-    // Your theme configuration here
     palette: {
         primary: {
             main: '#1976d2',
@@ -21,27 +25,16 @@ const theme = createTheme({
     },
 });
 
-export default function ClientThemeProvider({ children }: ClientThemeProviderProps) {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    // Prevent hydration mismatch by not rendering theme-dependent content on server
-    if (!mounted) {
-        return (
-            <>
+export default function ClientThemeProvider({
+    children,
+    emotionCache = clientSideEmotionCache
+}: ClientThemeProviderProps) {
+    return (
+        <CacheProvider value={emotionCache}>
+            <ThemeProvider theme={theme}>
                 <CssBaseline />
                 {children}
-            </>
-        );
-    }
-
-    return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {children}
-        </ThemeProvider>
+            </ThemeProvider>
+        </CacheProvider>
     );
 }

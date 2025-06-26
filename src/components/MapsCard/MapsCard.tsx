@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import {
     Box,
@@ -40,7 +40,9 @@ const MapsCard: React.FC<MapsCardProps> = ({
     const [isDragging, setIsDragging] = useState(false);
     const [dragOffset, setDragOffset] = useState(0);
     const [startX, setStartX] = useState(0);
+    const [startY, setStartY] = useState(0);
     const [autoPlayPaused, setAutoPlayPaused] = useState(false);
+    const [touchStartTime, setTouchStartTime] = useState(0);
     const theme = useTheme();
 
     // Determine number of cards to show based on screen size
@@ -48,11 +50,11 @@ const MapsCard: React.FC<MapsCardProps> = ({
         const updateCardsToShow = () => {
             const width = window.innerWidth;
             if (width >= 1600) {
-                setCardsToShow(7); // Wide screens
+                setCardsToShow(7);
             } else if (width >= 1200) {
-                setCardsToShow(5); // Large screens
+                setCardsToShow(5);
             } else {
-                setCardsToShow(3); // Default for tablets and mobile
+                setCardsToShow(3);
             }
         };
 
@@ -60,6 +62,17 @@ const MapsCard: React.FC<MapsCardProps> = ({
         window.addEventListener('resize', updateCardsToShow);
         return () => window.removeEventListener('resize', updateCardsToShow);
     }, []);
+
+    // Memoize the swipe distance calculation to avoid dependency issues
+    const getSwipeDistance = useCallback(() => {
+        if (locations.length <= cardsToShow) {
+            return 1;
+        } else if (locations.length <= cardsToShow * 2) {
+            return Math.max(1, Math.floor(cardsToShow / 2));
+        } else {
+            return Math.max(1, cardsToShow - 1);
+        }
+    }, [locations.length, cardsToShow]);
 
     // Auto-slide functionality with pause on interaction
     useEffect(() => {
@@ -69,55 +82,80 @@ const MapsCard: React.FC<MapsCardProps> = ({
             if (!isDragging) {
                 setIsAnimating(true);
                 setTimeout(() => {
-                    setCurrentIndex((prevIndex) =>
-                        prevIndex === locations.length - 1 ? 0 : prevIndex + 1
-                    );
+                    setCurrentIndex((prevIndex) => {
+                        const swipeDistance = getSwipeDistance();
+                        const newIndex = prevIndex + swipeDistance;
+                        return newIndex >= locations.length ? newIndex % locations.length : newIndex;
+                    });
                     setIsAnimating(false);
                 }, 300);
             }
         }, autoSlideInterval);
 
         return () => clearInterval(interval);
-    }, [locations.length, autoSlideInterval, autoPlayPaused, isDragging]);
+    }, [locations.length, autoSlideInterval, autoPlayPaused, isDragging, getSwipeDistance]);
 
     const handleCardClick = (mapsUrl: string) => {
         console.log('Card clicked!', mapsUrl);
-        if (!isDragging && Math.abs(dragOffset) < 10) {
+        // Only open if it's a genuine click (not a drag)
+        if (!isDragging && Math.abs(dragOffset) < 5) {
             window.open(mapsUrl, '_blank', 'noopener,noreferrer');
         }
     };
 
-    // Touch/Mouse handlers for swiping
-    const handleStart = (clientX: number) => {
-        setIsDragging(true);
+    // Improved touch/mouse handlers
+    const handleStart = (clientX: number, clientY: number) => {
         setStartX(clientX);
+        setStartY(clientY);
         setDragOffset(0);
+        setTouchStartTime(Date.now());
         setAutoPlayPaused(true);
+
+        // Don't immediately set isDragging - wait for actual movement
     };
 
-    const handleMove = (clientX: number) => {
-        if (!isDragging) return;
+    const handleMove = (clientX: number, clientY: number) => {
+        const diffX = clientX - startX;
+        const diffY = clientY - startY;
 
-        const diff = clientX - startX;
-        setDragOffset(diff);
+        // Only start dragging if there's significant horizontal movement
+        // and the movement is more horizontal than vertical
+        if (Math.abs(diffX) > 10 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (!isDragging) {
+                setIsDragging(true);
+            }
+            setDragOffset(diffX);
+        }
     };
 
     const handleEnd = () => {
-        if (!isDragging) return;
+        const touchDuration = Date.now() - touchStartTime;
+        const isQuickTap = touchDuration < 200 && Math.abs(dragOffset) < 10;
 
-        setIsDragging(false);
-        const threshold = 50;
+        if (isDragging && !isQuickTap) {
+            const threshold = 50;
 
-        if (Math.abs(dragOffset) > threshold) {
-            if (dragOffset > 0) {
-                // Swipe right - go to previous
-                setCurrentIndex(prev => prev === 0 ? locations.length - 1 : prev - 1);
-            } else {
-                // Swipe left - go to next
-                setCurrentIndex(prev => prev === locations.length - 1 ? 0 : prev + 1);
+            if (Math.abs(dragOffset) > threshold) {
+                const swipeDistance = getSwipeDistance();
+
+                if (dragOffset > 0) {
+                    // Swipe right - go to previous
+                    setCurrentIndex(prev => {
+                        const newIndex = prev - swipeDistance;
+                        return newIndex < 0 ? Math.max(0, locations.length + newIndex) : newIndex;
+                    });
+                } else {
+                    // Swipe left - go to next
+                    setCurrentIndex(prev => {
+                        const newIndex = prev + swipeDistance;
+                        return newIndex >= locations.length ? newIndex % locations.length : newIndex;
+                    });
+                }
             }
         }
 
+        // Reset states
+        setIsDragging(false);
         setDragOffset(0);
 
         // Resume autoplay after 3 seconds
@@ -127,28 +165,45 @@ const MapsCard: React.FC<MapsCardProps> = ({
     // Mouse events
     const handleMouseDown = (e: React.MouseEvent) => {
         e.preventDefault();
-        handleStart(e.clientX);
+        handleStart(e.clientX, e.clientY);
     };
 
     const handleMouseMove = (e: React.MouseEvent) => {
-        handleMove(e.clientX);
+        if (touchStartTime > 0) { // Only if we started a potential drag
+            handleMove(e.clientX, e.clientY);
+        }
     };
 
     const handleMouseUp = () => {
-        handleEnd();
+        if (touchStartTime > 0) {
+            handleEnd();
+            setTouchStartTime(0);
+        }
     };
 
     // Touch events
     const handleTouchStart = (e: React.TouchEvent) => {
-        handleStart(e.touches[0].clientX);
+        // Prevent default to avoid scrolling issues, but allow clicks
+        e.preventDefault();
+        handleStart(e.touches[0].clientX, e.touches[0].clientY);
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
-        handleMove(e.touches[0].clientX);
+        if (touchStartTime > 0) {
+            handleMove(e.touches[0].clientX, e.touches[0].clientY);
+
+            // Only prevent default if we're actually dragging
+            if (isDragging) {
+                e.preventDefault();
+            }
+        }
     };
 
-    const handleTouchEnd = () => {
-        handleEnd();
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        if (touchStartTime > 0) {
+            handleEnd();
+            setTouchStartTime(0);
+        }
     };
 
     if (!locations.length) return null;
@@ -170,13 +225,11 @@ const MapsCard: React.FC<MapsCardProps> = ({
 
     return (
         <Box className={`${styles.carouselContainer} ${className}`}>
-
-
             {/* Cards container */}
             <Box
                 className={styles.cardsContainer}
                 onMouseDown={handleMouseDown}
-                onMouseMove={isDragging ? handleMouseMove : undefined}
+                onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}
                 onMouseLeave={handleMouseUp}
                 onTouchStart={handleTouchStart}
@@ -187,7 +240,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
                     transition: isDragging ? 'none' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                     cursor: isDragging ? 'grabbing' : 'grab',
                     userSelect: 'none',
-                    touchAction: 'pan-y',
+                    touchAction: 'none', // Changed from 'pan-y' to 'none' for better control
                 }}
             >
                 {visibleCards.map((card, index) => (
@@ -206,7 +259,6 @@ const MapsCard: React.FC<MapsCardProps> = ({
                                 transform: 'translateY(-8px) scale(1.02)',
                                 boxShadow: theme.shadows[12],
                             } : {},
-                            pointerEvents: isDragging ? 'none' : 'auto',
                         }}
                         onClick={() => handleCardClick(card.mapsUrl)}
                     >
@@ -263,16 +315,31 @@ const MapsCard: React.FC<MapsCardProps> = ({
                                         WebkitBoxOrient: 'vertical',
                                         overflow: 'hidden',
                                     }}
-                                > <DirectionsCarIcon sx={{ mr: 0.5, fontSize: { xs: 12, md: 14 } }} />
+                                >
+                                    <DirectionsCarIcon sx={{ mr: 0.5, fontSize: { xs: 12, md: 14 } }} />
                                     {card.description}
                                 </Typography>
                             )}
 
-                            <Box className={styles.mapsLink}>
+                            <Box
+                                className={styles.mapsLink}
+                                onClick={(e) => {
+                                    // Prevent event bubbling and ensure this click works
+                                    e.stopPropagation();
+                                    if (!isDragging && Math.abs(dragOffset) < 5) {
+                                        window.open(card.mapsUrl, '_blank', 'noopener,noreferrer');
+                                    }
+                                }}
+                                sx={{
+                                    cursor: 'pointer',
+                                    '&:hover': {
+                                        opacity: 0.8
+                                    }
+                                }}
+                            >
                                 <LocationOn
                                     sx={{
                                         color: theme.palette.primary.light,
-
                                         fontSize: { xs: 16, md: 18 }
                                     }}
                                 />
