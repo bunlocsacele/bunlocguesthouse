@@ -5,11 +5,11 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { ReactNode } from 'react';
 import createEmotionCache from '@/lib/createEmotionCache';
-import { CacheProvider } from '@emotion/react';
+import { CacheProvider, EmotionCache } from '@emotion/react';
 
 interface ClientThemeProviderProps {
     children: ReactNode;
-    emotionCache?: any;
+    emotionCache?: EmotionCache;
 }
 
 const clientSideEmotionCache = createEmotionCache();
