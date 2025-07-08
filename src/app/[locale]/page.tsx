@@ -1,5 +1,3 @@
-
-"use client"
 import { getTranslations } from 'next-intl/server';
 import HomeCarousel from '@/components/HomeCarousel/HomeCarousel';
 import MapsCard from '@/components/MapsCard/MapsCard';
@@ -12,7 +10,6 @@ import poianaBrasov from '@/../public/images/Attractions/PoianaBrasov.jpg';
 import tampa from '@/../public/images/Attractions/Tâmpa.jpg';
 import stradaSforii from '@/../public/images/Attractions/stradaSforii.jpg'
 import laculNoua from '@/../public/images/Attractions/laculNoua.jpg'
-import styles from './page.module.css'
 
 export default async function HomePage({
     params

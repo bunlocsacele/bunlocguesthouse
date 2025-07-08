@@ -5,6 +5,7 @@ import {
     Fab,
     Box,
 } from '@mui/material';
+import { useEffect } from 'react';
 import {
     Phone,
     WhatsApp,
@@ -17,6 +18,11 @@ interface CustomFloatButtonProps {
 
 const CustomFloatButton: React.FC<CustomFloatButtonProps> = ({ className = '' }) => {
     const locale = useLocale();
+
+    useEffect(() => {
+        console.log('CustomFloatButton mounted');
+        console.log('Styles object:', styles);
+    }, []);
 
     const handlePhoneCall = () => {
         window.open('tel:+40746639974', '_self');
