@@ -96,7 +96,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
     }, [locations.length, autoSlideInterval, autoPlayPaused, isDragging, getSwipeDistance]);
 
     const handleCardClick = (mapsUrl: string) => {
-        console.log('Card clicked!', mapsUrl);
+        // console.log('Card clicked!', mapsUrl);
         // Only open if it's a genuine click (not a drag)
         if (!isDragging && Math.abs(dragOffset) < 5) {
             window.open(mapsUrl, '_blank', 'noopener,noreferrer');
@@ -225,6 +225,11 @@ const MapsCard: React.FC<MapsCardProps> = ({
 
     return (
         <Box className={`${styles.carouselContainer} ${className}`}>
+            {/* Divider Text */}
+            <p className={styles.dividerText}>
+                Descoperă atracțiile locale!
+            </p>
+
             {/* Cards container */}
             <Box
                 className={styles.cardsContainer}

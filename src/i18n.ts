@@ -5,31 +5,31 @@ export default getRequestConfig(async ({ locale }) => {
     const validLocales = ['en', 'ro'];
     const resolvedLocale = locale && validLocales.includes(locale) ? locale : 'ro';
 
-    console.log('🔍 Debug - Requested locale:', locale);
-    console.log('🔍 Debug - Resolved locale:', resolvedLocale);
+    // console.log('🔍 Debug - Requested locale:', locale);
+    // console.log('🔍 Debug - Resolved locale:', resolvedLocale);
 
     try {
         const messages = (await import(`../messages/${resolvedLocale}.json`)).default;
-        console.log('🔍 Debug - Loaded messages for', resolvedLocale, ':', Object.keys(messages || {}));
+        // console.log('🔍 Debug - Loaded messages for', resolvedLocale, ':', Object.keys(messages || {}));
 
         return {
             messages: messages || {},
             locale: resolvedLocale
         };
     } catch (error) {
-        console.error('❌ Error loading messages for locale:', resolvedLocale, error);
+        // console.error('❌ Error loading messages for locale:', resolvedLocale, error);
 
         // Fallback to default locale if current fails
         if (resolvedLocale !== 'ro') {
             try {
                 const fallbackMessages = (await import(`../messages/ro.json`)).default;
-                console.log('🔄 Using fallback messages for ro');
+                // console.log('🔄 Using fallback messages for ro');
                 return {
                     messages: fallbackMessages || {},
                     locale: 'ro'
                 };
             } catch (fallbackError) {
-                console.error('❌ Fallback also failed:', fallbackError);
+                // console.error('❌ Fallback also failed:', fallbackError);
             }
         }
 

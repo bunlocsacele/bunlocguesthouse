@@ -29,9 +29,9 @@ export default function LanguageSwitcher() {
         // Add new locale - using const instead of let
         const newPathname = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
 
-        console.log('Switching from', locale, 'to', newLocale);
-        console.log('Current pathname:', pathname);
-        console.log('New pathname:', newPathname);
+        // console.log('Switching from', locale, 'to', newLocale);
+        // console.log('Current pathname:', pathname);
+        // console.log('New pathname:', newPathname);
 
         router.push(newPathname);
         handleClose();

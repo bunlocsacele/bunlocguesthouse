@@ -7,8 +7,8 @@ const Footer = () => {
     const t = useTranslations('footer');
     const locale = useLocale();
 
-    console.log('Current locale:', locale);
-    console.log('Translation result:', t('fullAddress'));
+    // console.log('Current locale:', locale);
+    // console.log('Translation result:', t('fullAddress'));
 
     return (
         <Box component="footer" className={styles.footer}>

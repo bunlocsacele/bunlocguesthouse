@@ -1,4 +1,5 @@
 
+
 import { getTranslations } from 'next-intl/server';
 import HomeCarousel from '@/components/HomeCarousel/HomeCarousel';
 import MapsCard from '@/components/MapsCard/MapsCard';
@@ -6,14 +7,12 @@ import aventuraPark from '@/../public/images/Attractions/AventuraPark.png';
 import bisericaNeagra from '@/../public/images/Attractions/BisericaNeagră.jpg';
 import bunloc from '@/../public/images/Attractions/Bunloc.jpg';
 import centrulVechi from '@/../public/images/Attractions/CentrulVechi.jpg';
-import kalinderu from '@/../public/images/Attractions/Kalinderu.webp';
-import livadaPostei from '@/../public/images/Attractions/LivadaPoștei.jpg';
 import logoZoo2 from '@/../public/images/Attractions/logoZoo2.png'
 import poianaBrasov from '@/../public/images/Attractions/PoianaBrasov.jpg';
 import tampa from '@/../public/images/Attractions/Tâmpa.jpg';
-import styles from './page.module.css'
 import stradaSforii from '@/../public/images/Attractions/stradaSforii.jpg'
 import laculNoua from '@/../public/images/Attractions/laculNoua.jpg'
+import styles from './page.module.css'
 
 export default async function HomePage({
     params
@@ -23,8 +22,6 @@ export default async function HomePage({
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'HomePage' });
 
-    console.log('🔍 Debug - Server locale:', locale);
-    console.log('🔍 Debug - Server translation:', t('title'));
 
     const locations = [
         {

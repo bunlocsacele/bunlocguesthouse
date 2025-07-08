@@ -25,11 +25,11 @@ export default async function LocaleLayout({
         notFound();
     }
 
-    console.log('🔍 Debug - Layout locale:', locale);
+    // console.log('🔍 Debug - Layout locale:', locale);
 
     const messages = await getMessages({ locale });
 
-    console.log('🔍 Debug - Layout messages keys:', Object.keys(messages || {}));
+    // console.log('🔍 Debug - Layout messages keys:', Object.keys(messages || {}));
 
     return (
         <html lang={locale}>
