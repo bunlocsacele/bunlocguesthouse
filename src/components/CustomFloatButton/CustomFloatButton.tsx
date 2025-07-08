@@ -5,12 +5,10 @@ import {
     Fab,
     Box,
 } from '@mui/material';
-import { useEffect } from 'react';
 import {
     Phone,
     WhatsApp,
 } from '@mui/icons-material';
-import styles from './CustomFloatButton.module.css';
 
 interface CustomFloatButtonProps {
     className?: string;
@@ -18,11 +16,6 @@ interface CustomFloatButtonProps {
 
 const CustomFloatButton: React.FC<CustomFloatButtonProps> = ({ className = '' }) => {
     const locale = useLocale();
-
-    useEffect(() => {
-        console.log('CustomFloatButton mounted');
-        console.log('Styles object:', styles);
-    }, []);
 
     const handlePhoneCall = () => {
         window.open('tel:+40746639974', '_self');
@@ -41,21 +34,41 @@ const CustomFloatButton: React.FC<CustomFloatButtonProps> = ({ className = '' })
     };
 
     return (
-        <Box className={`${styles.container} ${className}`}>
+        <Box
+            className={className}
+            sx={{
+                position: 'fixed',
+                bottom: { xs: 16, sm: 24 },
+                right: { xs: 16, sm: 24 },
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1.5,
+                zIndex: 1000,
+            }}
+        >
             {/* WhatsApp Button */}
             <Fab
-                className={`${styles.fab} ${styles.whatsappButton}`}
                 onClick={handleWhatsApp}
                 aria-label="Contact via WhatsApp"
+                sx={{
+                    backgroundColor: '#25d366',
+                    color: 'white',
+                    '&:hover': {
+                        backgroundColor: '#128c7e'
+                    },
+                    boxShadow: 3,
+                }}
             >
                 <WhatsApp />
             </Fab>
 
             {/* Phone Call Button */}
             <Fab
-                className={`${styles.fab} ${styles.phoneButton}`}
                 onClick={handlePhoneCall}
                 aria-label="Call us"
+                sx={{
+                    boxShadow: 3,
+                }}
             >
                 <Phone />
             </Fab>
