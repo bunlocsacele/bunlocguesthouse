@@ -1,5 +1,5 @@
 
-
+"use client"
 import { getTranslations } from 'next-intl/server';
 import HomeCarousel from '@/components/HomeCarousel/HomeCarousel';
 import MapsCard from '@/components/MapsCard/MapsCard';
