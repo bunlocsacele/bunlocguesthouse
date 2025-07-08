@@ -2,14 +2,18 @@
 import { getTranslations } from 'next-intl/server';
 import HomeCarousel from '@/components/HomeCarousel/HomeCarousel';
 import MapsCard from '@/components/MapsCard/MapsCard';
-import aventuraPark from '@/../public/images/Attractions/AventuraPark.jpg';
+import aventuraPark from '@/../public/images/Attractions/AventuraPark.png';
 import bisericaNeagra from '@/../public/images/Attractions/BisericaNeagră.jpg';
 import bunloc from '@/../public/images/Attractions/Bunloc.jpg';
 import centrulVechi from '@/../public/images/Attractions/CentrulVechi.jpg';
 import kalinderu from '@/../public/images/Attractions/Kalinderu.webp';
 import livadaPostei from '@/../public/images/Attractions/LivadaPoștei.jpg';
+import logoZoo2 from '@/../public/images/Attractions/logoZoo2.png'
 import poianaBrasov from '@/../public/images/Attractions/PoianaBrasov.jpg';
 import tampa from '@/../public/images/Attractions/Tâmpa.jpg';
+import styles from './page.module.css'
+import stradaSforii from '@/../public/images/Attractions/stradaSforii.jpg'
+import laculNoua from '@/../public/images/Attractions/laculNoua.jpg'
 
 export default async function HomePage({
     params
@@ -39,10 +43,10 @@ export default async function HomePage({
         },
         {
             id: '3',
-            title: 'Piața Mică',
+            title: 'Piața Sfatului',
             image: centrulVechi,
             mapsUrl: 'https://www.google.com/maps/dir/Str.+Bunloc+68,+S%C4%83cele+505600/Centrul+Vechi,+Bra%C8%99ov/@45.6293233,25.5855699,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x40b35d474c113deb:0x471cb2f7935bd810!2m2!1d25.6652201!2d45.6070285!1m5!1m1!1s0x40b35b7c77279667:0x72930ebe9ffc953f!2m2!1d25.5882272!2d45.6418648!3e0?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D',
-            description: '20 min în medie'
+            description: '16 min în medie'
         },
         {
             id: '4',
@@ -63,22 +67,29 @@ export default async function HomePage({
             title: 'Tâmpa',
             image: tampa,
             mapsUrl: 'https://www.google.com/maps/dir/Str.+Bunloc+68,+S%C4%83cele+505600/T%C3%A2mpa,+Bra%C8%99ov/@45.6259226,25.587888,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x40b35d474c113deb:0x471cb2f7935bd810!2m2!1d25.6652201!2d45.6070285!1m5!1m1!1s0x40b35b61e51e4dc7:0xa82ef9504a68e005!2m2!1d25.5928472!2d45.6340695!3e0?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D',
-            description: 'Apx 2 min în medie'
+            description: '13 min în medie'
         },
         {
             id: '7',
-            title: 'Pârtia Kalinderu',
-            image: kalinderu,
-            mapsUrl: 'https://www.google.com/maps/dir/Str.+Bunloc+68,+S%C4%83cele+505600/Domeniul+schiabil+Kalinderu,+Strada+Matei+Basarab,+Bu%C8%99teni+105500/@45.5120417,25.4302614,11z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x40b35d474c113deb:0x471cb2f7935bd810!2m2!1d25.6652201!2d45.6070285!1m5!1m1!1s0x40b315252fb261af:0x76a1bc10ea3a8d08!2m2!1d25.5248482!2d45.4198341!3e0?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D',
-            description: 'Apx 2 min în medie'
+            title: 'Strada Sforii',
+            image: stradaSforii,
+            mapsUrl: 'https://www.google.com/maps/dir/Str.+Bunloc+68,+S%C4%83cele+505600/Strada+Sforii,+Bra%C8%99ov/@45.6293233,25.5839552,9744m/data=!3m2!1e3!4b1!4m14!4m13!1m5!1m1!1s0x40b35d474c113deb:0x471cb2f7935bd810!2m2!1d25.6652201!2d45.6070285!1m5!1m1!1s0x40b35b64dd69f8d3:0x4fb83268ed4c9ed4!2m2!1d25.5881771!2d45.6399076!3e0?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D',
+            description: '16 min în medie'
         },
         {
             id: '8',
-            title: 'Parcul Livada Poștei',
-            image: livadaPostei,
-            mapsUrl: 'https://www.google.com/maps/dir/Str.+Bunloc+68,+S%C4%83cele+505600/Parcul+Livada+Po%C8%99tei,+%C8%98irul+Livezii,+Bra%C8%99ov/@45.6293233,25.5840806,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x40b35d474c113deb:0x471cb2f7935bd810!2m2!1d25.6652201!2d45.6070285!1m5!1m1!1s0x40b35b9232445777:0xdb04c9b23b47697d!2m2!1d25.5852324!2d45.6465407!3e0?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D',
-            description: 'Apx 2 min în medie'
-        }
+            title: 'Zoo Brașov',
+            image: logoZoo2,
+            mapsUrl: 'https://www.google.com/maps/dir/Str.+Bunloc+82,+S%C4%83cele+505600/Zoo+Bra%C8%99ov,+Strada+Brazilor+1,+Bra%C8%99ov+500313/@45.6117584,25.6406613,2437m/data=!3m2!1e3!4b1!4m14!4m13!1m5!1m1!1s0x40b35d40f2043915:0x24791ac6ffa4e7e6!2m2!1d25.6672966!2d45.6083929!1m5!1m1!1s0x40b35cd93c2581c3:0xac80b8e1fb4fd4bd!2m2!1d25.633153!2d45.613929!3e0?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D',
+            description: '7 min în medie'
+        },
+        {
+            id: '9',
+            title: 'Lacul Noua',
+            image: laculNoua,
+            mapsUrl: 'https://www.google.com/maps/dir/Str.+Bunloc+68,+S%C4%83cele+505600/Lacul+Noua,+Bra%C8%99ov/@45.6117584,25.6433583,2437m/data=!3m2!1e3!4b1!4m14!4m13!1m5!1m1!1s0x40b35d474c113deb:0x471cb2f7935bd810!2m2!1d25.6652201!2d45.6070285!1m5!1m1!1s0x40b35d20b3e2db8f:0x76da0f500eaa4312!2m2!1d25.6393695!2d45.6139734!3e0?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D',
+            description: '6 min în medie'
+        },
     ];
 
     return (
