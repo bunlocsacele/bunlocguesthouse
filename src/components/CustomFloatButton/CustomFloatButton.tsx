@@ -44,6 +44,13 @@ const CustomFloatButton: React.FC<CustomFloatButtonProps> = ({ className = '' })
                 flexDirection: 'column',
                 gap: 1.5,
                 zIndex: 1000,
+                // Add these properties to prevent interference from transforms
+                isolation: 'isolate',
+                transform: 'translateZ(0)', // Force hardware acceleration and new layer
+                backfaceVisibility: 'hidden', // Prevent flickering
+                // Additional stability properties
+                willChange: 'auto',
+                contain: 'layout style paint',
             }}
         >
             {/* WhatsApp Button */}
@@ -54,9 +61,16 @@ const CustomFloatButton: React.FC<CustomFloatButtonProps> = ({ className = '' })
                     backgroundColor: '#25d366',
                     color: 'white',
                     '&:hover': {
-                        backgroundColor: '#128c7e'
+                        backgroundColor: '#128c7e',
+                        transform: 'scale(1.05)', // Subtle hover effect
+                    },
+                    '&:active': {
+                        transform: 'scale(0.95)',
                     },
                     boxShadow: 3,
+                    transition: 'all 0.2s ease-in-out',
+                    // Ensure button maintains its own rendering layer
+                    willChange: 'transform',
                 }}
             >
                 <WhatsApp />
@@ -67,7 +81,16 @@ const CustomFloatButton: React.FC<CustomFloatButtonProps> = ({ className = '' })
                 onClick={handlePhoneCall}
                 aria-label="Call us"
                 sx={{
+                    '&:hover': {
+                        transform: 'scale(1.05)', // Subtle hover effect
+                    },
+                    '&:active': {
+                        transform: 'scale(0.95)',
+                    },
                     boxShadow: 3,
+                    transition: 'all 0.2s ease-in-out',
+                    // Ensure button maintains its own rendering layer
+                    willChange: 'transform',
                 }}
             >
                 <Phone />

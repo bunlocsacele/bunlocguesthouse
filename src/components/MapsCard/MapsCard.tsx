@@ -233,7 +233,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
                 sx={{
-                    transform: `translateX(${dragOffset * 0.3}px)`, // Reduced multiplier for less visual movement
+                    transform: `translateX(${dragOffset * 0.6}px)`, // Reduced multiplier for less visual movement
                     transition: isDragging ? 'none' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                     cursor: isDragging ? 'grabbing' : 'grab',
                     userSelect: 'none',
