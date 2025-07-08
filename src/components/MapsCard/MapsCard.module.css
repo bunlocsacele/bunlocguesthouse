@@ -1,5 +1,13 @@
 /* MapsCard.module.css */
 
+.maps-card-container {
+    touch-action: pan-y pinch-zoom !important;
+}
+
+.maps-card-container * {
+    touch-action: pan-y pinch-zoom !important;
+}
+
 .carouselContainer {
     width: 100%;
     max-width: 2000px;

@@ -96,7 +96,6 @@ const MapsCard: React.FC<MapsCardProps> = ({
     }, [locations.length, autoSlideInterval, autoPlayPaused, isDragging, getSwipeDistance]);
 
     const handleCardClick = (mapsUrl: string) => {
-        // console.log('Card clicked!', mapsUrl);
         // Only open if it's a genuine click (not a drag)
         if (!isDragging && Math.abs(dragOffset) < 5) {
             window.open(mapsUrl, '_blank', 'noopener,noreferrer');
@@ -110,17 +109,16 @@ const MapsCard: React.FC<MapsCardProps> = ({
         setDragOffset(0);
         setTouchStartTime(Date.now());
         setAutoPlayPaused(true);
-
-        // Don't immediately set isDragging - wait for actual movement
     };
 
     const handleMove = (clientX: number, clientY: number) => {
         const diffX = clientX - startX;
         const diffY = clientY - startY;
 
-        // Only start dragging if there's significant horizontal movement
+        // Reduced threshold for more sensitive drag detection
+        // Only start dragging if there's horizontal movement
         // and the movement is more horizontal than vertical
-        if (Math.abs(diffX) > 10 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (Math.abs(diffX) > 5 && Math.abs(diffX) > Math.abs(diffY)) {
             if (!isDragging) {
                 setIsDragging(true);
             }
@@ -133,7 +131,8 @@ const MapsCard: React.FC<MapsCardProps> = ({
         const isQuickTap = touchDuration < 200 && Math.abs(dragOffset) < 10;
 
         if (isDragging && !isQuickTap) {
-            const threshold = 50;
+            // Reduced threshold for easier card switching
+            const threshold = 30; // Reduced from 50 to 30
 
             if (Math.abs(dragOffset) > threshold) {
                 const swipeDistance = getSwipeDistance();
@@ -157,6 +156,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
         // Reset states
         setIsDragging(false);
         setDragOffset(0);
+        setTouchStartTime(0);
 
         // Resume autoplay after 3 seconds
         setTimeout(() => setAutoPlayPaused(false), 3000);
@@ -169,7 +169,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
     };
 
     const handleMouseMove = (e: React.MouseEvent) => {
-        if (touchStartTime > 0) { // Only if we started a potential drag
+        if (touchStartTime > 0) {
             handleMove(e.clientX, e.clientY);
         }
     };
@@ -177,32 +177,24 @@ const MapsCard: React.FC<MapsCardProps> = ({
     const handleMouseUp = () => {
         if (touchStartTime > 0) {
             handleEnd();
-            setTouchStartTime(0);
         }
     };
 
-    // Touch events
+    // Touch events - Simplified without preventDefault calls
     const handleTouchStart = (e: React.TouchEvent) => {
-        // Prevent default to avoid scrolling issues, but allow clicks
-        e.preventDefault();
         handleStart(e.touches[0].clientX, e.touches[0].clientY);
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
         if (touchStartTime > 0) {
             handleMove(e.touches[0].clientX, e.touches[0].clientY);
-
-            // Only prevent default if we're actually dragging
-            if (isDragging) {
-                e.preventDefault();
-            }
+            // No preventDefault call - let CSS handle touch behavior
         }
     };
 
     const handleTouchEnd = () => {
         if (touchStartTime > 0) {
             handleEnd();
-            setTouchStartTime(0);
         }
     };
 
@@ -241,11 +233,14 @@ const MapsCard: React.FC<MapsCardProps> = ({
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
                 sx={{
-                    transform: `translateX(${dragOffset * 0.5}px)`,
+                    transform: `translateX(${dragOffset * 0.3}px)`, // Reduced multiplier for less visual movement
                     transition: isDragging ? 'none' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                     cursor: isDragging ? 'grabbing' : 'grab',
                     userSelect: 'none',
-                    touchAction: 'none', // Changed from 'pan-y' to 'none' for better control
+                    // CSS-only touch handling
+                    touchAction: 'pan-y pinch-zoom',
+                    WebkitOverflowScrolling: 'touch',
+                    overscrollBehavior: 'contain'
                 }}
             >
                 {visibleCards.map((card, index) => (
@@ -260,6 +255,8 @@ const MapsCard: React.FC<MapsCardProps> = ({
                             transition: isDragging ? 'none' : 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                             transform: isAnimating ? 'scale(0.95)' : 'scale(1)',
                             filter: isAnimating ? 'blur(2px)' : 'none',
+                            // CSS touch handling for individual cards
+                            touchAction: 'pan-y pinch-zoom',
                             '&:hover': !isDragging ? {
                                 transform: 'translateY(-8px) scale(1.02)',
                                 boxShadow: theme.shadows[12],
@@ -275,6 +272,10 @@ const MapsCard: React.FC<MapsCardProps> = ({
                                 fill
                                 className={styles.cardImage}
                                 sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                                style={{
+                                    // Ensure images don't interfere with touch events
+                                    touchAction: 'pan-y pinch-zoom'
+                                }}
                             />
                             <Box
                                 className={styles.imageOverlay}
@@ -290,7 +291,13 @@ const MapsCard: React.FC<MapsCardProps> = ({
                         </Box>
 
                         {/* Content */}
-                        <CardContent className={styles.cardContent}>
+                        <CardContent
+                            className={styles.cardContent}
+                            sx={{
+                                // Ensure content doesn't interfere with scrolling
+                                touchAction: 'pan-y pinch-zoom'
+                            }}
+                        >
                             <Typography
                                 variant="h6"
                                 component="h3"
@@ -329,7 +336,6 @@ const MapsCard: React.FC<MapsCardProps> = ({
                             <Box
                                 className={styles.mapsLink}
                                 onClick={(e) => {
-                                    // Prevent event bubbling and ensure this click works
                                     e.stopPropagation();
                                     if (!isDragging && Math.abs(dragOffset) < 5) {
                                         window.open(card.mapsUrl, '_blank', 'noopener,noreferrer');
@@ -337,6 +343,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
                                 }}
                                 sx={{
                                     cursor: 'pointer',
+                                    touchAction: 'manipulation', // Allow tap on this specific element
                                     '&:hover': {
                                         opacity: 0.8
                                     }
@@ -379,6 +386,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
                     mb: 4,
                     mt: 2,
                     backgroundColor: alpha(theme.palette.grey[300], 0.3),
+                    touchAction: 'pan-y pinch-zoom', // Allow scrolling over progress bar
                     '& .MuiLinearProgress-bar': {
                         background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                         borderRadius: 2,
@@ -389,4 +397,4 @@ const MapsCard: React.FC<MapsCardProps> = ({
     );
 };
 
-export default MapsCard
+export default MapsCard;
