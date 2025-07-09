@@ -19,10 +19,16 @@ import {
     IconButton,
     Box,
     Container,
+    Menu,
+    MenuItem,
+    Collapse,
 } from '@mui/material';
 import {
     Menu as MenuIcon,
     Close as CloseIcon,
+    KeyboardArrowDown,
+    ExpandLess,
+    ExpandMore,
 } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
@@ -30,6 +36,14 @@ import styles from './Navbar.module.css';
 import logoNavmenu from "@/../public/images/logoNavmenu.png"
 
 interface NavItem {
+    key: string;
+    href: string;
+    translationKey: string;
+    hasDropdown?: boolean;
+    subItems?: SubNavItem[];
+}
+
+interface SubNavItem {
     key: string;
     href: string;
     translationKey: string;
@@ -41,10 +55,28 @@ export default function Navbar() {
     const pathname = usePathname();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [roomsSubmenuOpen, setRoomsSubmenuOpen] = useState(false);
+
+    // Define available rooms - you can move this to a separate config file
+    const availableRooms: SubNavItem[] = [
+        { key: 'twinstandard1', href: `/${locale}/rooms`, translationKey: 'Twin standard' },
+        { key: 'twinstandard2', href: `/${locale}/rooms`, translationKey: 'Twin standard' },
+        { key: 'twinstandard3', href: `/${locale}/rooms`, translationKey: 'Twin standard' },
+        { key: 'tripplestandard', href: `/${locale}/rooms`, translationKey: 'Tripple standard' },
+        { key: 'deluxe-room', href: `/${locale}/rooms`, translationKey: 'Matrimonială' },
+        { key: 'family', href: `/${locale}/rooms`, translationKey: 'Family 4 persoane' },
+    ];
 
     const navItems: NavItem[] = [
         { key: 'home', href: `/${locale}`, translationKey: 'home' },
-        { key: 'rooms', href: `/${locale}/rooms`, translationKey: 'rooms' },
+        {
+            key: 'rooms',
+            href: `/${locale}/rooms`,
+            translationKey: 'rooms',
+            hasDropdown: true,
+            subItems: availableRooms
+        },
         { key: 'facilities', href: `/${locale}/facilities`, translationKey: 'facilities' },
         { key: 'location', href: `/${locale}/location`, translationKey: 'location' },
         { key: 'blog', href: `/${locale}/blog`, translationKey: 'blog' },
@@ -57,6 +89,19 @@ export default function Navbar() {
 
     const handleDrawerClose = () => {
         setMobileOpen(false);
+        setRoomsSubmenuOpen(false);
+    };
+
+    const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    };
+
+    const handleRoomsSubmenuToggle = () => {
+        setRoomsSubmenuOpen(!roomsSubmenuOpen);
     };
 
     const isActiveRoute = (href: string) => {
@@ -86,16 +131,41 @@ export default function Navbar() {
 
             <List className={styles.drawerContent}>
                 {navItems.map((item) => (
-                    <ListItem key={item.key} disablePadding>
-                        <ListItemButton
-                            component={Link}
-                            href={item.href}
-                            onClick={handleDrawerClose}
-                            className={`${styles.drawerItem} ${isActiveRoute(item.href) ? styles.active : ''}`}
-                        >
-                            <ListItemText primary={t(item.translationKey)} />
-                        </ListItemButton>
-                    </ListItem>
+                    <Box key={item.key}>
+                        <ListItem disablePadding>
+                            <ListItemButton
+                                component={item.hasDropdown ? 'div' : Link}
+                                href={item.hasDropdown ? undefined : item.href}
+                                onClick={item.hasDropdown ? handleRoomsSubmenuToggle : handleDrawerClose}
+                                className={`${styles.drawerItem} ${isActiveRoute(item.href) ? styles.active : ''}`}
+                            >
+                                <ListItemText primary={t(item.translationKey)} />
+                                {item.hasDropdown && (
+                                    roomsSubmenuOpen ? <ExpandLess /> : <ExpandMore />
+                                )}
+                            </ListItemButton>
+                        </ListItem>
+
+                        {item.hasDropdown && item.subItems && (
+                            <Collapse in={roomsSubmenuOpen} timeout="auto" unmountOnExit>
+                                <List component="div" disablePadding>
+                                    {item.subItems.map((subItem) => (
+                                        <ListItem key={subItem.key} disablePadding>
+                                            <ListItemButton
+                                                component={Link}
+                                                href={subItem.href}
+                                                onClick={handleDrawerClose}
+                                                sx={{ pl: 4 }}
+                                                className={`${styles.drawerItem} ${isActiveRoute(subItem.href) ? styles.active : ''}`}
+                                            >
+                                                <ListItemText primary={t(subItem.translationKey)} />
+                                            </ListItemButton>
+                                        </ListItem>
+                                    ))}
+                                </List>
+                            </Collapse>
+                        )}
+                    </Box>
                 ))}
             </List>
 
@@ -149,16 +219,63 @@ export default function Navbar() {
                         {/* Desktop Navigation */}
                         <Box className={styles.desktopNav}>
                             {navItems.map((item) => (
-                                <Button
-                                    key={item.key}
-                                    component={Link}
-                                    href={item.href}
-                                    className={`${styles.navButton} ${isActiveRoute(item.href) ? styles.active : ''}`}
-                                    variant={isActiveRoute(item.href) ? "contained" : "text"}
-                                    color={isActiveRoute(item.href) ? "secondary" : "primary"}
-                                >
-                                    {t(item.translationKey)}
-                                </Button>
+                                <Box key={item.key} sx={{ position: 'relative' }}>
+                                    <Button
+                                        component={item.hasDropdown ? 'button' : Link}
+                                        href={item.hasDropdown ? undefined : item.href}
+                                        onClick={item.hasDropdown ? handleMenuOpen : undefined}
+                                        className={`${styles.navButton} ${isActiveRoute(item.href) ? styles.active : ''}`}
+                                        variant={isActiveRoute(item.href) ? "contained" : "text"}
+                                        color={isActiveRoute(item.href) ? "secondary" : "primary"}
+                                        endIcon={item.hasDropdown ? <KeyboardArrowDown /> : undefined}
+                                    >
+                                        {t(item.translationKey)}
+                                    </Button>
+
+                                    {item.hasDropdown && item.subItems && (
+                                        <Menu
+                                            anchorEl={anchorEl}
+                                            open={Boolean(anchorEl)}
+                                            onClose={handleMenuClose}
+                                            MenuListProps={{
+                                                'aria-labelledby': 'rooms-button',
+                                            }}
+                                            sx={{
+                                                '& .MuiPaper-root': {
+                                                    backgroundColor: 'var(--color-background-paper)',
+                                                    border: `1px solid ${theme.palette.primary.main}20`,
+                                                    boxShadow: `0 4px 12px ${theme.palette.primary.main}14`,
+                                                    minWidth: 180,
+                                                }
+                                            }}
+                                        >
+                                            {item.subItems.map((subItem) => (
+                                                <MenuItem
+                                                    key={subItem.key}
+                                                    component={Link}
+                                                    href={subItem.href}
+                                                    onClick={handleMenuClose}
+                                                    sx={{
+                                                        color: 'var(--color-text-primary)',
+                                                        '&:hover': {
+                                                            backgroundColor: 'var(--color-primary-main)',
+                                                            color: 'var(--color-primary-contrast)'
+                                                        },
+                                                        ...(isActiveRoute(subItem.href) && {
+                                                            backgroundColor: 'var(--color-secondary-main)',
+                                                            color: 'var(--color-secondary-contrast)',
+                                                            '&:hover': {
+                                                                backgroundColor: 'var(--color-secondary-dark)',
+                                                            }
+                                                        })
+                                                    }}
+                                                >
+                                                    {t(subItem.translationKey)}
+                                                </MenuItem>
+                                            ))}
+                                        </Menu>
+                                    )}
+                                </Box>
                             ))}
 
                             <LanguageSwitcher />
