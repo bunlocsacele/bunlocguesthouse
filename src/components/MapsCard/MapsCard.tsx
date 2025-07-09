@@ -43,6 +43,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
     const [startY, setStartY] = useState(0);
     const [autoPlayPaused, setAutoPlayPaused] = useState(false);
     const [touchStartTime, setTouchStartTime] = useState(0);
+    const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false);
     const theme = useTheme();
 
     // Determine number of cards to show based on screen size
@@ -109,20 +110,26 @@ const MapsCard: React.FC<MapsCardProps> = ({
         setDragOffset(0);
         setTouchStartTime(Date.now());
         setAutoPlayPaused(true);
+        setIsHorizontalSwipe(false);
     };
 
     const handleMove = (clientX: number, clientY: number) => {
         const diffX = clientX - startX;
         const diffY = clientY - startY;
 
-        // Reduced threshold for more sensitive drag detection
-        // Only start dragging if there's horizontal movement
-        // and the movement is more horizontal than vertical
-        if (Math.abs(diffX) > 5 && Math.abs(diffX) > Math.abs(diffY)) {
+        // Determine if this is a horizontal or vertical swipe
+        const isHorizontal = Math.abs(diffX) > Math.abs(diffY);
+
+        // Only handle horizontal swipes and prevent vertical scrolling interference
+        if (Math.abs(diffX) > 10 && isHorizontal) {
             if (!isDragging) {
                 setIsDragging(true);
+                setIsHorizontalSwipe(true);
             }
             setDragOffset(diffX);
+        } else if (Math.abs(diffY) > 10 && !isHorizontal) {
+            // This is a vertical swipe, don't interfere with page scrolling
+            setIsHorizontalSwipe(false);
         }
     };
 
@@ -130,9 +137,8 @@ const MapsCard: React.FC<MapsCardProps> = ({
         const touchDuration = Date.now() - touchStartTime;
         const isQuickTap = touchDuration < 200 && Math.abs(dragOffset) < 10;
 
-        if (isDragging && !isQuickTap) {
-            // Reduced threshold for easier card switching
-            const threshold = 30; // Reduced from 50 to 30
+        if (isDragging && !isQuickTap && isHorizontalSwipe) {
+            const threshold = 50;
 
             if (Math.abs(dragOffset) > threshold) {
                 const swipeDistance = getSwipeDistance();
@@ -157,6 +163,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
         setIsDragging(false);
         setDragOffset(0);
         setTouchStartTime(0);
+        setIsHorizontalSwipe(false);
 
         // Resume autoplay after 3 seconds
         setTimeout(() => setAutoPlayPaused(false), 3000);
@@ -180,7 +187,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
         }
     };
 
-    // Touch events - Simplified without preventDefault calls
+    // Touch events - Enhanced with proper preventDefault handling
     const handleTouchStart = (e: React.TouchEvent) => {
         handleStart(e.touches[0].clientX, e.touches[0].clientY);
     };
@@ -188,12 +195,20 @@ const MapsCard: React.FC<MapsCardProps> = ({
     const handleTouchMove = (e: React.TouchEvent) => {
         if (touchStartTime > 0) {
             handleMove(e.touches[0].clientX, e.touches[0].clientY);
-            // No preventDefault call - let CSS handle touch behavior
+
+            // Only prevent default for horizontal swipes to avoid interfering with page scroll
+            if (isHorizontalSwipe && isDragging) {
+                e.preventDefault();
+            }
         }
     };
 
-    const handleTouchEnd = () => {
+    const handleTouchEnd = (e: React.TouchEvent) => {
         if (touchStartTime > 0) {
+            // Prevent default only if we were doing a horizontal swipe
+            if (isHorizontalSwipe && isDragging) {
+                e.preventDefault();
+            }
             handleEnd();
         }
     };
@@ -233,14 +248,17 @@ const MapsCard: React.FC<MapsCardProps> = ({
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
                 sx={{
-                    transform: `translateX(${dragOffset * 0.6}px)`, // Reduced multiplier for less visual movement
+                    transform: `translateX(${isDragging && isHorizontalSwipe ? dragOffset * 0.6 : 0}px)`,
                     transition: isDragging ? 'none' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                     cursor: isDragging ? 'grabbing' : 'grab',
                     userSelect: 'none',
-                    // CSS-only touch handling
+                    // Improved touch handling
                     touchAction: 'pan-y pinch-zoom',
                     WebkitOverflowScrolling: 'touch',
-                    overscrollBehavior: 'contain'
+                    overscrollBehavior: 'contain',
+                    // Ensure the container doesn't interfere with page layout
+                    position: 'relative',
+                    isolation: 'isolate'
                 }}
             >
                 {visibleCards.map((card, index) => (
@@ -255,7 +273,9 @@ const MapsCard: React.FC<MapsCardProps> = ({
                             transition: isDragging ? 'none' : 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                             transform: isAnimating ? 'scale(0.95)' : 'scale(1)',
                             filter: isAnimating ? 'blur(2px)' : 'none',
-                            // CSS touch handling for individual cards
+                            // Ensure cards don't interfere with page layout
+                            position: 'relative',
+                            zIndex: 1,
                             touchAction: 'pan-y pinch-zoom',
                             '&:hover': !isDragging ? {
                                 transform: 'translateY(-8px) scale(1.02)',
@@ -273,8 +293,8 @@ const MapsCard: React.FC<MapsCardProps> = ({
                                 className={styles.cardImage}
                                 sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
                                 style={{
-                                    // Ensure images don't interfere with touch events
-                                    touchAction: 'pan-y pinch-zoom'
+                                    touchAction: 'pan-y pinch-zoom',
+                                    pointerEvents: 'none' // Prevent image from interfering with touch events
                                 }}
                             />
                             <Box
@@ -294,7 +314,6 @@ const MapsCard: React.FC<MapsCardProps> = ({
                         <CardContent
                             className={styles.cardContent}
                             sx={{
-                                // Ensure content doesn't interfere with scrolling
                                 touchAction: 'pan-y pinch-zoom'
                             }}
                         >
@@ -343,7 +362,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
                                 }}
                                 sx={{
                                     cursor: 'pointer',
-                                    touchAction: 'manipulation', // Allow tap on this specific element
+                                    touchAction: 'manipulation',
                                     '&:hover': {
                                         opacity: 0.8
                                     }
@@ -386,7 +405,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
                     mb: 4,
                     mt: 2,
                     backgroundColor: alpha(theme.palette.grey[300], 0.3),
-                    touchAction: 'pan-y pinch-zoom', // Allow scrolling over progress bar
+                    touchAction: 'pan-y pinch-zoom',
                     '& .MuiLinearProgress-bar': {
                         background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                         borderRadius: 2,

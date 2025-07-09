@@ -1,5 +1,6 @@
 /* MapsCard.module.css */
 
+/* Container-level touch handling */
 .maps-card-container {
     touch-action: pan-y pinch-zoom !important;
 }
@@ -14,19 +15,44 @@
     margin: 0 auto;
     padding: 0 16px;
     margin-top: 1rem;
-    margin-bottom: 1;
+    margin-bottom: 1rem;
+    /* Prevent layout shifts and contain the component */
+    contain: layout style;
+    will-change: transform;
+    position: relative;
+    isolation: isolate;
 }
 
 .cardsContainer {
     display: flex;
     gap: 16px;
     width: 100%;
-    /* overflow: hidden; */
     position: relative;
+    /* Improved containment to prevent affecting other elements */
+    contain: layout;
+    overflow: hidden;
+    /* Ensure smooth transforms */
+    will-change: transform;
+    /* Better touch handling */
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .cardsContainer:active {
     cursor: grabbing;
+}
+
+/* Prevent touch callouts and selections during interaction */
+.cardsContainer,
+.cardsContainer * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .dividerText {
@@ -48,6 +74,8 @@
         0 2px 8px rgba(0, 0, 0, 0.1),
         inset 0 1px 3px rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(8px);
+    /* Ensure text doesn't interfere with touch events */
+    touch-action: pan-y pinch-zoom;
 }
 
 .card {
@@ -57,27 +85,47 @@
     background: #fff;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     will-change: transform;
+    /* Improved stacking context */
+    z-index: 1;
+    /* Prevent layout shifts */
+    contain: layout style;
+    /* Better touch handling for cards */
+    touch-action: pan-y pinch-zoom;
+    /* Smooth transforms */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .imageContainer {
     position: absolute;
     inset: 0;
     overflow: hidden;
+    /* Prevent images from interfering with touch events */
+    pointer-events: none;
 }
 
 .cardImage {
     object-fit: cover;
     transition: transform 0.6s ease;
+    /* Ensure images don't interfere with touch handling */
+    touch-action: pan-y pinch-zoom;
+    pointer-events: none;
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .card:hover .cardImage {
-    transform: scale(1.1);
+    transform: scale(1.1) translateZ(0);
+    -webkit-transform: scale(1.1) translateZ(0);
 }
 
 .imageOverlay {
     position: absolute;
     inset: 0;
     z-index: 1;
+    /* Don't interfere with touch events */
+    pointer-events: none;
 }
 
 .cardContent {
@@ -88,24 +136,56 @@
     z-index: 2;
     padding: 16px !important;
     background: transparent;
+    /* Allow touch events through content */
+    touch-action: pan-y pinch-zoom;
 }
 
 .cardTitle {
     line-height: 1.3;
+    /* Prevent text selection during swipe */
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .cardDescription {
     line-height: 1.4;
+    /* Prevent text selection during swipe */
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .mapsLink {
     display: flex;
-    /* align-items: center; */
     transition: transform 0.3s ease;
+    /* Allow taps on the maps link */
+    touch-action: manipulation;
+    cursor: pointer;
+    /* Re-enable pointer events for this interactive element */
+    pointer-events: auto;
 }
 
 .mapsLink:hover {
     transform: translateX(4px);
+}
+
+/* Prevent scrolling interference on mobile */
+@media (hover: none) and (pointer: coarse) {
+    .cardsContainer {
+        /* More restrictive touch handling on mobile */
+        touch-action: pan-y;
+        overscroll-behavior-x: contain;
+        overscroll-behavior-y: auto;
+    }
+
+    .card {
+        /* Reduce hover effects on touch devices */
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover .cardImage {
+        /* Disable hover effects on touch devices */
+        transform: none;
+    }
 }
 
 /* Wide screens (7 cards) */
@@ -157,10 +237,14 @@
 @media (max-width: 768px) {
     .carouselContainer {
         padding: 0 12px;
+        /* Tighter containment on mobile */
+        overscroll-behavior: contain;
     }
 
     .cardsContainer {
         gap: 12px;
+        /* Better mobile touch handling */
+        touch-action: pan-y;
     }
 
     .card {
@@ -179,6 +263,9 @@
 
     .cardsContainer {
         gap: 8px;
+        /* Most restrictive touch handling on small screens */
+        touch-action: pan-y;
+        overscroll-behavior: contain;
     }
 
     .card {
