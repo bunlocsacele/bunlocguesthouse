@@ -47,6 +47,7 @@ interface SubNavItem {
     key: string;
     href: string;
     translationKey: string;
+    roomIndex?: number;
 }
 
 export default function Navbar() {
@@ -58,14 +59,44 @@ export default function Navbar() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [roomsSubmenuOpen, setRoomsSubmenuOpen] = useState(false);
 
-    // Define available rooms - you can move this to a separate config file
+    // Helper function to safely get room translations
+    const getRoomTranslation = (key: string) => {
+        try {
+            const tRooms = useTranslations('rooms');
+            return tRooms(key);
+        } catch (error) {
+            console.error(`Translation error for rooms.${key}:`, error);
+            // Fallback to key if translation fails
+            return key;
+        }
+    };
+
+    // Helper function to scroll to specific room section
+    const scrollToRoom = (roomIndex: number) => {
+        // Navigate to rooms page first if not already there
+        if (!pathname.includes('/rooms')) {
+            window.location.href = `/${locale}/rooms`;
+            // Store the room index to scroll to after page loads
+            sessionStorage.setItem('scrollToRoom', roomIndex.toString());
+            return;
+        }
+
+        // If already on rooms page, scroll to the room section
+        const targetPosition = roomIndex * window.innerHeight;
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    };
+
+    // Define available rooms with scroll navigation (matching your actual rooms array)
     const availableRooms: SubNavItem[] = [
-        { key: 'twinstandard1', href: `/${locale}/rooms`, translationKey: 'Twin standard' },
-        { key: 'twinstandard2', href: `/${locale}/rooms`, translationKey: 'Twin standard' },
-        { key: 'twinstandard3', href: `/${locale}/rooms`, translationKey: 'Twin standard' },
-        { key: 'tripplestandard', href: `/${locale}/rooms`, translationKey: 'Tripple standard' },
-        { key: 'deluxe-room', href: `/${locale}/rooms`, translationKey: 'Matrimonială' },
-        { key: 'family', href: `/${locale}/rooms`, translationKey: 'Family 4 persoane' },
+        { key: 'twinstandard1', href: `/${locale}/rooms`, translationKey: 'twinStandard', roomIndex: 0 },
+        { key: 'twinstandard2', href: `/${locale}/rooms`, translationKey: 'twinStandard', roomIndex: 1 },
+        { key: 'twinstandard3', href: `/${locale}/rooms`, translationKey: 'twinStandard', roomIndex: 2 },
+        { key: 'triplestandard', href: `/${locale}/rooms`, translationKey: 'tripleStandard', roomIndex: 3 },
+        { key: 'deluxe-room', href: `/${locale}/rooms`, translationKey: 'matrimoniala', roomIndex: 4 },
+        { key: 'family', href: `/${locale}/rooms`, translationKey: 'family', roomIndex: 5 },
     ];
 
     const navItems: NavItem[] = [
@@ -102,6 +133,20 @@ export default function Navbar() {
 
     const handleRoomsSubmenuToggle = () => {
         setRoomsSubmenuOpen(!roomsSubmenuOpen);
+    };
+
+    const handleRoomClick = (subItem: SubNavItem) => {
+        handleMenuClose();
+        if (subItem.roomIndex !== undefined) {
+            scrollToRoom(subItem.roomIndex);
+        }
+    };
+
+    const handleMobileRoomClick = (subItem: SubNavItem) => {
+        handleDrawerClose();
+        if (subItem.roomIndex !== undefined) {
+            scrollToRoom(subItem.roomIndex);
+        }
     };
 
     const isActiveRoute = (href: string) => {
@@ -152,13 +197,11 @@ export default function Navbar() {
                                     {item.subItems.map((subItem) => (
                                         <ListItem key={subItem.key} disablePadding>
                                             <ListItemButton
-                                                component={Link}
-                                                href={subItem.href}
-                                                onClick={handleDrawerClose}
+                                                onClick={() => handleMobileRoomClick(subItem)}
                                                 sx={{ pl: 4 }}
                                                 className={`${styles.drawerItem} ${isActiveRoute(subItem.href) ? styles.active : ''}`}
                                             >
-                                                <ListItemText primary={t(subItem.translationKey)} />
+                                                <ListItemText primary={getRoomTranslation(subItem.translationKey)} />
                                             </ListItemButton>
                                         </ListItem>
                                     ))}
@@ -237,8 +280,10 @@ export default function Navbar() {
                                             anchorEl={anchorEl}
                                             open={Boolean(anchorEl)}
                                             onClose={handleMenuClose}
-                                            MenuListProps={{
-                                                'aria-labelledby': 'rooms-button',
+                                            slotProps={{
+                                                list: {
+                                                    'aria-labelledby': 'rooms-button',
+                                                }
                                             }}
                                             sx={{
                                                 '& .MuiPaper-root': {
@@ -252,9 +297,7 @@ export default function Navbar() {
                                             {item.subItems.map((subItem) => (
                                                 <MenuItem
                                                     key={subItem.key}
-                                                    component={Link}
-                                                    href={subItem.href}
-                                                    onClick={handleMenuClose}
+                                                    onClick={() => handleRoomClick(subItem)}
                                                     sx={{
                                                         color: 'var(--color-text-primary)',
                                                         '&:hover': {
@@ -270,7 +313,7 @@ export default function Navbar() {
                                                         })
                                                     }}
                                                 >
-                                                    {t(subItem.translationKey)}
+                                                    {getRoomTranslation(subItem.translationKey)}
                                                 </MenuItem>
                                             ))}
                                         </Menu>

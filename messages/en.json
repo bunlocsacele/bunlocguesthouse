@@ -10,16 +10,6 @@
         "blog": "Blog",
         "contact": "Contact"
     },
-    "rooms": {
-        "singleRoom": "Single Room",
-        "doubleRoom": "Double Room",
-        "familySuite": "Family Suite",
-        "deluxeSuite": "Deluxe Suite",
-        "viewDetails": "View Details",
-        "bookNow": "Book Now",
-        "perNight": "per night",
-        "upToGuests": "Up to {count} guests"
-    },
     "facilities": {
         "conferenceRoomA": "Conference Room A",
         "meetingRoomB": "Meeting Room B",
@@ -62,5 +52,11 @@
         "location": "Location",
         "address": "Address",
         "fullAddress": "Address: Str. Bunloc 68B, Brașov"
+    },
+    "rooms": {
+        "twinStandard": "Twin Standard Room",
+        "tripleStandard": "Triple Standard Room",
+        "matrimoniala": "Double Room",
+        "family": "Family Room (4 People)"
     }
 }
