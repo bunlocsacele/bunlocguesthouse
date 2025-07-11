@@ -1,4 +1,4 @@
-"use client"
+
 import { createTheme, ThemeOptions } from "@mui/material/styles";
 
 export const themeOptions: ThemeOptions = {

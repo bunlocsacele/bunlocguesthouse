@@ -28,19 +28,34 @@ import {
 } from '@mui/icons-material';
 import ShowerIcon from '@mui/icons-material/Shower';
 import BalconyIcon from '@mui/icons-material/Balcony';
+import { LuBedSingle } from "react-icons/lu";
+import { TwinBeds, ThreeBeds, FamilyBeds } from "@/components/TwinBedsIcon/TwinBedsIcon"
 
-import twinStandard1 from "@/../public/images/rooms/twinStandard1.jpg"
-import twinStandard11 from "@/../public/images/rooms/twinStandard11.jpg"
-import twinStandard2 from "@/../public/images/rooms/twinStandard2.jpg"
-import twinStandard22 from "@/../public/images/rooms/twinStandard22.jpg"
-import twinStandard3 from "@/../public/images/rooms/twinStandard3.jpg"
-import twinStandard33 from "@/../public/images/rooms/twinStandard33.jpg"
-import family from "@/../public/images/rooms/family.jpeg"
-import family1 from "@/../public/images/rooms/family1.jpeg"
-import matrimoniala from "@/../public/images/rooms/Matrimoniala.jpeg"
-import matrimoniala1 from "@/../public/images/rooms/Matrimoniala1.jpeg"
-import trippleStandard from "@/../public/images/rooms/trippleStandard.jpg"
-import trippleStandard1 from "@/../public/images/rooms/trippleStandard1.jpg"
+// import twinStandard1 from "@/../public/images/rooms/twinStandard1.jpg"
+// import twinStandard11 from "@/../public/images/rooms/twinStandard11.jpg"
+// import twinStandard2 from "@/../public/images/rooms/twinStandard2.jpg"
+// import twinStandard22 from "@/../public/images/rooms/twinStandard22.jpg"
+// import twinStandard3 from "@/../public/images/rooms/twinStandard3.jpg"
+// import twinStandard33 from "@/../public/images/rooms/twinStandard33.jpg"
+// import family from "@/../public/images/rooms/family.jpeg"
+// import family1 from "@/../public/images/rooms/family1.jpeg"
+// import matrimoniala from "@/../public/images/rooms/Matrimoniala.jpeg"
+// import matrimoniala1 from "@/../public/images/rooms/Matrimoniala1.jpeg"
+// import trippleStandard from "@/../public/images/rooms/trippleStandard.jpg"
+// import trippleStandard1 from "@/../public/images/rooms/trippleStandard1.jpg"
+
+const twinStandard1 = "/images/rooms/twinStandard1.jpg"
+const twinStandard11 = "/images/rooms/twinStandard11.jpg"
+const twinStandard2 = "/images/rooms/twinStandard2.jpg"
+const twinStandard22 = "/images/rooms/twinStandard22.jpg"
+const twinStandard3 = "/images/rooms/twinStandard3.jpg"
+const twinStandard33 = "/images/rooms/twinStandard33.jpg"
+const family = "/images/rooms/family.jpeg"
+const family1 = "/images/rooms/family1.jpeg"
+const matrimoniala = "/images/rooms/Matrimoniala.jpeg"
+const matrimoniala1 = "/images/rooms/Matrimoniala1.jpeg"
+const trippleStandard = "/images/rooms/trippleStandard.jpg"
+const trippleStandard1 = "/images/rooms/trippleStandard1.jpg"
 
 const RoomsPage = () => {
     const theme = useTheme();
@@ -52,54 +67,48 @@ const RoomsPage = () => {
         {
             id: 'twinstandard1',
             name: 'Twin Standard',
-            description: 'Comfortable separeted single beds room perfect for friends or colleagues traveling together.',
+            description: 'Comfortable room with separeted single beds, perfect for friends or colleagues traveling together.',
             images: [
                 twinStandard1,
                 twinStandard11,
             ],
             amenities: [
-                { icon: <Bed />, label: 'Twin Beds' },
+                { icon: <TwinBeds />, label: '2x individual Beds' },
                 { icon: <ShowerIcon />, label: 'Private Shower' },
                 { icon: <Wifi />, label: 'Free WiFi' },
                 { icon: <Tv />, label: 'TV' },
-                { icon: <DirectionsCar />, label: 'Free Parking' },
-                { icon: <Air />, label: 'Air Conditioning' },
                 { icon: <BalconyIcon />, label: 'Personal balcony' },
             ]
         },
         {
             id: 'twinstandard2',
             name: 'Twin Standard',
-            description: 'Comfortable separeted single beds room perfect for friends or colleagues traveling together.',
+            description: 'Comfortable room with separeted single beds, perfect for friends or colleagues traveling together.',
             images: [
                 twinStandard2,
                 twinStandard22,
             ],
             amenities: [
-                { icon: <Bed />, label: 'Twin Beds' },
+                { icon: <TwinBeds />, label: 'Twin Beds' },
                 { icon: <ShowerIcon />, label: 'Private Shower' },
                 { icon: <Wifi />, label: 'Free WiFi' },
                 { icon: <Tv />, label: 'TV' },
-                { icon: <DirectionsCar />, label: 'Free Parking' },
-                { icon: <Air />, label: 'Air Conditioning' },
                 { icon: <BalconyIcon />, label: 'Personal balcony' },
             ]
         },
         {
             id: 'twinstandard3',
             name: 'Twin Standard',
-            description: 'Comfortable separeted single beds room perfect for friends or colleagues traveling together.',
+            description: 'Comfortable room with separeted single beds, perfect for friends or colleagues traveling together.',
             images: [
                 twinStandard3,
                 twinStandard33
             ],
             amenities: [
-                { icon: <Bed />, label: 'Twin Beds' },
+                { icon: <TwinBeds />, label: 'Twin Beds' },
                 { icon: <ShowerIcon />, label: 'Private Shower' },
                 { icon: <Wifi />, label: 'Free WiFi' },
                 { icon: <Tv />, label: 'TV' },
-                { icon: <DirectionsCar />, label: 'Free Parking' },
-                { icon: <Air />, label: 'Air Conditioning' },
                 { icon: <BalconyIcon />, label: 'Personal balcony' },
             ]
         },
@@ -112,11 +121,10 @@ const RoomsPage = () => {
                 trippleStandard1,
             ],
             amenities: [
-                { icon: <Bed />, label: 'Triple Beds' },
+                { icon: <ThreeBeds />, label: 'Triple Beds' },
                 { icon: <ShowerIcon />, label: 'Private Shower' },
                 { icon: <Wifi />, label: 'Free WiFi' },
                 { icon: <Tv />, label: 'TV' },
-                { icon: <DirectionsCar />, label: 'Free Parking' },
                 { icon: <BalconyIcon />, label: 'Personal balcony' },
             ]
         },
@@ -133,25 +141,23 @@ const RoomsPage = () => {
                 { icon: <ShowerIcon />, label: 'Private Shower' },
                 { icon: <Wifi />, label: 'Free WiFi' },
                 { icon: <Landscape />, label: 'Mountain View' },
-                { icon: <Air />, label: 'Air Conditioning' },
                 { icon: <BalconyIcon />, label: 'Personal balcony' },
             ]
         },
         {
             id: 'family',
             name: 'Family Room',
-            description: 'Perfect for families with space for up to 4 people.',
+            description: 'Perfect for families of 4! Spacious room with one king size bed and two single beds.',
             images: [
                 family,
                 family1,
             ],
             amenities: [
                 { icon: <People />, label: '4 Guests' },
-                { icon: <Bed />, label: 'Multiple Beds' },
+                { icon: <FamilyBeds />, label: 'Multiple Beds' },
                 { icon: <ShowerIcon />, label: 'Private Shower' },
                 { icon: <Wifi />, label: 'Free WiFi' },
                 { icon: <Tv />, label: 'TV' },
-                { icon: <DirectionsCar />, label: 'Free Parking' },
                 { icon: <BalconyIcon />, label: 'Personal balcony' },
             ]
         }
@@ -255,10 +261,10 @@ const RoomsPage = () => {
                         <Paper
                             elevation={0}
                             sx={{
-                                backgroundColor: alpha('#000', 0.3),
-                                backdropFilter: 'blur(8px)',
+                                backgroundColor: alpha('#000', 0.15),
+                                backdropFilter: 'blur(2px)',
                                 borderRadius: 4,
-                                p: 4,
+                                p: { xs: 2, sm: 3, md: 4 },
                                 border: `1px solid ${alpha('#fff', 0.2)}`,
                                 color: 'white'
                             }}
@@ -270,7 +276,7 @@ const RoomsPage = () => {
                                 sx={{
                                     fontWeight: 'bold',
                                     mb: 2,
-                                    fontSize: { xs: '2.5rem', md: '3.5rem' }
+                                    fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3.5rem' }
                                 }}
                             >
                                 {room.name}
@@ -292,7 +298,7 @@ const RoomsPage = () => {
                                 sx={{
                                     display: 'grid',
                                     gridTemplateColumns: {
-                                        xs: 'repeat(2, 1fr)',  // 2 columns on mobile
+                                        xs: 'repeat(3, 1fr)',  // 2 columns on mobile
                                         sm: 'repeat(3, 1fr)'   // 3 columns on tablet and up
                                     },
                                     gap: 2,
@@ -303,19 +309,20 @@ const RoomsPage = () => {
                                     <Card
                                         key={amenityIndex}
                                         sx={{
-                                            backgroundColor: alpha('#fff', 0.1),
+                                            backgroundColor: alpha('#1b4d72', 0.2),
                                             backdropFilter: 'blur(4px)',
                                             color: 'white',
                                             textAlign: 'center',
-                                            p: 2,
+                                            p: { xs: 0.5, sm: 1, md: 2 },
                                             height: '100%',
                                             display: 'flex',
                                             flexDirection: 'column',
                                             alignItems: 'center',
-                                            justifyContent: 'center'
+                                            justifyContent: 'center',
+                                            border: `1px solid ${alpha('#1b4d72', 0.2)}`
                                         }}
                                     >
-                                        <Box sx={{ color: theme.palette.warning.main, mb: 1 }}>
+                                        <Box sx={{ color: '#e6c547', mb: 1 }}>
                                             {React.cloneElement(amenity.icon, { fontSize: 'large' })}
                                         </Box>
                                         <Typography variant="body2" sx={{ fontWeight: 500 }}>
@@ -326,27 +333,27 @@ const RoomsPage = () => {
                             </Box>
 
                             {/* Image indicators */}
-                            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mb: 3 }}>
-                                {room.images.map((_, imgIndex) => (
-                                    <IconButton
-                                        key={imgIndex}
-                                        size="small"
-                                        onClick={() => setCurrentImageIndex(imgIndex)}
-                                        sx={{
-                                            p: 0.5,
-                                            color: (currentRoom === index && currentImageIndex === imgIndex)
-                                                ? theme.palette.warning.main
-                                                : alpha('#fff', 0.5)
-                                        }}
-                                    >
-                                        {(currentRoom === index && currentImageIndex === imgIndex)
-                                            ? <RadioButtonChecked fontSize="small" />
-                                            : <RadioButtonUnchecked fontSize="small" />
-                                        }
-                                    </IconButton>
-                                ))}
-                            </Box>
                         </Paper>
+                        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mb: 3, mt: 2 }}>
+                            {room.images.map((_, imgIndex) => (
+                                <IconButton
+                                    key={imgIndex}
+                                    size="small"
+                                    onClick={() => setCurrentImageIndex(imgIndex)}
+                                    sx={{
+                                        p: 0.5,
+                                        color: (currentRoom === index && currentImageIndex === imgIndex)
+                                            ? '#e6c547'
+                                            : alpha('#fff', 0.5)
+                                    }}
+                                >
+                                    {(currentRoom === index && currentImageIndex === imgIndex)
+                                        ? <RadioButtonChecked fontSize="small" />
+                                        : <RadioButtonUnchecked fontSize="small" />
+                                    }
+                                </IconButton>
+                            ))}
+                        </Box>
                     </Container>
 
                     {/* Scroll indicator */}
