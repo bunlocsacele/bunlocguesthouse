@@ -4,32 +4,26 @@ import {
     Box,
     Container,
     Typography,
-    Button,
     Card,
-    CardContent,
-    Chip,
     IconButton,
     Fab,
     Paper,
-    useTheme,
     alpha
 } from '@mui/material';
 import {
     ExpandMore,
     Bed,
     Wifi,
-    DirectionsCar,
     Landscape,
-    People,
     Tv,
-    Air,
     RadioButtonUnchecked,
     RadioButtonChecked
 } from '@mui/icons-material';
 import ShowerIcon from '@mui/icons-material/Shower';
 import BalconyIcon from '@mui/icons-material/Balcony';
-import { LuBedSingle } from "react-icons/lu";
-import { TwinBeds, ThreeBeds, FamilyBeds } from "@/components/TwinBedsIcon/TwinBedsIcon"
+import { TwinBeds, ThreeBeds, FamilyBeds, SunriseIcon } from "@/components/CustomIcons/CustomIcons"
+import WbTwilightIcon from '@mui/icons-material/WbTwilight';
+import { useTranslations } from 'next-intl';
 
 // import twinStandard1 from "@/../public/images/rooms/twinStandard1.jpg"
 // import twinStandard11 from "@/../public/images/rooms/twinStandard11.jpg"
@@ -58,7 +52,8 @@ const trippleStandard = "/images/rooms/trippleStandard.jpg"
 const trippleStandard1 = "/images/rooms/trippleStandard1.jpg"
 
 const RoomsPage = () => {
-    const theme = useTheme();
+    const t = useTranslations('rooms.roomDetails');
+    const tAmenities = useTranslations('rooms.amenities');
     const [currentRoom, setCurrentRoom] = useState(0);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -66,66 +61,71 @@ const RoomsPage = () => {
     const rooms = [
         {
             id: 'twinstandard1',
-            name: 'Twin Standard',
-            description: 'Comfortable room with separeted single beds, perfect for friends or colleagues traveling together.',
+            name: t('twinStandard.name'),
+            description: t('twinStandard.description'),
             images: [
                 twinStandard1,
                 twinStandard11,
             ],
             amenities: [
-                { icon: <TwinBeds />, label: '2x individual Beds' },
-                { icon: <ShowerIcon />, label: 'Private Shower' },
-                { icon: <Wifi />, label: 'Free WiFi' },
-                { icon: <Tv />, label: 'TV' },
-                { icon: <BalconyIcon />, label: 'Personal balcony' },
+                { icon: <TwinBeds />, label: tAmenities('twinBeds') },
+                { icon: <ShowerIcon />, label: tAmenities('privateShower') },
+                { icon: <Wifi />, label: tAmenities('freeWifi') },
+                { icon: <Tv />, label: tAmenities('tv') },
+                { icon: <BalconyIcon />, label: tAmenities('personalBalcony') },
+
+                { icon: <SunriseIcon />, label: tAmenities('sunriseView') },
             ]
         },
         {
             id: 'twinstandard2',
-            name: 'Twin Standard',
-            description: 'Comfortable room with separeted single beds, perfect for friends or colleagues traveling together.',
+            name: t('twinStandard.name'),
+            description: t('twinStandard.description'),
             images: [
                 twinStandard2,
                 twinStandard22,
             ],
             amenities: [
-                { icon: <TwinBeds />, label: 'Twin Beds' },
-                { icon: <ShowerIcon />, label: 'Private Shower' },
-                { icon: <Wifi />, label: 'Free WiFi' },
-                { icon: <Tv />, label: 'TV' },
-                { icon: <BalconyIcon />, label: 'Personal balcony' },
+                { icon: <TwinBeds />, label: tAmenities('twinBeds') },
+                { icon: <ShowerIcon />, label: tAmenities('privateShower') },
+                { icon: <Wifi />, label: tAmenities('freeWifi') },
+                { icon: <Tv />, label: tAmenities('tv') },
+                { icon: <BalconyIcon />, label: tAmenities('personalBalcony') },
+                { icon: <Landscape />, label: tAmenities('mountainView') },
             ]
         },
         {
             id: 'twinstandard3',
-            name: 'Twin Standard',
-            description: 'Comfortable room with separeted single beds, perfect for friends or colleagues traveling together.',
+            name: t('twinStandard.name'),
+            description: t('twinStandard.description'),
             images: [
                 twinStandard3,
                 twinStandard33
             ],
             amenities: [
-                { icon: <TwinBeds />, label: 'Twin Beds' },
-                { icon: <ShowerIcon />, label: 'Private Shower' },
-                { icon: <Wifi />, label: 'Free WiFi' },
-                { icon: <Tv />, label: 'TV' },
-                { icon: <BalconyIcon />, label: 'Personal balcony' },
+                { icon: <TwinBeds />, label: tAmenities('twinBeds') },
+                { icon: <ShowerIcon />, label: tAmenities('privateShower') },
+                { icon: <Wifi />, label: tAmenities('freeWifi') },
+                { icon: <Tv />, label: tAmenities('tv') },
+                { icon: <BalconyIcon />, label: tAmenities('personalBalcony') },
+                { icon: <WbTwilightIcon />, label: tAmenities('sunsetView') },
             ]
         },
         {
             id: 'tripplestandard',
-            name: 'Triple Standard',
-            description: 'Spacious room with three comfortable single beds, ideal for small groups.',
+            name: t('tripleStandard.name'),
+            description: t('tripleStandard.description'),
             images: [
                 trippleStandard,
                 trippleStandard1,
             ],
             amenities: [
-                { icon: <ThreeBeds />, label: 'Triple Beds' },
-                { icon: <ShowerIcon />, label: 'Private Shower' },
-                { icon: <Wifi />, label: 'Free WiFi' },
-                { icon: <Tv />, label: 'TV' },
-                { icon: <BalconyIcon />, label: 'Personal balcony' },
+                { icon: <ThreeBeds />, label: tAmenities('tripleBeds') },
+                { icon: <ShowerIcon />, label: tAmenities('privateShower') },
+                { icon: <Wifi />, label: tAmenities('freeWifi') },
+                { icon: <Tv />, label: tAmenities('tv') },
+                { icon: <BalconyIcon />, label: tAmenities('personalBalcony') },
+                { icon: <Landscape />, label: tAmenities('mountainView') },
             ]
         },
         {
@@ -137,11 +137,12 @@ const RoomsPage = () => {
                 matrimoniala1,
             ],
             amenities: [
-                { icon: <Bed />, label: 'Double Bed' },
-                { icon: <ShowerIcon />, label: 'Private Shower' },
-                { icon: <Wifi />, label: 'Free WiFi' },
-                { icon: <Landscape />, label: 'Mountain View' },
-                { icon: <BalconyIcon />, label: 'Personal balcony' },
+                { icon: <Bed />, label: tAmenities('doubleBed') },
+                { icon: <ShowerIcon />, label: tAmenities('privateShower') },
+                { icon: <Wifi />, label: tAmenities('freeWifi') },
+                { icon: <Tv />, label: tAmenities('tv') },
+                { icon: <BalconyIcon />, label: tAmenities('personalBalcony') },
+                { icon: <Landscape />, label: tAmenities('mountainView') },
             ]
         },
         {
@@ -153,12 +154,12 @@ const RoomsPage = () => {
                 family1,
             ],
             amenities: [
-                { icon: <People />, label: '4 Guests' },
                 { icon: <FamilyBeds />, label: 'Multiple Beds' },
-                { icon: <ShowerIcon />, label: 'Private Shower' },
-                { icon: <Wifi />, label: 'Free WiFi' },
-                { icon: <Tv />, label: 'TV' },
-                { icon: <BalconyIcon />, label: 'Personal balcony' },
+                { icon: <ShowerIcon />, label: tAmenities('privateShower') },
+                { icon: <Wifi />, label: tAmenities('freeWifi') },
+                { icon: <Tv />, label: tAmenities('tv') },
+                { icon: <BalconyIcon />, label: tAmenities('personalBalcony') },
+                { icon: <Landscape />, label: tAmenities('mountainView') },
             ]
         }
     ];

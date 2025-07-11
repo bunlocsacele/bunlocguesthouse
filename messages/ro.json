@@ -57,6 +57,37 @@
         "twinStandard": "Cameră Twin Standard",
         "tripleStandard": "Cameră Triple Standard",
         "matrimoniala": "Cameră Matrimonială",
-        "family": "Cameră Family (4 Persoane)"
+        "family": "Cameră Family (4 Persoane)",
+        "roomDetails": {
+            "twinStandard": {
+                "name": "Twin Standard",
+                "description": "Cameră confortabilă cu paturi individuale separate, perfectă pentru prieteni sau colegi care călătoresc împreună."
+            },
+            "tripleStandard": {
+                "name": "Triple Standard",
+                "description": "Cameră spațioasă cu trei paturi individuale confortabile, ideală pentru grupuri mici."
+            },
+            "matrimoniala": {
+                "name": "Matrimonială",
+                "description": "Cameră romantică cu pat dublu și facilități pentru cupluri."
+            },
+            "family": {
+                "name": "Cameră Family",
+                "description": "Perfectă pentru familii de 4 persoane! Cameră spațioasă cu un pat king size și două paturi individuale."
+            }
+        },
+        "amenities": {
+            "twinBeds": "Paturi Twin",
+            "tripleBeds": "Paturi Triple",
+            "doubleBed": "Pat Dublu",
+            "multipleBeds": "Paturi Multiple",
+            "privateShower": "Cabină de duș",
+            "freeWifi": "WiFi Gratuit",
+            "tv": "TV",
+            "personalBalcony": "Balcon Personal",
+            "mountainView": "Vedere la Munte",
+            "sunriseView": "Priveliște la răsărit",
+            "sunsetView": "Priveliște la apus"
+        }
     }
 }

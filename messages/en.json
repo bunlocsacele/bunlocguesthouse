@@ -57,6 +57,37 @@
         "twinStandard": "Twin Standard Room",
         "tripleStandard": "Triple Standard Room",
         "matrimoniala": "Double Room",
-        "family": "Family Room (4 People)"
+        "family": "Family Room (4 People)",
+        "roomDetails": {
+            "twinStandard": {
+                "name": "Twin Standard",
+                "description": "Comfortable room with twin single beds, perfect for friends or colleagues traveling together."
+            },
+            "tripleStandard": {
+                "name": "Triple Standard",
+                "description": "Spacious room with three comfortable single beds, ideal for small groups."
+            },
+            "matrimoniala": {
+                "name": "Double Room",
+                "description": "Romantic double room with amenities for couples."
+            },
+            "family": {
+                "name": "Family Room",
+                "description": "Perfect for families of 4! Spacious room with one king size bed and two single beds."
+            }
+        },
+        "amenities": {
+            "twinBeds": "Twin Beds",
+            "tripleBeds": "Triple Beds",
+            "doubleBed": "Double Bed",
+            "multipleBeds": "Multiple Beds",
+            "privateShower": "Private Shower",
+            "freeWifi": "Free WiFi",
+            "tv": "TV",
+            "personalBalcony": "Personal Balcony",
+            "mountainView": "Mountain View",
+            "sunriseView": "Sunrise View",
+            "sunsetView": "Sunset View"
+        }
     }
 }
