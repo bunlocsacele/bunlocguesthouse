@@ -130,8 +130,8 @@ const RoomsPage = () => {
         },
         {
             id: 'deluxe-room',
-            name: 'Matrimonială',
-            description: 'Romantic double room with amenities for couples.',
+            name: t('matrimoniala.name'),
+            description: t('matrimoniala.description'),
             images: [
                 matrimoniala,
                 matrimoniala1,
@@ -147,14 +147,14 @@ const RoomsPage = () => {
         },
         {
             id: 'family',
-            name: 'Family Room',
-            description: 'Perfect for families of 4! Spacious room with one king size bed and two single beds.',
+            name: t('family.name'),
+            description: t('family.description'),
             images: [
                 family,
                 family1,
             ],
             amenities: [
-                { icon: <FamilyBeds />, label: 'Multiple Beds' },
+                { icon: <FamilyBeds />, label: tAmenities('multipleBeds') },
                 { icon: <ShowerIcon />, label: tAmenities('privateShower') },
                 { icon: <Wifi />, label: tAmenities('freeWifi') },
                 { icon: <Tv />, label: tAmenities('tv') },
