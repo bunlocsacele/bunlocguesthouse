@@ -10,12 +10,6 @@ const StyledContainer = styled(Container)(() => ({
     textAlign: 'center',
 }));
 
-const StyledHeading = styled(Typography)(() => ({
-    color: 'white',
-    marginBottom: '1.5rem',
-    fontWeight: 'bold',
-}));
-
 const IconContainer = styled(Box)(({ }) => ({
     display: 'flex',
     justifyContent: 'center',
