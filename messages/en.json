@@ -22,6 +22,12 @@
             "conference": "Perfect for meetings, presentations and gatherings up to 20 people.",
             "kitchen": "Fully equipped kitchen for multiple people.",
             "tenisTable": "Indoor tennis table setup, your go-to solution for active entertainment during rain or snow or it might just keep children busy."
+        },
+        "featureLabels": {
+            "diningTables": "Dining Tables",
+            "utensils": "Utensils",
+            "upTo20Seats": "Up to 20 seats",
+            "fridge": "Fridge"
         }
     },
     "common": {
