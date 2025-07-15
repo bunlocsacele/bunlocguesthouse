@@ -29,16 +29,16 @@ import EventSeatIcon from '@mui/icons-material/EventSeat';
 import CountertopsIcon from '@mui/icons-material/Countertops';
 
 // Facility images - replace these paths with your actual image paths
-const bonfireImage1 = "/images/facilities/bonfire1.jpeg";
-const bonfireImage2 = "/images/facilities/bonfire2.jpeg";
-const grillImage1 = "/images/facilities/grill1.jpeg";
-const grillImage2 = "/images/facilities/grill2.jpeg";
-const conferenceImage1 = "/images/facilities/conference1.jpeg";
-const conferenceImage2 = "/images/facilities/conference2.jpeg";
-const kitchenImage1 = "/images/facilities/kitchen1.jpeg";
-const kitchenImage2 = "/images/facilities/kitchen2.jpeg";
-const tenisTable1 = "/images/facilities/gazebo1.jpeg";
-const tenisTable2 = "/images/facilities/gazebo2.jpeg";
+const bonfireImage1 = "/images/facilities/bonfire1.jpg";
+const bonfireImage2 = "/images/facilities/bonfire2.jpg";
+const grillImage1 = "/images/facilities/grillImage1.jpg";
+const grillImage2 = "/images/facilities/grillImage2.jpg";
+const grillImage3 = "/images/facilities/grillImage3.jpg";
+const conferenceImage1 = "/images/facilities/conferenceImage1.jpg";
+const kitchenImage1 = "/images/facilities/kitchenImage1.jpg";
+const tenisTable1 = "/images/facilities/tenisTable1.jpg";
+const tenisTable2 = "/images/facilities/tenisTable2.jpg";
+const tenisTable3 = "/images/facilities/tenisTable3.jpg";
 
 const FacilitiesPage = () => {
     const t = useTranslations('facilities');
@@ -65,6 +65,7 @@ const FacilitiesPage = () => {
             images: [
                 grillImage1,
                 grillImage2,
+                grillImage3
             ],
             mainfeature: { icon: <OutdoorGrill sx={{ fontSize: 68, color: "#d4af37" }} /> },
             features: [
@@ -79,7 +80,7 @@ const FacilitiesPage = () => {
             description: t('details.conference'),
             images: [
                 conferenceImage1,
-                conferenceImage2,
+                // conferenceImage2,
             ],
             mainfeature: { icon: <ConferenceIcon color="#d4af37" size={150} /> },
             features: []
@@ -90,7 +91,7 @@ const FacilitiesPage = () => {
             description: t('details.kitchen'),
             images: [
                 kitchenImage1,
-                kitchenImage2,
+                // kitchenImage2,
             ],
             mainfeature: { icon: <CountertopsIcon sx={{ fontSize: 100, color: '#d4af37' }} /> },
             features: [
@@ -106,6 +107,7 @@ const FacilitiesPage = () => {
             images: [
                 tenisTable1,
                 tenisTable2,
+                tenisTable3,
             ],
             mainfeature: { icon: <FaTableTennisPaddleBall size={48} color={"#d4af37"} /> },
             features: []
