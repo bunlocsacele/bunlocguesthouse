@@ -21,6 +21,12 @@ import {
     Deck
 } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
+import { Chair, ConferenceIcon, FirepitIcon } from '@/components/CustomIcons/CustomIcons';
+import FlatwareIcon from '@mui/icons-material/Flatware';
+import { PiPicnicTableBold } from "react-icons/pi";
+import { FaTableTennisPaddleBall } from "react-icons/fa6";
+import EventSeatIcon from '@mui/icons-material/EventSeat';
+import CountertopsIcon from '@mui/icons-material/Countertops';
 
 // Facility images - replace these paths with your actual image paths
 const bonfireImage1 = "/images/facilities/bonfire1.jpeg";
@@ -31,11 +37,11 @@ const conferenceImage1 = "/images/facilities/conference1.jpeg";
 const conferenceImage2 = "/images/facilities/conference2.jpeg";
 const kitchenImage1 = "/images/facilities/kitchen1.jpeg";
 const kitchenImage2 = "/images/facilities/kitchen2.jpeg";
-const gazeboImage1 = "/images/facilities/gazebo1.jpeg";
-const gazeboImage2 = "/images/facilities/gazebo2.jpeg";
+const tenisTable1 = "/images/facilities/gazebo1.jpeg";
+const tenisTable2 = "/images/facilities/gazebo2.jpeg";
 
 const FacilitiesPage = () => {
-    const t = useTranslations('facilities'); // You'll need to add these translations
+    const t = useTranslations('facilities');
     const [currentFacility, setCurrentFacility] = useState(0);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -43,73 +49,66 @@ const FacilitiesPage = () => {
     const facilities = [
         {
             id: 'bonfire',
-            name: 'Bonfire Area',
-            description: 'Cozy outdoor bonfire spot perfect for evening gatherings and storytelling under the stars.',
+            name: t('bonfire'),
+            description: t('details.bonfire'),
             images: [
                 bonfireImage1,
                 bonfireImage2,
             ],
-            features: [
-                { icon: <Whatshot />, label: 'Fire Pit' },
-                { icon: <Deck />, label: 'Seating Area' },
-                { icon: <Kitchen />, label: 'S\'mores Kit Available' },
-            ]
+            mainfeature: { icon: <FirepitIcon color="#d4af37" size={100} /> },
+            features: []
         },
         {
             id: 'grill',
-            name: 'BBQ Grill Spot',
-            description: 'Professional outdoor grilling area with all the equipment you need for a perfect barbecue.',
+            name: t('grill'),
+            description: t('details.grill'),
             images: [
                 grillImage1,
                 grillImage2,
             ],
+            mainfeature: { icon: <OutdoorGrill sx={{ fontSize: 68, color: "#d4af37" }} /> },
             features: [
-                { icon: <OutdoorGrill />, label: 'Gas Grill' },
-                { icon: <Kitchen />, label: 'Prep Area' },
-                { icon: <Deck />, label: 'Dining Tables' },
+                { icon: <PiPicnicTableBold size={48} />, label: t('featureLabels.diningTables') },
+                { icon: <FlatwareIcon />, label: t('featureLabels.utensils') },
+                { icon: <EventSeatIcon sx={{ fontSize: 38 }} />, label: t('featureLabels.upTo20Seats') },
             ]
         },
         {
             id: 'conference',
-            name: 'Conference Room',
-            description: 'Modern conference facility equipped for meetings, presentations, and business gatherings.',
+            name: t('conference'),
+            description: t('details.conference'),
             images: [
                 conferenceImage1,
                 conferenceImage2,
             ],
-            features: [
-                { icon: <MeetingRoom />, label: 'Meeting Space' },
-                { icon: <Deck />, label: 'Projector & Screen' },
-                { icon: <Kitchen />, label: 'Refreshment Area' },
-            ]
+            mainfeature: { icon: <ConferenceIcon color="#d4af37" size={150} /> },
+            features: []
         },
         {
             id: 'kitchen',
-            name: 'Shared Kitchen',
-            description: 'Fully equipped communal kitchen available for all guests to prepare their favorite meals.',
+            name: t('kitchen'),
+            description: t('details.kitchen'),
             images: [
                 kitchenImage1,
                 kitchenImage2,
             ],
+            mainfeature: { icon: <CountertopsIcon sx={{ fontSize: 100, color: '#d4af37' }} /> },
             features: [
-                { icon: <Kitchen />, label: 'Full Kitchen' },
-                { icon: <Deck />, label: 'Dining Area' },
-                { icon: <MeetingRoom />, label: 'Cookware Provided' },
+                { icon: <Kitchen />, label: t('featureLabels.fridge') },
+                { icon: <Chair />, label: t('featureLabels.upTo20Seats') },
+                { icon: <FlatwareIcon />, label: t('featureLabels.utensils') },
             ]
         },
         {
-            id: 'gazebo',
-            name: 'Garden Gazebo',
-            description: 'Peaceful gazebo surrounded by beautiful gardens, perfect for relaxation and outdoor dining.',
+            id: 'tenisTable',
+            name: t('tenisTable'),
+            description: t('details.tenisTable'),
             images: [
-                gazeboImage1,
-                gazeboImage2,
+                tenisTable1,
+                tenisTable2,
             ],
-            features: [
-                { icon: <Deck />, label: 'Covered Seating' },
-                { icon: <Kitchen />, label: 'Garden Views' },
-                { icon: <MeetingRoom />, label: 'Event Space' },
-            ]
+            mainfeature: { icon: <FaTableTennisPaddleBall size={48} color={"#d4af37"} /> },
+            features: []
         }
     ];
 
@@ -225,13 +224,29 @@ const FacilitiesPage = () => {
                             <Typography
                                 variant="h6"
                                 sx={{
-                                    mb: 3,
+                                    mb: 4,
                                     color: 'rgba(255, 255, 255, 0.9)',
                                     fontSize: { xs: '1rem', md: '1.25rem' }
                                 }}
                             >
                                 {facility.description}
                             </Typography>
+
+                            {/* Main Feature - Large Display */}
+                            {facility.mainfeature && (
+
+                                <Box sx={{
+                                    color: '#c8a882',
+                                    mb: 2,
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}>
+                                    {facility.mainfeature.icon}
+                                </Box>
+
+
+                            )}
 
                             {/* Features Grid */}
                             <Box
@@ -332,6 +347,7 @@ const FacilitiesPage = () => {
                         </Fab>
                     )}
                 </Box>
+
             ))}
         </>
     );

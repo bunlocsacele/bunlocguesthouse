@@ -11,31 +11,18 @@
         "contact": "Contact"
     },
     "facilities": {
-        "conferenceRoomA": "Conference Room A",
-        "meetingRoomB": "Meeting Room B",
-        "eventHall": "Event Hall",
-        "trainingCenter": "Training Center",
-        "boardRoom": "Board Room",
-        "largeIndoorKitchen": "Large Indoor Kitchen",
-        "terrace": "Terrace",
-        "capacity": "Capacity: {count} people",
-        "features": "Features",
-        "bookFacility": "Book Facility"
-    },
-    "amenities": {
-        "breakfast": "Breakfast",
-        "wifi": "Free WiFi",
-        "parking": "Parking",
-        "laundry": "Laundry Service"
-    },
-    "booking": {
-        "checkAvailability": "Check Availability",
-        "roomRates": "Room Rates",
-        "bookingPolicies": "Booking Policies",
-        "checkIn": "Check-in",
-        "checkOut": "Check-out",
-        "guests": "Guests",
-        "searchRooms": "Search Rooms"
+        "bonfire": "Bonfire Area",
+        "grill": "BBQ Grill Spot",
+        "conference": "Conference Space",
+        "kitchen": "Large Kitchen",
+        "tenisTable": "Tennis Table",
+        "details": {
+            "bonfire": "Cozy outdoor bonfire spot perfect for evening gatherings and storytelling under the stars.",
+            "grill": "Outdoor grilling area with all the equipment you need for a perfect barbecue.",
+            "conference": "Perfect for meetings, presentations and gatherings up to 20 people.",
+            "kitchen": "Fully equipped kitchen for multiple people.",
+            "tenisTable": "Indoor tennis table setup, your go-to solution for active entertainment during rain or snow or it might just keep children busy."
+        }
     },
     "common": {
         "learnMore": "Learn More",

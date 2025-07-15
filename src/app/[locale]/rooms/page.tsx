@@ -20,10 +20,11 @@ import {
     RadioButtonChecked
 } from '@mui/icons-material';
 import ShowerIcon from '@mui/icons-material/Shower';
-import BalconyIcon from '@mui/icons-material/Balcony';
+// import BalconyIcon from '@mui/icons-material/Balcony';
 import { TwinBeds, ThreeBeds, FamilyBeds, SunriseIcon } from "@/components/CustomIcons/CustomIcons"
 import WbTwilightIcon from '@mui/icons-material/WbTwilight';
 import { useTranslations } from 'next-intl';
+import { BalconyIcon } from "@/components/CustomIcons/CustomIcons"
 
 // import twinStandard1 from "@/../public/images/rooms/twinStandard1.jpg"
 // import twinStandard11 from "@/../public/images/rooms/twinStandard11.jpg"

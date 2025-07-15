@@ -11,31 +11,24 @@
         "contact": "Contact"
     },
     "facilities": {
-        "conferenceRoomA": "Sala de Conferințe A",
-        "meetingRoomB": "Sala de Reuniuni B",
-        "eventHall": "Sala de Evenimente",
-        "trainingCenter": "Centrul de Formare",
-        "boardRoom": "Sala Consiliului",
-        "largeIndoorKitchen": "Bucătărie Mare Interioară",
-        "terrace": "Terasa",
-        "capacity": "Capacitate: {count} persoane",
-        "features": "Caracteristici",
-        "bookFacility": "Rezervă Facilitatea"
-    },
-    "amenities": {
-        "breakfast": "Mic Dejun",
-        "wifi": "WiFi Gratuit",
-        "parking": "Parcare",
-        "laundry": "Serviciu Spălătorie"
-    },
-    "booking": {
-        "checkAvailability": "Verifică Disponibilitatea",
-        "roomRates": "Tarife Camere",
-        "bookingPolicies": "Politici de Rezervare",
-        "checkIn": "Check-in",
-        "checkOut": "Check-out",
-        "guests": "Oaspeți",
-        "searchRooms": "Caută Camere"
+        "bonfire": "Foc de Tabără",
+        "grill": "Zona de Grătar",
+        "conference": "Spațiu de Conferință",
+        "kitchen": "Bucătărie spațioasă",
+        "tenisTable": "Masa de Tenis",
+        "details": {
+            "bonfire": "Loc confortabil în aer liber pentru focul de tabără, perfect pentru întâlniri de seară și povestiri sub stele.",
+            "grill": "Zonă de grătar în aer liber cu tot echipamentul necesar pentru un grătar perfect.",
+            "conference": "Perfect pentru întâlniri, prezentări și adunări de până la 20 de persoane.",
+            "kitchen": "Bucătărie complet echipată pentru mai multe persoane.",
+            "tenisTable": "Masă de tenis în interior, soluția perfectă pentru divertisment activ pentru zile cu vreme nefavorabilă sau poate doar o distracție pentu copii."
+        },
+        "featureLabels": {
+            "diningTables": "Mese de Luat Masa",
+            "utensils": "Ustensile",
+            "upTo20Seats": "Până la 20 de locuri",
+            "fridge": "Frigider"
+        }
     },
     "common": {
         "learnMore": "Află Mai Mult",
