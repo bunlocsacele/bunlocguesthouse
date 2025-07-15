@@ -32,6 +32,7 @@ import {
 } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
+import NavigationComponent from '@/components/NavigationComponent/NavigationComponent'; // Import your navigation component
 import styles from './Navbar.module.css';
 import logoNavmenu from "@/../public/images/logoNavmenu.png"
 import GuesthouseInfo from '@/components/GuestInfo/GuestInfo';
@@ -42,6 +43,7 @@ interface NavItem {
     translationKey: string;
     hasDropdown?: boolean;
     subItems?: SubNavItem[];
+    hasNavigationComponent?: boolean; // New property for navigation component
 }
 
 interface SubNavItem {
@@ -61,6 +63,7 @@ export default function Navbar() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [roomsSubmenuOpen, setRoomsSubmenuOpen] = useState(false);
     const [facilitiesSubmenuOpen, setFacilitiesSubmenuOpen] = useState(false);
+    const [locationSubmenuOpen, setLocationSubmenuOpen] = useState(false); // New state for location submenu
     const [currentDropdown, setCurrentDropdown] = useState<string | null>(null);
 
     // Helper function to safely get room translations
@@ -150,7 +153,13 @@ export default function Navbar() {
             hasDropdown: true,
             subItems: availableFacilities
         },
-        { key: 'location', href: `/${locale}/location`, translationKey: 'location' },
+        {
+            key: 'location',
+            href: `/${locale}/location`,
+            translationKey: 'location',
+            hasDropdown: true,
+            hasNavigationComponent: true // New property to show navigation component
+        },
         { key: 'blog', href: `/${locale}/blog`, translationKey: 'blog' },
         { key: 'contact', href: `/${locale}/contact`, translationKey: 'contact' },
     ];
@@ -163,6 +172,7 @@ export default function Navbar() {
         setMobileOpen(false);
         setRoomsSubmenuOpen(false);
         setFacilitiesSubmenuOpen(false);
+        setLocationSubmenuOpen(false); // Close location submenu
     };
 
     const handleMenuOpen = (event: React.MouseEvent<HTMLButtonElement>, dropdownType: string) => {
@@ -181,6 +191,10 @@ export default function Navbar() {
 
     const handleFacilitiesSubmenuToggle = () => {
         setFacilitiesSubmenuOpen(!facilitiesSubmenuOpen);
+    };
+
+    const handleLocationSubmenuToggle = () => { // New handler for location submenu
+        setLocationSubmenuOpen(!locationSubmenuOpen);
     };
 
     const handleRoomClick = (subItem: SubNavItem) => {
@@ -248,6 +262,8 @@ export default function Navbar() {
             return handleRoomsSubmenuToggle;
         } else if (itemKey === 'facilities') {
             return handleFacilitiesSubmenuToggle;
+        } else if (itemKey === 'location') { // Add location handler
+            return handleLocationSubmenuToggle;
         }
         return () => { };
     };
@@ -257,6 +273,8 @@ export default function Navbar() {
             return roomsSubmenuOpen;
         } else if (itemKey === 'facilities') {
             return facilitiesSubmenuOpen;
+        } else if (itemKey === 'location') { // Add location state
+            return locationSubmenuOpen;
         }
         return false;
     };
@@ -299,6 +317,16 @@ export default function Navbar() {
                             </ListItemButton>
                         </ListItem>
 
+                        {/* Handle navigation component for location */}
+                        {item.hasDropdown && item.hasNavigationComponent && (
+                            <Collapse in={getSubmenuOpenState(item.key)} timeout="auto" unmountOnExit>
+                                <Box sx={{ pl: 2, pr: 2, pb: 2 }}>
+                                    <NavigationComponent address="Bunloc 68 B, Brașov, Romania" />
+                                </Box>
+                            </Collapse>
+                        )}
+
+                        {/* Handle regular sub items */}
                         {item.hasDropdown && item.subItems && (
                             <Collapse in={getSubmenuOpenState(item.key)} timeout="auto" unmountOnExit>
                                 <List component="div" disablePadding>
@@ -384,6 +412,7 @@ export default function Navbar() {
                                         {t(item.translationKey)}
                                     </Button>
 
+                                    {/* Regular dropdown menu for rooms and facilities */}
                                     {item.hasDropdown && item.subItems && (
                                         <Menu
                                             anchorEl={anchorEl}
@@ -425,6 +454,33 @@ export default function Navbar() {
                                                     {getTranslationForSubItem(item, subItem)}
                                                 </MenuItem>
                                             ))}
+                                        </Menu>
+                                    )}
+
+                                    {/* Navigation component dropdown for location */}
+                                    {item.hasDropdown && item.hasNavigationComponent && (
+                                        <Menu
+                                            anchorEl={anchorEl}
+                                            open={Boolean(anchorEl) && currentDropdown === item.key}
+                                            onClose={handleMenuClose}
+                                            slotProps={{
+                                                list: {
+                                                    'aria-labelledby': `${item.key}-button`,
+                                                }
+                                            }}
+                                            sx={{
+                                                '& .MuiPaper-root': {
+                                                    backgroundColor: 'var(--color-background-paper)',
+                                                    border: `1px solid ${theme.palette.primary.main}20`,
+                                                    boxShadow: `0 4px 12px ${theme.palette.primary.main}14`,
+                                                    minWidth: 400,
+                                                    padding: 0,
+                                                }
+                                            }}
+                                        >
+                                            <Box sx={{ p: 1 }}>
+                                                <NavigationComponent address="Bunloc 68 B, Brașov, Romania" />
+                                            </Box>
                                         </Menu>
                                     )}
                                 </Box>
