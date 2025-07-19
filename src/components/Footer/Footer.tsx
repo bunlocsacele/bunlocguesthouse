@@ -15,8 +15,30 @@ const Footer = () => {
         <Box component="footer" className={styles.footer}>
             <Box className={styles.mapColumn}>
                 <Box className={styles.mapSection}>
-                    <Typography variant="h6" component="h4" className={styles.addressTitle}>
-                        {t('fullAddress')}
+                    <Typography
+                        variant="h6"
+                        component="h4"
+                        sx={{
+                            color: '#5e5e5e',
+                            fontWeight: '600',
+                            fontSize: {
+                                xs: '1.1rem',
+                                sm: '1.25rem'
+                            }
+                        }}
+                    >
+                        <a
+                            href="https://www.google.com/maps/dir//45.606736,25.664655/@45.606736,25.664655,609m/data=!3m1!1e3!4m2!4m1!3e0?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            {t('fullAddress')}
+                        </a>
                     </Typography>
                     <Paper elevation={3} className={styles.mapContainer}>
                         <iframe
