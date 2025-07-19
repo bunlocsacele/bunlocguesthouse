@@ -1,10 +1,10 @@
-// src/components/HeaderGuesthouseInfo/HeaderGuesthouseInfo.tsx
 'use client';
 
 import { Box, Typography } from '@mui/material';
-import { People, Hotel } from '@mui/icons-material';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import PersonIcon from '@mui/icons-material/Person';
+import { useTheme } from '@mui/material/styles';
+import { useTranslations } from 'next-intl';
 
 interface GuestInfoProps {
     maxGuests?: number;
@@ -15,6 +15,9 @@ export default function GuestInfo({
     maxGuests = 15,
     totalRooms = 6
 }: GuestInfoProps) {
+    const theme = useTheme();
+    const t = useTranslations('common');
+
     return (
         <Box sx={{
             display: 'flex',
@@ -24,29 +27,29 @@ export default function GuestInfo({
             flex: 1,
             mx: 1
         }}>
-            {/* First row: Capacitate */}
+            {/* First row: Capaciy */}
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: 0.5
             }}>
                 <Typography sx={{
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: 'var(--text-xs)',
-                    fontWeight: 'var(--font-medium)',
-                    color: 'var(--color-text-secondary)',
+                    fontFamily: 'Playfair Display, serif',
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    color: theme.palette.text.secondary,
                     lineHeight: 1,
                     letterSpacing: '0.3px',
-                    minWidth: '58px', // Fixed width to align colons
+                    minWidth: '58px',
                     textAlign: 'right'
                 }}>
-                    Capacitate
+                    {t('capacity')}
                 </Typography>
                 <Typography sx={{
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: 'var(--text-xs)',
-                    fontWeight: 'var(--font-medium)',
-                    color: 'var(--color-text-secondary)',
+                    fontFamily: 'Playfair Display, serif',
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    color: theme.palette.text.secondary,
                     lineHeight: 1
                 }}>
                     :
@@ -57,10 +60,8 @@ export default function GuestInfo({
                     gap: 0.3
                 }}>
                     <Typography sx={{
-                        fontFamily: 'var(--font-mono)',
+                        fontFamily: 'Inter, sans-serif',
                         fontSize: '1rem',
-                        fontWeight: 'var(--font-semibold)',
-                        color: 'var(--color-primary-main)',
                         lineHeight: 1,
                         letterSpacing: '0.2px'
                     }}>
@@ -68,34 +69,34 @@ export default function GuestInfo({
                     </Typography>
                     <PersonIcon sx={{
                         fontSize: 24,
-                        color: 'var(--color-primary-main)'
+                        color: theme.palette.primary.dark
                     }} />
                 </Box>
             </Box>
 
-            {/* Second row: Spații */}
+            {/* Second row: Rooms */}
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: 0.5
             }}>
                 <Typography sx={{
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: 'var(--text-xs)',
-                    fontWeight: 'var(--font-medium)',
-                    color: 'var(--color-text-secondary)',
+                    fontFamily: 'Playfair Display, serif',
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    color: theme.palette.text.secondary,
                     lineHeight: 1,
                     letterSpacing: '0.3px',
-                    minWidth: '58px', // Same fixed width to align colons
+                    minWidth: '58px',
                     textAlign: 'right'
                 }}>
-                    Camere
+                    {t('rooms')}
                 </Typography>
                 <Typography sx={{
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: 'var(--text-xs)',
-                    fontWeight: 'var(--font-medium)',
-                    color: 'var(--color-text-secondary)',
+                    fontFamily: 'Playfair Display, serif',
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    color: theme.palette.text.secondary,
                     lineHeight: 1
                 }}>
                     :
@@ -106,18 +107,16 @@ export default function GuestInfo({
                     gap: 0.3
                 }}>
                     <Typography sx={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        fontWeight: 'var(--font-semibold)',
-                        color: 'var(--color-primary-main)',
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '1rem',
                         lineHeight: 1,
                         letterSpacing: '0.2px'
                     }}>
                         {totalRooms}
                     </Typography>
                     <MeetingRoomIcon sx={{
-                        size: 24,
-                        color: 'var(--color-primary-main)'
+                        fontSize: 24,
+                        color: theme.palette.primary.dark
                     }} />
                 </Box>
             </Box>

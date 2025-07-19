@@ -37,7 +37,9 @@
         "loading": "Se încarcă...",
         "error": "A apărut o eroare",
         "tryAgain": "Încearcă Din Nou",
-        "developmentMessage": "Website în dezvoltare"
+        "developmentMessage": "Website în dezvoltare",
+        "rooms": "Camere",
+        "capacity": "Capacitate"
     },
     "HomePage": {
         "title": "Bine ați venit"
