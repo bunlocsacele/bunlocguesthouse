@@ -39,7 +39,8 @@
         "tryAgain": "Încearcă Din Nou",
         "developmentMessage": "Website în dezvoltare",
         "rooms": "Camere",
-        "capacity": "Capacitate"
+        "capacity": "Capacitate",
+        "callNow": "Sună Acum!"
     },
     "HomePage": {
         "title": "Bine ați venit"

@@ -32,7 +32,8 @@ import {
 } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
-import NavigationComponent from '@/components/NavigationComponent/NavigationComponent'; // Import your navigation component
+import NavigationComponent from '@/components/NavigationComponent/NavigationComponent';
+import ContactDropdown from '@/components/ContactDropdown/ContactDropdown';
 import styles from './Navbar.module.css';
 import logoNavmenu from "@/../public/images/logoNavmenu.png"
 import GuesthouseInfo from '@/components/GuestInfo/GuestInfo';
@@ -43,7 +44,8 @@ interface NavItem {
     translationKey: string;
     hasDropdown?: boolean;
     subItems?: SubNavItem[];
-    hasNavigationComponent?: boolean; // New property for navigation component
+    hasNavigationComponent?: boolean;
+    hasContactComponent?: boolean;
 }
 
 interface SubNavItem {
@@ -63,7 +65,8 @@ export default function Navbar() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [roomsSubmenuOpen, setRoomsSubmenuOpen] = useState(false);
     const [facilitiesSubmenuOpen, setFacilitiesSubmenuOpen] = useState(false);
-    const [locationSubmenuOpen, setLocationSubmenuOpen] = useState(false); // New state for location submenu
+    const [locationSubmenuOpen, setLocationSubmenuOpen] = useState(false);
+    const [contactSubmenuOpen, setContactSubmenuOpen] = useState(false); // Add contact submenu state
     const [currentDropdown, setCurrentDropdown] = useState<string | null>(null);
 
     // Helper function to safely get room translations
@@ -158,10 +161,16 @@ export default function Navbar() {
             href: `/${locale}/location`,
             translationKey: 'location',
             hasDropdown: true,
-            hasNavigationComponent: true // New property to show navigation component
+            hasNavigationComponent: true
         },
         { key: 'blog', href: `/${locale}/blog`, translationKey: 'blog' },
-        { key: 'contact', href: `/${locale}/contact`, translationKey: 'contact' },
+        {
+            key: 'contact',
+            href: `/${locale}/contact`,
+            translationKey: 'contact',
+            hasDropdown: true,
+            hasContactComponent: true
+        },
     ];
 
     const handleDrawerToggle = () => {
@@ -172,7 +181,8 @@ export default function Navbar() {
         setMobileOpen(false);
         setRoomsSubmenuOpen(false);
         setFacilitiesSubmenuOpen(false);
-        setLocationSubmenuOpen(false); // Close location submenu
+        setLocationSubmenuOpen(false);
+        setContactSubmenuOpen(false); // Close contact submenu
     };
 
     const handleMenuOpen = (event: React.MouseEvent<HTMLButtonElement>, dropdownType: string) => {
@@ -193,8 +203,12 @@ export default function Navbar() {
         setFacilitiesSubmenuOpen(!facilitiesSubmenuOpen);
     };
 
-    const handleLocationSubmenuToggle = () => { // New handler for location submenu
+    const handleLocationSubmenuToggle = () => {
         setLocationSubmenuOpen(!locationSubmenuOpen);
+    };
+
+    const handleContactSubmenuToggle = () => { // Add contact submenu toggle handler
+        setContactSubmenuOpen(!contactSubmenuOpen);
     };
 
     const handleRoomClick = (subItem: SubNavItem) => {
@@ -262,8 +276,10 @@ export default function Navbar() {
             return handleRoomsSubmenuToggle;
         } else if (itemKey === 'facilities') {
             return handleFacilitiesSubmenuToggle;
-        } else if (itemKey === 'location') { // Add location handler
+        } else if (itemKey === 'location') {
             return handleLocationSubmenuToggle;
+        } else if (itemKey === 'contact') { // Add contact handler
+            return handleContactSubmenuToggle;
         }
         return () => { };
     };
@@ -273,8 +289,10 @@ export default function Navbar() {
             return roomsSubmenuOpen;
         } else if (itemKey === 'facilities') {
             return facilitiesSubmenuOpen;
-        } else if (itemKey === 'location') { // Add location state
+        } else if (itemKey === 'location') {
             return locationSubmenuOpen;
+        } else if (itemKey === 'contact') { // Add contact state
+            return contactSubmenuOpen;
         }
         return false;
     };
@@ -317,15 +335,6 @@ export default function Navbar() {
                             </ListItemButton>
                         </ListItem>
 
-                        {/* Handle navigation component for location */}
-                        {item.hasDropdown && item.hasNavigationComponent && (
-                            <Collapse in={getSubmenuOpenState(item.key)} timeout="auto" unmountOnExit>
-                                <Box sx={{ pl: 2, pr: 2, pb: 2 }}>
-                                    <NavigationComponent address="Bunloc 68 B, Brașov, Romania" />
-                                </Box>
-                            </Collapse>
-                        )}
-
                         {/* Handle regular sub items */}
                         {item.hasDropdown && item.subItems && (
                             <Collapse in={getSubmenuOpenState(item.key)} timeout="auto" unmountOnExit>
@@ -342,6 +351,24 @@ export default function Navbar() {
                                         </ListItem>
                                     ))}
                                 </List>
+                            </Collapse>
+                        )}
+
+                        {/* Handle navigation component for location */}
+                        {item.hasDropdown && item.hasNavigationComponent && (
+                            <Collapse in={getSubmenuOpenState(item.key)} timeout="auto" unmountOnExit>
+                                <Box sx={{ pl: 2, pr: 2, pb: 2 }}>
+                                    <NavigationComponent address="Bunloc 68 B, Brașov, Romania" />
+                                </Box>
+                            </Collapse>
+                        )}
+
+                        {/* Handle contact component for mobile */}
+                        {item.hasDropdown && item.hasContactComponent && (
+                            <Collapse in={getSubmenuOpenState(item.key)} timeout="auto" unmountOnExit>
+                                <Box sx={{ pl: 2, pr: 2, pb: 2 }}>
+                                    <ContactDropdown />
+                                </Box>
                             </Collapse>
                         )}
                     </Box>
@@ -373,8 +400,8 @@ export default function Navbar() {
                 elevation={0}
                 className={styles.navbar}
                 sx={{
-                    backgroundColor: 'var(--color-background)',
-                    color: 'var(--color-text-primary)',
+                    backgroundColor: theme.palette.background.default,
+                    color: theme.palette.text.primary,
                     borderBottom: `1px solid ${theme.palette.primary.main}20`,
                     boxShadow: `0 2px 8px ${theme.palette.primary.main}14`
                 }}
@@ -425,7 +452,7 @@ export default function Navbar() {
                                             }}
                                             sx={{
                                                 '& .MuiPaper-root': {
-                                                    backgroundColor: 'var(--color-background-paper)',
+                                                    backgroundColor: theme.palette.background.paper,
                                                     border: `1px solid ${theme.palette.primary.main}20`,
                                                     boxShadow: `0 4px 12px ${theme.palette.primary.main}14`,
                                                     minWidth: 180,
@@ -437,16 +464,16 @@ export default function Navbar() {
                                                     key={subItem.key}
                                                     onClick={() => handleSubItemClick(item, subItem)}
                                                     sx={{
-                                                        color: 'var(--color-text-primary)',
+                                                        color: theme.palette.text.primary,
                                                         '&:hover': {
-                                                            backgroundColor: 'var(--color-primary-main)',
-                                                            color: 'var(--color-primary-contrast)'
+                                                            backgroundColor: theme.palette.primary.main,
+                                                            color: theme.palette.primary.contrastText
                                                         },
                                                         ...(isActiveRoute(subItem.href) && {
-                                                            backgroundColor: 'var(--color-secondary-main)',
-                                                            color: 'var(--color-secondary-contrast)',
+                                                            backgroundColor: theme.palette.secondary.main,
+                                                            color: theme.palette.secondary.contrastText,
                                                             '&:hover': {
-                                                                backgroundColor: 'var(--color-secondary-dark)',
+                                                                backgroundColor: theme.palette.secondary.dark,
                                                             }
                                                         })
                                                     }}
@@ -470,7 +497,7 @@ export default function Navbar() {
                                             }}
                                             sx={{
                                                 '& .MuiPaper-root': {
-                                                    backgroundColor: 'var(--color-background-paper)',
+                                                    backgroundColor: theme.palette.background.paper,
                                                     border: `1px solid ${theme.palette.primary.main}20`,
                                                     boxShadow: `0 4px 12px ${theme.palette.primary.main}14`,
                                                     minWidth: 400,
@@ -481,6 +508,30 @@ export default function Navbar() {
                                             <Box sx={{ p: 1 }}>
                                                 <NavigationComponent address="Bunloc 68 B, Brașov, Romania" />
                                             </Box>
+                                        </Menu>
+                                    )}
+
+                                    {/* Contact component dropdown */}
+                                    {item.hasDropdown && item.hasContactComponent && (
+                                        <Menu
+                                            anchorEl={anchorEl}
+                                            open={Boolean(anchorEl) && currentDropdown === item.key}
+                                            onClose={handleMenuClose}
+                                            slotProps={{
+                                                list: {
+                                                    'aria-labelledby': `${item.key}-button`,
+                                                }
+                                            }}
+                                            sx={{
+                                                '& .MuiPaper-root': {
+                                                    backgroundColor: theme.palette.background.paper,
+                                                    border: `1px solid ${theme.palette.primary.main}20`,
+                                                    boxShadow: `0 4px 12px ${theme.palette.primary.main}14`,
+                                                    padding: 0,
+                                                }
+                                            }}
+                                        >
+                                            <ContactDropdown />
                                         </Menu>
                                     )}
                                 </Box>
@@ -495,10 +546,10 @@ export default function Navbar() {
                             className={styles.mobileMenuButton}
                             aria-label="open navigation menu"
                             sx={{
-                                color: 'var(--color-text-primary)',
+                                color: theme.palette.text.primary,
                                 '&:hover': {
-                                    backgroundColor: 'var(--color-primary-main)',
-                                    color: 'var(--color-primary-contrast)'
+                                    backgroundColor: theme.palette.primary.main,
+                                    color: theme.palette.primary.contrastText
                                 }
                             }}
                         >

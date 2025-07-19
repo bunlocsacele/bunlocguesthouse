@@ -57,7 +57,7 @@ const CustomFloatButton: React.FC<CustomFloatButtonProps> = ({ className = '' })
 
     const whatsappButtonStyles = {
         ...baseButtonStyles,
-        bottom: isSmallMobile ? 70 : isMobile ? 80 : 100,
+        bottom: isSmallMobile ? 90 : isMobile ? 100 : 120,
         backgroundColor: '#25D366',
         boxShadow: '0 8px 32px rgba(37, 211, 102, 0.3)',
         '&:hover': {
@@ -68,7 +68,7 @@ const CustomFloatButton: React.FC<CustomFloatButtonProps> = ({ className = '' })
 
     const phoneButtonStyles = {
         ...baseButtonStyles,
-        bottom: isSmallMobile ? 12 : isMobile ? 16 : 24,
+        bottom: isSmallMobile ? 32 : isMobile ? 36 : 44,
         boxShadow: '0 8px 32px rgba(46, 125, 50, 0.3)',
         '&:hover': {
             boxShadow: '0 12px 40px rgba(46, 125, 50, 0.4)',

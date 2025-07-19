@@ -39,7 +39,8 @@
         "tryAgain": "Try Again",
         "developmentMessage": "Website under developmet",
         "rooms": "Rooms",
-        "capacity": "Capacity"
+        "capacity": "Capacity",
+        "callNow": "Call Now!"
     },
     "HomePage": {
         "title": "Welcome"
