@@ -36,7 +36,8 @@
         "backToTop": "Înapoi Sus",
         "loading": "Se încarcă...",
         "error": "A apărut o eroare",
-        "tryAgain": "Încearcă Din Nou"
+        "tryAgain": "Încearcă Din Nou",
+        "developmentMessage": "Website în dezvoltare"
     },
     "HomePage": {
         "title": "Bine ați venit"

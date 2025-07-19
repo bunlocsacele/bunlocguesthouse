@@ -55,7 +55,7 @@ const HomeCarousel: React.FC = () => {
                 clearInterval(autoplayTimerRef.current);
             }
         };
-    }, [isAutoplay]); // Removed images.length - it's a constant
+    }, [isAutoplay]);
 
     const pauseAutoplay = () => {
         setIsAutoplay(false);

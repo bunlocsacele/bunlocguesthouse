@@ -36,7 +36,8 @@
         "backToTop": "Back to Top",
         "loading": "Loading...",
         "error": "Something went wrong",
-        "tryAgain": "Try Again"
+        "tryAgain": "Try Again",
+        "developmentMessage": "Website under developmet"
     },
     "HomePage": {
         "title": "Welcome"
