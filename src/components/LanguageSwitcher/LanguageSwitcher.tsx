@@ -26,19 +26,24 @@ export default function LanguageSwitcher() {
         // Remove current locale from pathname
         const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
 
-        // Add new locale - using const instead of let
+        // Add new locale
         const newPathname = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
-
-        // console.log('Switching from', locale, 'to', newLocale);
-        // console.log('Current pathname:', pathname);
-        // console.log('New pathname:', newPathname);
 
         router.push(newPathname);
         handleClose();
     };
 
     const getCurrentLanguageLabel = () => {
-        return locale === 'en' ? 'EN' : 'RO';
+        switch (locale) {
+            case 'en':
+                return 'EN';
+            case 'ro':
+                return 'RO';
+            case 'fr':
+                return 'FR';
+            default:
+                return 'RO';
+        }
     };
 
     return (
@@ -78,6 +83,13 @@ export default function LanguageSwitcher() {
                     disabled={locale === 'ro'}
                 >
                     <Typography variant="body2">Română</Typography>
+                </MenuItem>
+                <MenuItem
+                    onClick={() => handleLocaleChange('fr')}
+                    selected={locale === 'fr'}
+                    disabled={locale === 'fr'}
+                >
+                    <Typography variant="body2">Français</Typography>
                 </MenuItem>
             </Menu>
         </div>

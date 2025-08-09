@@ -8,7 +8,7 @@ import Footer from '@/components/Footer/Footer';
 import CustomFloatButton from '@/components/CustomFloatButton/CustomFloatButton';
 import DevelopmentMessage from '@/components/DevelopmentMessage/DevelopmentMessage';
 
-const locales = ['en', 'ro'];
+const locales = ['en', 'ro', 'fr'];
 
 export function generateStaticParams() {
     return locales.map((locale) => ({ locale }));
