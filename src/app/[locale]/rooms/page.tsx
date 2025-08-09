@@ -26,19 +26,6 @@ import WbTwilightIcon from '@mui/icons-material/WbTwilight';
 import { useTranslations } from 'next-intl';
 import { BalconyIcon } from "@/components/CustomIcons/CustomIcons"
 
-// import twinStandard1 from "@/../public/images/rooms/twinStandard1.jpg"
-// import twinStandard11 from "@/../public/images/rooms/twinStandard11.jpg"
-// import twinStandard2 from "@/../public/images/rooms/twinStandard2.jpg"
-// import twinStandard22 from "@/../public/images/rooms/twinStandard22.jpg"
-// import twinStandard3 from "@/../public/images/rooms/twinStandard3.jpg"
-// import twinStandard33 from "@/../public/images/rooms/twinStandard33.jpg"
-// import family from "@/../public/images/rooms/family.jpeg"
-// import family1 from "@/../public/images/rooms/family1.jpeg"
-// import matrimoniala from "@/../public/images/rooms/Matrimoniala.jpeg"
-// import matrimoniala1 from "@/../public/images/rooms/Matrimoniala1.jpeg"
-// import trippleStandard from "@/../public/images/rooms/trippleStandard.jpg"
-// import trippleStandard1 from "@/../public/images/rooms/trippleStandard1.jpg"
-
 const twinStandard1 = "/images/rooms/twinStandard1.jpg"
 const twinStandard11 = "/images/rooms/twinStandard11.jpg"
 const twinStandard2 = "/images/rooms/twinStandard2.jpg"
@@ -300,8 +287,8 @@ const RoomsPage = () => {
                                 sx={{
                                     display: 'grid',
                                     gridTemplateColumns: {
-                                        xs: 'repeat(3, 1fr)',  // 2 columns on mobile
-                                        sm: 'repeat(3, 1fr)'   // 3 columns on tablet and up
+                                        xs: 'repeat(3, 1fr)',  // 2 col mobile
+                                        sm: 'repeat(3, 1fr)'   // 3 col tablet and up
                                     },
                                     gap: 2,
                                     mb: 4

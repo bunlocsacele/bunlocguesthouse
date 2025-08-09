@@ -30,6 +30,11 @@
             "fridge": "Fridge"
         }
     },
+    "attractions": {
+        "discover": "Discover the local attractions!",
+        "distance": "Check time & distance on Maps",
+        "average": "on average"
+    },
     "common": {
         "learnMore": "Learn More",
         "viewAll": "View All",

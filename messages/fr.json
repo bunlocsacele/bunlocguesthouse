@@ -1,0 +1,95 @@
+{
+    "navigation": {
+        "home": "Accueil",
+        "rooms": "Chambres",
+        "facilities": "Installations",
+        "amenities": "Équipements",
+        "booking": "Réserver",
+        "location": "Localisation",
+        "about": "À propos",
+        "blog": "Blog",
+        "contact": "Contact"
+    },
+    "facilities": {
+        "bonfire": "Espace Feu de Camp",
+        "grill": "Espace Barbecue",
+        "conference": "Salle de Conférence",
+        "kitchen": "Grande Cuisine",
+        "tenisTable": "Table de Tennis",
+        "details": {
+            "bonfire": "Espace feu de camp extérieur confortable, parfait pour les rassemblements en soirée et les histoires sous les étoiles.",
+            "grill": "Espace barbecue extérieur avec tout l'équipement nécessaire pour un barbecue parfait.",
+            "conference": "Parfait pour les réunions, présentations et rassemblements jusqu'à 20 personnes.",
+            "kitchen": "Cuisine entièrement équipée pour plusieurs personnes.",
+            "tenisTable": "Installation de table de tennis intérieure, votre solution idéale pour un divertissement actif pendant la pluie ou la neige, ou elle pourrait simplement occuper les enfants."
+        },
+        "featureLabels": {
+            "diningTables": "Tables à Manger",
+            "utensils": "Ustensiles",
+            "upTo20Seats": "Jusqu'à 20 places",
+            "fridge": "Réfrigérateur"
+        }
+    },
+    "attractions": {
+        "discover": "Découvrez les attractions locales !",
+        "distance": "Vérifiez le temps et la distance sur Maps",
+        "average": "en moyenne"
+    },
+    "common": {
+        "learnMore": "En Savoir Plus",
+        "viewAll": "Voir Tout",
+        "backToTop": "Retour en Haut",
+        "loading": "Chargement...",
+        "error": "Quelque chose s'est mal passé",
+        "tryAgain": "Réessayer",
+        "developmentMessage": "Site web en cours de développement",
+        "rooms": "Chambres",
+        "capacity": "Capacité",
+        "callNow": "Appelez Maintenant !"
+    },
+    "HomePage": {
+        "title": "Bienvenue"
+    },
+    "footer": {
+        "location": "Localisation",
+        "address": "Adresse",
+        "fullAddress": "Adresse : Str. Bunloc 68B, Brașov"
+    },
+    "rooms": {
+        "twinStandard": "Chambre Standard Lits Jumeaux",
+        "tripleStandard": "Chambre Standard Triple",
+        "matrimoniala": "Chambre Double",
+        "family": "Chambre Familiale (4 Personnes)",
+        "roomDetails": {
+            "twinStandard": {
+                "name": "Standard Lits Jumeaux",
+                "description": "Chambre confortable avec lits simples jumeaux, parfaite pour les amis ou collègues voyageant ensemble."
+            },
+            "tripleStandard": {
+                "name": "Standard Triple",
+                "description": "Chambre spacieuse avec trois lits simples confortables, idéale pour les petits groupes."
+            },
+            "matrimoniala": {
+                "name": "Chambre Double",
+                "description": "Chambre double romantique avec équipements pour les couples."
+            },
+            "family": {
+                "name": "Chambre Familiale",
+                "description": "Parfait pour les familles de 4 ! Chambre spacieuse avec un lit king size et deux lits simples."
+            }
+        },
+        "amenities": {
+            "twinBeds": "Lits Jumeaux",
+            "tripleBeds": "Lits Triples",
+            "doubleBed": "Lit Double",
+            "multipleBeds": "Lits Multiples",
+            "privateShower": "Douche Privée",
+            "freeWifi": "WiFi Gratuit",
+            "tv": "TV",
+            "personalBalcony": "Balcon Personnel",
+            "mountainView": "Vue sur la Montagne",
+            "sunriseView": "Vue sur le Lever du Soleil",
+            "sunsetView": "Vue sur le Coucher du Soleil"
+        }
+    }
+}

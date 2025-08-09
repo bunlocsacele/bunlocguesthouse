@@ -14,6 +14,7 @@ import {
 import { LocationOn, Launch } from '@mui/icons-material';
 import styles from './MapsCard.module.css';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import { useTranslations } from 'next-intl';
 
 interface MapLocation {
     id: string;
@@ -45,6 +46,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
     const [touchStartTime, setTouchStartTime] = useState(0);
     const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false);
     const theme = useTheme();
+    const t = useTranslations('attractions');
 
     // Determine number of cards to show based on screen size
     useEffect(() => {
@@ -234,7 +236,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
         <Box className={`${styles.carouselContainer} ${className}`}>
             {/* Divider Text */}
             <p className={styles.dividerText}>
-                Descoperă atracțiile locale!
+                {t("discover")}
             </p>
 
             {/* Cards container */}
@@ -385,7 +387,7 @@ const MapsCard: React.FC<MapsCardProps> = ({
                                         fontSize: { xs: '0.7rem', md: '0.75rem' }
                                     }}
                                 >
-                                    Check time & distance on Maps
+                                    {t("distance")}
                                     <Launch sx={{ fontSize: { xs: 12, md: 14 } }} />
                                 </Typography>
                             </Box>

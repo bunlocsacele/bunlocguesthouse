@@ -30,6 +30,11 @@
             "fridge": "Frigider"
         }
     },
+    "attractions": {
+        "discover": "Descoperă atracțiile locale!",
+        "distance": "Compară timpii de deplasare în Maps",
+        "average": "în medie"
+    },
     "common": {
         "learnMore": "Află Mai Mult",
         "viewAll": "Vezi Tot",
