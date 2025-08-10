@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: 'Your App Name',
+  title: 'Bunloc GuestHouse🏠',
   icons: {
     icon: '/favicon.ico',
   },
