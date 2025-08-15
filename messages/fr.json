@@ -91,5 +91,54 @@
             "sunriseView": "Vue sur le Lever du Soleil",
             "sunsetView": "Vue sur le Coucher du Soleil"
         }
+    },
+    "banner": {
+        "callNow": "Appelez Maintenant !",
+        "orMaybe": "Ou peut-être voulez-vous essayer le parapente ?",
+        "bookAFlight": "Réservez un vol en tandem aujourd'hui !"
+    },
+    "home": {
+        "hero": {
+            "title": "Hébergement à Brașov pour Toute Occasion",
+            "subtitle": "Peut-être voulez-vous profiter d'un week-end ou sortir en famille, ou peut-être vous êtes-vous simplement arrêté lors de votre passage par Brașov, peut-être êtes-vous venu faire du parapente ou voulez organiser un team building. L'hiver pour le ski, l'été pour la randonnée, un événement ou un concert dans la région - vous pouvez vous arrêter à tout moment pour séjourner chez nous.",
+            "reasons": {
+                "weekend": {
+                    "title": "Week-ends Détente",
+                    "description": "Profitez d'un week-end parfait au Brașov"
+                },
+                "family": {
+                    "title": "Sorties en Famille",
+                    "description": "Des moments inoubliables avec vos proches"
+                },
+                "paragliding": {
+                    "title": "Aventures en Parapente",
+                    "description": "Expériences uniques dans les paysages montagneux"
+                },
+                "teambuilding": {
+                    "title": "Team Building",
+                    "description": "Organisez des événements d'entreprise mémorables"
+                },
+                "winter": {
+                    "title": "Vacances d'Hiver",
+                    "description": "Ski sur les plus belles pistes"
+                },
+                "summer": {
+                    "title": "Randonnées d'Été",
+                    "description": "Explorez des sentiers de montagne spectaculaires"
+                },
+                "events": {
+                    "title": "Événements & Concerts",
+                    "description": "Proche des attractions les plus importantes"
+                },
+                "stopover": {
+                    "title": "Escale de Voyage",
+                    "description": "Une pause confortable pendant votre voyage"
+                }
+            },
+            "closing": {
+                "title": "Nous Vous Accueillons à Tout Moment",
+                "message": "Quelle que soit la saison ou la raison, nous avons l'espace parfait pour vous. Réservez maintenant et profitez d'une expérience inoubliable à Brașov."
+            }
+        }
     }
 }

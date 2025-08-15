@@ -11,6 +11,8 @@ import tampa from '@/../public/images/Attractions/Tâmpa.jpg';
 import stradaSforii from '@/../public/images/Attractions/stradaSforii.jpg'
 import laculNoua from '@/../public/images/Attractions/laculNoua.jpg'
 import { useTranslations } from 'next-intl';
+import ContactBanner from '@/components/ContactBanner/ContactBanner';
+import HomeHeroSection from './facilities/FacilitiesPage';
 
 
 type HomePageProps = {
@@ -19,6 +21,7 @@ type HomePageProps = {
 
 export default function HomePage({ locale }: HomePageProps) {
     const t = useTranslations('attractions');
+    const tb = useTranslations('banner');
 
     const locations = [
         {
@@ -90,6 +93,14 @@ export default function HomePage({ locale }: HomePageProps) {
         <div>
             <HomeCarousel />
             <MapsCard locations={locations} />
+            <ContactBanner
+                title={tb("orMaybe")}
+                message={tb("bookAFlight")}
+                buttonText={tb("callNow")}
+                imageSrc="/images/banner.jpg"
+                imageHeight={400}
+            />
+            <HomeHeroSection />
         </div>
     );
 }

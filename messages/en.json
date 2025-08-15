@@ -91,5 +91,54 @@
             "sunriseView": "Sunrise View",
             "sunsetView": "Sunset View"
         }
+    },
+    "banner": {
+        "callNow": "Call Now!",
+        "orMaybe": "Or maybe you want to try paragliding?",
+        "bookAFlight": "Book a tandem today!"
+    },
+    "home": {
+        "hero": {
+            "title": "Accommodation in Brașov for Every Occasion",
+            "subtitle": "Maybe you want to enjoy a weekend getaway or go out with your family, or perhaps you just stopped on your way through Brașov, maybe you came to go paragliding or want to organize a teambuilding event. Winter for skiing, summer for hiking, an event or concert in the area - you can stop anytime to stay with us.",
+            "reasons": {
+                "weekend": {
+                    "title": "Relaxing Weekends",
+                    "description": "Enjoy a perfect weekend in Brașov"
+                },
+                "family": {
+                    "title": "Family Outings",
+                    "description": "Unforgettable moments with your loved ones"
+                },
+                "paragliding": {
+                    "title": "Paragliding Adventures",
+                    "description": "Unique experiences in mountain landscapes"
+                },
+                "teambuilding": {
+                    "title": "Team Building",
+                    "description": "Organize memorable corporate events"
+                },
+                "winter": {
+                    "title": "Winter Holidays",
+                    "description": "Skiing on the most beautiful slopes"
+                },
+                "summer": {
+                    "title": "Summer Hiking",
+                    "description": "Explore spectacular mountain trails"
+                },
+                "events": {
+                    "title": "Events & Concerts",
+                    "description": "Close to the most important attractions"
+                },
+                "stopover": {
+                    "title": "Travel Stopover",
+                    "description": "A comfortable break on your journey"
+                }
+            },
+            "closing": {
+                "title": "We Welcome You Anytime",
+                "message": "Regardless of season or reason, we have the perfect space for you. Book now and enjoy an unforgettable experience in Brașov."
+            }
+        }
     }
 }

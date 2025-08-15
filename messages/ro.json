@@ -91,5 +91,54 @@
             "sunriseView": "Priveliște la răsărit",
             "sunsetView": "Priveliște la apus"
         }
+    },
+    "banner": {
+        "callNow": "Sună Acum!",
+        "orMaybe": "Sau poate vrei să zbori cu parapanta?",
+        "bookAFlight": "Programează-te pentru tandem!"
+    },
+    "home": {
+        "hero": {
+            "title": "Cazare în Brașov Pentru Orice Ocazie",
+            "subtitle": "Poate că vrei să profiți de un weekend sau vrei să ieși cu familia, sau poate doar te-ai oprit din drumul tău prin Brașov, poate ai venit să zbori cu parapanta sau poate vrei să organizezi un teambuilding. Iarna la schi, vara pentru drumeții un eveniment sau un concert în zonă, te poți opri oricând să te cazezi.",
+            "reasons": {
+                "weekend": {
+                    "title": "Weekend de Relaxare",
+                    "description": "Profită de un weekend perfect în Brașov"
+                },
+                "family": {
+                    "title": "Ieșiri în Familie",
+                    "description": "Momente de neuitat alături de cei dragi"
+                },
+                "paragliding": {
+                    "title": "Zbor cu Parapanta",
+                    "description": "Experiențe unice în peisajele montane"
+                },
+                "teambuilding": {
+                    "title": "Teambuilding",
+                    "description": "Organizează evenimente corporative memorabile"
+                },
+                "winter": {
+                    "title": "Vacanțe de Iarnă",
+                    "description": "La schi pe cele mai frumoase pârtii"
+                },
+                "summer": {
+                    "title": "Drumeții de Vară",
+                    "description": "Explorează traseele montane spectaculoase"
+                },
+                "events": {
+                    "title": "Evenimente & Concerte",
+                    "description": "În apropierea celor mai importante atracții"
+                },
+                "stopover": {
+                    "title": "Oprire din Drum",
+                    "description": "O pauză confortabilă în călătoria ta"
+                }
+            },
+            "closing": {
+                "title": "Te Așteptăm Oricând",
+                "message": "Indiferent de sezon sau motiv, avem spațiul perfect pentru tine. Rezervă acum și bucură-te de o experiență de neuitat în Brașov."
+            }
+        }
     }
 }

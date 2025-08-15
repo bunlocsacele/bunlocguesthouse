@@ -4,14 +4,14 @@ import React from 'react';
 import { Box, Typography, Container, Card, CardContent } from '@mui/material';
 import {
     Weekend as WeekendIcon,
-    People as FamilyIcon,
-    Flight as FlightIcon,
     Groups as GroupsIcon,
     AcUnit as SkiIcon,
     Hiking as HikingIcon,
     Event as EventIcon,
     Home as HomeIcon
 } from '@mui/icons-material';
+import ParaglidingIcon from '@mui/icons-material/Paragliding';
+import { MdOutlineFamilyRestroom } from "react-icons/md";
 import { useTranslations } from 'next-intl';
 
 interface HomeHeroSectionProps {
@@ -34,12 +34,12 @@ const HomeHeroSection: React.FC<HomeHeroSectionProps> = ({
             descriptionKey: 'reasons.weekend.description'
         },
         {
-            icon: <FamilyIcon />,
+            icon: <MdOutlineFamilyRestroom size="2.5rem" />,
             titleKey: 'reasons.family.title',
             descriptionKey: 'reasons.family.description'
         },
         {
-            icon: <FlightIcon />,
+            icon: <ParaglidingIcon />,
             titleKey: 'reasons.paragliding.title',
             descriptionKey: 'reasons.paragliding.description'
         },
@@ -154,6 +154,9 @@ const HomeHeroSection: React.FC<HomeHeroSectionProps> = ({
                                         color: 'primary.main',
                                         mb: 2,
                                         '& .MuiSvgIcon-root': {
+                                            fontSize: '2.5rem'
+                                        },
+                                        '& svg': {
                                             fontSize: '2.5rem'
                                         }
                                     }}
