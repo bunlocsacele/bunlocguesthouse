@@ -12,7 +12,7 @@ import stradaSforii from '@/../public/images/Attractions/stradaSforii.jpg'
 import laculNoua from '@/../public/images/Attractions/laculNoua.jpg'
 import { useTranslations } from 'next-intl';
 import ContactBanner from '@/components/ContactBanner/ContactBanner';
-import HomeHeroSection from './facilities/FacilitiesPage';
+import HomeHeroSection from '@/components/HomeHeroSection/HomeHeroSection';
 
 
 type HomePageProps = {
