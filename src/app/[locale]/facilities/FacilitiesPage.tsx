@@ -213,7 +213,7 @@ const FacilitiesPage = ({ locale }: FacilitiesPageProps) => {
                         >
                             <Typography
                                 variant="h2"
-                                component="h1"
+                                component="h3"
                                 gutterBottom
                                 sx={{
                                     fontWeight: 'bold',

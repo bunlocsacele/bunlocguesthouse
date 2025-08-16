@@ -279,8 +279,8 @@ const RoomsPageComponent: React.FC<RoomsPageComponentProps> = ({ locale }) => {
                             }}
                         >
                             <Typography
-                                variant="h2"
-                                component="h1"
+                                variant="h3"
+                                component="h3"
                                 gutterBottom
                                 sx={{
                                     fontWeight: 'bold',
