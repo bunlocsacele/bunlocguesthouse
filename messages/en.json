@@ -152,5 +152,728 @@
                 "message": "Regardless of season or reason, we have the perfect space for you. Book now and enjoy an unforgettable experience in Brașov."
             }
         }
+    },
+    "blog": {
+        "jiujitsu": {
+            "title": "Jiu-Jitsu Competitions in Brașov: A Growing Tradition",
+            "subtitle": "Discover the history and evolution of Brazilian Jiu-Jitsu and Grappling competitions in the Brașov-Săcele region",
+            "chips": {
+                "location": "Brașov & Săcele",
+                "years": "2023-2025",
+                "sports": "BJJ & Grappling",
+                "events": "6+ Annual Competitions"
+            },
+            "introduction": {
+                "paragraph1": "Brașov and Săcele have become important centers for combat sports in recent years, especially for Brazilian Jiu-Jitsu and Grappling. With the organization of prestigious international competitions such as ADCC Romania Nationals and AJP Tour Romania, our region has established itself as a major hub for these disciplines in Eastern Europe.",
+                "paragraph2": "From modern sports halls in Săcele to the iconic 'Dumitru Popescu Colibași' arena in Brașov, these competitions have attracted hundreds of athletes from Romania and abroad, contributing to the development of a strong community of martial arts practitioners in our county. In 2025, the competition calendar has expanded with even more important events, confirming the region's status as a top destination for Jiu-Jitsu in Romania."
+            },
+            "competitions": {
+                "title": "Major Competition Timeline",
+                "2025": {
+                    "ajpTour": {
+                        "name": "AJP Tour Romania National Championship 2025",
+                        "date": "June 28-29, 2025",
+                        "location": "Sports Hall 'Dumitru Popescu Colibași', Brașov",
+                        "description": "The major event that transforms Brașov into the center of Brazilian Jiu-Jitsu in Romania.",
+                        "participants": "300+ athletes expected",
+                        "categories": "International - all categories"
+                    },
+                    "european": {
+                        "name": "European Youth Ju-Jitsu Championship 2025",
+                        "date": "March 21-23, 2025",
+                        "location": "Larnaca, Cyprus",
+                        "description": "European competition for U14, U16 and U18 categories with Romanian participation.",
+                        "participants": "Romanian delegation",
+                        "categories": "U14, U16, U18"
+                    },
+                    "adccWorld": {
+                        "name": "ADCC Amateur World Championship 2025",
+                        "date": "May 17-18, 2025",
+                        "location": "Warsaw, Poland",
+                        "description": "ADCC Amateur World Championship with Romanian participation.",
+                        "participants": "Qualified athletes",
+                        "categories": "Amateur world categories"
+                    }
+                },
+                "2024": {
+                    "ajpTour": {
+                        "name": "AJP Tour Romania National Championship 2024",
+                        "date": "June 22, 2024",
+                        "location": "Theoretical High School 'George Moroianu', Săcele",
+                        "description": "One of the most prestigious Jiu-Jitsu tournaments in the world taking place in Romania.",
+                        "participants": "200+ athletes",
+                        "categories": "All age and weight categories"
+                    },
+                    "adccNationals": {
+                        "name": "ADCC Romania Nationals 2024",
+                        "date": "June 1, 2024",
+                        "location": "George Moroianu Sports Hall, Săcele",
+                        "description": "The most prestigious grappling competition in Romania.",
+                        "participants": "150+ athletes",
+                        "categories": "Romanian citizens only"
+                    },
+                    "adccOpen": {
+                        "name": "ADCC Romania Open 2024",
+                        "date": "September 2024",
+                        "location": "Sports Hall 'Dumitru Popescu Colibași', Brașov",
+                        "description": "Competition open to all international athletes.",
+                        "participants": "250+ athletes",
+                        "categories": "International - all categories"
+                    },
+                    "europeanYouth": {
+                        "name": "European Youth Ju-Jitsu Championship 2024",
+                        "date": "April 4-7, 2024",
+                        "location": "Pitești Arena, Romania",
+                        "description": "Romania hosted the European Championship for U16, U18 and U21 categories.",
+                        "participants": "500+ European athletes",
+                        "categories": "U16, U18, U21"
+                    }
+                },
+                "2023": {
+                    "adccNationals": {
+                        "name": "ADCC Romania Nationals 2023",
+                        "date": "April 29, 2023",
+                        "location": "Sports Hall 'Dumitru Popescu Colibași', Brașov",
+                        "description": "The 2023 edition of the ADCC national tournament.",
+                        "participants": "120+ athletes",
+                        "categories": "National - all categories"
+                    },
+                    "nationalBjj": {
+                        "name": "Brazilian Jiu-Jitsu National Championship 2023",
+                        "date": "October 7, 2023",
+                        "location": "Brașov",
+                        "description": "The 5th edition of the National Championship organized by FRAM.",
+                        "participants": "180+ athletes",
+                        "categories": "National - all categories"
+                    }
+                }
+            },
+            "academies": {
+                "title": "Leading Local Academies",
+                "founderLabel": "Founder",
+                "roots": {
+                    "name": "Roots System Brașov",
+                    "founder": "Alexandru Constantin",
+                    "description": "Club founded by Alexandru Constantin, ADCC representative in Romania and main organizer of major competitions.",
+                    "speciality": "Brazilian Jiu-Jitsu & Grappling"
+                },
+                "absoluto": {
+                    "name": "Absoluto BJJ Romania",
+                    "location": "Brașov",
+                    "description": "One of the top academies in Romania with excellent results in national and international competitions.",
+                    "speciality": "Brazilian Jiu-Jitsu"
+                },
+                "icon": {
+                    "name": "Icon Jiu Jitsu Romania",
+                    "location": "Brașov",
+                    "description": "Academy with performance athletes who regularly participate in ADCC and AJP competitions.",
+                    "speciality": "Competition Team"
+                }
+            },
+            "photoSources": {
+                "title": "Image and Documentation Sources",
+                "adccInstagram": {
+                    "source": "Instagram ADCC Official",
+                    "url": "@adcc_official",
+                    "description": "Official ADCC page with photos and videos from competitions"
+                },
+                "ajpInstagram": {
+                    "source": "Instagram AJP Tour",
+                    "url": "@ajptour",
+                    "description": "Official AJP Tour page with over 11K posts and live coverage"
+                },
+                "ajpFacebook": {
+                    "source": "Facebook AJP Tour",
+                    "url": "Abu Dhabi Jiu-Jitsu Pro Tour",
+                    "description": "Facebook page with 19K+ likes and live coverage"
+                },
+                "smoothcomp": {
+                    "source": "Smoothcomp Event Photos",
+                    "url": "smoothcomp.com",
+                    "description": "Official platform for results and photos from competitions"
+                }
+            },
+            "status": {
+                "upcoming": "Upcoming",
+                "completed": "Completed"
+            },
+            "future": {
+                "title": "The Future of Jiu-Jitsu in Brașov",
+                "description": "With a continuously growing community and support from local authorities, Brașov and Săcele are ready to host even more international competitions in the coming years.",
+                "nextEvent": "🏆 2025 SUCCESS STORY:",
+                "eventName": "AJP Tour Romania National Championship 2025 - COMPLETED",
+                "eventDetails": "📅 June 28-29, 2025 | 📍 Sports Hall 'Dumitru Popescu Colibași', Brașov",
+                "eventInfo": "🥋 GI & No-GI | 🌍 Over 300 athletes from Romania and abroad participated successfully",
+                "conclusion": "Brașov continues to be the center of Romanian Jiu-Jitsu! Stay tuned for 2026 competition announcements!"
+            }
+        },
+        "paragliding": {
+            "title": "Paragliding World Cup Brașov 2023: Triumph at Bunloc",
+            "subtitle": "Discover the story of the first Paragliding World Cup hosted in Romania, at Bunloc-Săcele, Brașov",
+            "chips": {
+                "location": "Bunloc, Brașov",
+                "date": "June 24 - July 1, 2023",
+                "event": "PWC World Cup",
+                "participants": "International Pilots"
+            },
+            "introduction": {
+                "paragraph1": "For the first time in its history, Romania hosted a Paragliding World Cup (PWC) stage in June-July 2023, transforming Bunloc in Săcele, Brașov, into an epicenter of international free flight. The event marked a historic moment for Romania's paragliding community.",
+                "paragraph2": "Located in the heart of Transylvania, on the edge of the Carpathian Mountains, Brașov offered a unique combination of mountain flying with strong thermals (up to 7m/s) and flatland flying with gentler thermals, creating an ideal playground for the world's best pilots.",
+                "paragraph3": "The competition was organized with support from the Bunloc chairlift and local Brașov authorities, demonstrating the city's commitment to extreme sports and adventure tourism. Pilots had the opportunity to fly over Bran Castle, also known as Dracula's Castle."
+            },
+            "results": {
+                "title": "World Championship Results",
+                "men": "Men's Classification",
+                "women": "Women's Classification"
+            },
+            "tasks": {
+                "title": "Competition Tasks",
+                "task": "Task",
+                "task1": {
+                    "date": "Tuesday, June 27, 2023",
+                    "description": "First valid task with blue skies and puffy clouds, offering ideal flying conditions.",
+                    "type": "3-Turnpoint Course"
+                },
+                "task2": {
+                    "date": "Friday, June 30, 2023",
+                    "description": "Out-and-return course northward with strong altitude winds and major tactical challenges.",
+                    "type": "Out-and-Return Course"
+                },
+                "task3": {
+                    "date": "Saturday, July 1, 2023",
+                    "description": "Final task that established the overall classification with varied weather conditions.",
+                    "type": "Closing Course"
+                }
+            },
+            "flyingSpots": {
+                "title": "Flying Spots in the Brașov Region",
+                "bunloc": {
+                    "name": "Bunloc",
+                    "altitude": "Takeoff: 1200m | Landing: 700m",
+                    "description": "The most popular tandem flying spot in Romania, accessible by chairlift.",
+                    "features": "Views over Brașov, Săcele and the Bucegi Mountains"
+                },
+                "postavaru": {
+                    "name": "Postăvaru Peak",
+                    "altitude": "Takeoff: 1800m | Landing: Poiana Brașov",
+                    "description": "Spectacular flight from Postăvaru peak height with strong thermals.",
+                    "features": "Ideal for winter flights and long-duration flights"
+                },
+                "piatra": {
+                    "name": "Piatra Craiului",
+                    "altitude": "Takeoff: 1251m | Views from 2200m+",
+                    "description": "Ideal area for long flights with views towards Bran Castle.",
+                    "features": "Flying over gorges and forests in spectacular landscapes"
+                }
+            },
+            "photoSources": {
+                "title": "Image and Documentation Sources",
+                "pwcaInstagram": {
+                    "source": "Official PWCA Instagram",
+                    "url": "@officialparaglidingworldcup",
+                    "description": "Official Paragliding World Cup page with 25K+ followers"
+                },
+                "xcmag": {
+                    "source": "Cross Country Magazine",
+                    "url": "xcmag.com",
+                    "description": "Detailed articles and reports about the Brașov competition"
+                },
+                "paramania": {
+                    "source": "Paramania Brașov",
+                    "url": "paramania.ro",
+                    "description": "Local paragliding school with photos from the Bunloc area"
+                },
+                "happycloud": {
+                    "source": "HappyCloud Brașov",
+                    "url": "happycloud.ro",
+                    "description": "Local tandem flight operator with competition images"
+                }
+            },
+            "legacy": {
+                "title": "Championship Legacy",
+                "description": "The success of the 2023 Brașov Paragliding World Cup put Romania on the international free flight map, inspiring a new generation of Romanian pilots and consolidating the country's reputation as a top destination for extreme sports.",
+                "highlight": "🏆 HISTORIC MOMENT:",
+                "achievement": "Andrei Gaia becomes the first Romanian pilot to win a PWC stage on home soil",
+                "impact": "🌍 Romania officially recognized as PWC destination | 🪂 Increased interest in paragliding in Transylvania",
+                "future": "Brașov remains an important hub for international paragliding, with potential for future major events!"
+            }
+        },
+        "marathons": {
+            "title": "Annual Marathons in Brașov: Running Through the Carpathians",
+            "subtitle": "Discover the mountain and urban running events that transform Brașov into a paradise for runners",
+            "chips": {
+                "location": "Brașov & Surroundings",
+                "years": "2023-2025",
+                "sports": "Trail & Road Running",
+                "terrain": "Mountain & Urban"
+            },
+            "introduction": {
+                "paragraph1": "Brașov has established itself as one of Romania's most important running centers, annually hosting spectacular events that combine mountain challenges with the beauty of Carpathian landscapes. From extreme marathons on mountain ridges to urban races through the historic center, the region offers unique experiences for runners of all levels.",
+                "paragraph2": "The trails around Brașov traverse iconic areas such as Tâmpa, Postăvaru, Piatra Craiului, and the Southern Carpathians, offering participants spectacular views and varied technical challenges. These competitions attract thousands of runners from Romania and abroad, consolidating the city's reputation as a top destination for endurance sports.",
+                "paragraph3": "In recent years, the competition calendar has been enriched with diverse events - from 100+ km ultra-marathons to night races under starlight, from elite international competitions to races for children and people with disabilities, demonstrating that running in Brașov is truly for everyone."
+            },
+            "sections": {
+                "upcoming2025": "Upcoming Events 2025",
+                "completed2025": "Completed Events 2025",
+                "year2024": "2024 Retrospective",
+                "year2023": "2023 Retrospective"
+            },
+            "status": {
+                "upcoming": "Upcoming",
+                "completed": "Completed",
+                "past": "Past"
+            },
+            "events": {
+                "nightChallenge2025": {
+                    "name": "Brașov Marathon Night Challenge 2025",
+                    "date": "October 25, 2025",
+                    "location": "Tiberiu Brediceanu Alley, under Tâmpa",
+                    "distance": "Marathon, Half Marathon, 10K, 5K",
+                    "description": "Nocturnal mountain running competition under moonlight and starlight. A unique experience on the trails around Tâmpa."
+                },
+                "brasovMarathon2025": {
+                    "name": "Brașov Marathon 2025",
+                    "date": "June 1, 2025",
+                    "location": "Council Square - Tâmpa - Postăvaru",
+                    "distance": "41 km",
+                    "elevation": "2,200 m elevation gain",
+                    "description": "The 14th edition of Romania's most challenging mountain marathon, with start and finish in Council Square."
+                },
+                "brasovRunning2025": {
+                    "name": "Brașov Running Festival 2025",
+                    "date": "September 21-22, 2025",
+                    "location": "Coresi District, Brașov",
+                    "distance": "10K Elite, 5K, 1 Mile, 1200m",
+                    "description": "The most important road athletics event in Southeast Europe, with $50,000 prize money and international TV broadcasts."
+                },
+                "carpathiaTrails2025": {
+                    "name": "Carpathia Trails 2025",
+                    "date": "July 5, 2025",
+                    "location": "Cheile Grădiștei, Fundata",
+                    "distance": "23K, 50K, 82K, 102K",
+                    "description": "Spectacular ultra-trail through three mountain ranges: Bucegi, Piatra Craiului, and Leaota. ITRA points and UTMB index."
+                },
+                "semimaraton2025": {
+                    "name": "Brașov Half Marathon 2025",
+                    "date": "April 12, 2025",
+                    "location": "Brașov City Center",
+                    "distance": "21.1 km",
+                    "description": "Urban half marathon through Brașov's historic center, eco-friendly event with focus on sustainability."
+                },
+                "brasovMarathon2024": {
+                    "name": "Brașov Marathon 2024",
+                    "date": "June 1, 2024",
+                    "location": "Council Square - Tâmpa - Postăvaru",
+                    "distance": "41 km",
+                    "description": "The 13th edition with over 1,000 participants from 25 countries, confirming its international competition status."
+                },
+                "brasovRunning2024": {
+                    "name": "Brașov Running Festival 2024",
+                    "date": "September 21-22, 2024",
+                    "location": "Coresi District",
+                    "distance": "10K, 5K, 1 Mile",
+                    "description": "World Athletics Elite Label event with participation of the world's best runners and course records."
+                },
+                "brasovMarathon2023": {
+                    "name": "Brașov Marathon 2023",
+                    "date": "June 3, 2023",
+                    "location": "Council Square - Tâmpa - Postăvaru",
+                    "distance": "41 km",
+                    "description": "The 12th edition that consolidated the event's international reputation with perfect weather conditions."
+                },
+                "pietraCraiului2023": {
+                    "name": "Piatra Craiului Marathon 2023",
+                    "date": "September 30, 2023",
+                    "location": "Zărnești - Piatra Craiului",
+                    "distance": "42K, 21K, 10K",
+                    "description": "The 16th edition of the CarpathianMan marathon through the spectacular Piatra Craiului massif."
+                }
+            },
+            "trailLocations": {
+                "title": "Running Areas in Brașov",
+                "tampa": {
+                    "name": "Tâmpa Massif",
+                    "description": "Brașov's iconic mountain, with varied trails from easily accessible to challenging.",
+                    "features": "Brașov Sign, Serpentine Road, panoramic views over the city"
+                },
+                "postavaru": {
+                    "name": "Postăvaru Peak",
+                    "description": "The highest peak in the Brașov area (1799m), the ultimate destination for mountain runners.",
+                    "features": "Brașov Cable Car, technical trails, alpine conditions, 360° views"
+                },
+                "pietraCraiului": {
+                    "name": "Piatra Craiului",
+                    "description": "National park with spectacular trails through gorges and limestone ridges.",
+                    "features": "Zărnești Gorges, Omu Peak, protected flora and fauna, Bran Castle"
+                },
+                "centruIstoric": {
+                    "name": "Brașov Historic Center",
+                    "description": "Urban routes through Romania's most beautiful medieval center.",
+                    "features": "Council Square, Black Church, Rope Street, Saxon architecture"
+                }
+            },
+            "future": {
+                "title": "The Future of Running in Brașov",
+                "description": "With a continuously growing community and support from local authorities, Brașov is preparing to host even more international running events in the coming years.",
+                "highlight": "🏃‍♂️ NEXT MAJOR EVENT:",
+                "nextEvent": "Brașov Marathon Night Challenge 2025",
+                "eventDetails": "📅 October 25, 2025 | 🌙 Night running under Tâmpa | 🏔️ Mountain trail with spectacular views",
+                "conclusion": "Brașov continues to be Romania's mountain running capital, with world-class events!"
+            }
+        },
+        "mountainTrails": {
+            "title": "Mountain Trails Near Brașov: Complete Hiking Guide",
+            "subtitle": "Discover spectacular hiking trails in the Carpathian Mountains, from beginner-friendly urban climbs to challenging alpine adventures",
+            "chips": {
+                "location": "Brașov Region",
+                "region": "Carpathian Mountains",
+                "difficulty": "All Skill Levels",
+                "massifs": "5 Major Massifs"
+            },
+            "introduction": {
+                "paragraph1": "Brașov is perfectly positioned at the foothills of five major mountain massifs: Tâmpa, Postăvaru, Piatra Craiului, Piatra Mare, and Bucegi. This unique location makes it one of Romania's premier hiking destinations, offering everything from easy urban mountain trails to challenging multi-day alpine adventures.",
+                "paragraph2": "The region features over 200 marked hiking trails, ranging from 1-hour city escapes to 12-hour mountain expeditions. With well-maintained trail markings, mountain huts, and rescue services, the Brașov area provides safe and accessible mountain experiences for hikers of all levels.",
+                "paragraph3": "Our comprehensive guide covers the most popular and rewarding trails, organized by difficulty level, with detailed information on distances, elevation gains, seasonal access, and essential safety information for planning your Carpathian mountain adventure."
+            },
+            "sections": {
+                "beginnerFriendly": "Beginner-Friendly Trails",
+                "intermediate": "Intermediate Trails",
+                "advanced": "Advanced Trails"
+            },
+            "trails": {
+                "tampa": {
+                    "name": "Tâmpa Massif",
+                    "description": "Brașov's iconic mountain, with varied trails from easily accessible to challenging. The most popular starting point for hiking in Brașov.",
+                    "features": "Brașov Sign, Serpentine Road, panoramic views over the city, optional cable car",
+                    "highlights": "Brașov Sign, city panorama, cable car option, forest trails",
+                    "wildlife": "Brown bears (rare), birds, deer"
+                },
+                "sevenLadders": {
+                    "name": "Seven Ladders Canyon",
+                    "description": "Romania's most famous canyon, carved in Jurassic limestone. Offers a unique climbing experience through rocks and waterfalls.",
+                    "features": "9 metal ladders, 7 waterfalls, limestone canyon, entrance fee required",
+                    "highlights": "9 metal ladders, 7 waterfalls, limestone canyon, entrance fee required",
+                    "wildlife": "Mountain streams, forest birds, small mammals"
+                },
+                "pietraCraiului": {
+                    "name": "Piatra Craiului",
+                    "description": "National park with spectacular trails through gorges and limestone ridges. One of Romania's most beloved hiking destinations.",
+                    "features": "Zărnești Gorges, La Om Peak, protected flora and fauna, Curmătura Hut",
+                    "highlights": "Limestone ridge, Curmătura Hut, alpine meadows, National Park",
+                    "wildlife": "Chamois, bears, lynx, eagles"
+                },
+                "postavaru": {
+                    "name": "Postăvaru Peak",
+                    "description": "The highest peak in the Brașov area (1799m), the ultimate destination for mountain runners with spectacular views.",
+                    "features": "Brașov Cable Car, technical trails, alpine conditions, 360° views",
+                    "highlights": "360° views, ski resort access, cable car option, winter sports",
+                    "wildlife": "Mountain birds, deer, forest animals"
+                },
+                "bucegi": {
+                    "name": "Bucegi Mountains",
+                    "description": "Spectacular massif with Omu Peak, Romania's second highest peak. Offers classic alpine routes and unique rock formations.",
+                    "features": "The Sphinx and Babele, Heroes' Cross, Bucegi plateau, mountain huts",
+                    "highlights": "Highest peak in area, Sphinx & Babele, alpine plateau, mountain huts",
+                    "wildlife": "Mountain goats, eagles, marmots, alpine plants"
+                }
+            },
+            "common": {
+                "elevation": "Elevation",
+                "distance": "Distance",
+                "duration": "Duration",
+                "fees": "Fees",
+                "highlights": "Highlights",
+                "features": "Features",
+                "wildlife": "Wildlife",
+                "expertOnly": "Expert Only"
+            },
+            "safety": {
+                "title": "Essential Safety Information",
+                "bearSafety": {
+                    "title": "Bear Safety",
+                    "description": "Make noise while hiking, carry bear spray, never feed wildlife"
+                },
+                "weather": {
+                    "title": "Weather Awareness",
+                    "description": "Mountain weather changes rapidly, check forecasts and carry rain gear"
+                },
+                "trailMarkings": {
+                    "title": "Trail Markings",
+                    "description": "Follow colored triangle/stripe markings: Red, Blue, Yellow on white backgrounds"
+                },
+                "emergency": {
+                    "title": "Emergency Contacts",
+                    "description": "Salvamont (Mountain Rescue): 0SALVAMONT (725826668)"
+                }
+            },
+            "gear": {
+                "title": "Essential Hiking Gear",
+                "essential": "Essential",
+                "recommended": "Recommended",
+                "items": {
+                    "item1": "Hiking boots with good grip",
+                    "item2": "Weather-appropriate clothing layers",
+                    "item3": "Rain jacket and pants",
+                    "item4": "Headlamp/flashlight",
+                    "item5": "First aid kit",
+                    "item6": "Map and compass/GPS",
+                    "item7": "Sufficient water (3L+ for long hikes)",
+                    "item8": "High-energy snacks",
+                    "item9": "Emergency whistle",
+                    "item10": "Sunscreen and sunglasses"
+                }
+            },
+            "seasons": {
+                "title": "Best Hiking Season",
+                "description": "With a moderate continental climate and four distinct seasons, the Brașov region offers year-round hiking opportunities.",
+                "bestTime": {
+                    "title": "🏔️ OPTIMAL SEASON:",
+                    "period": "May - October",
+                    "description": "📅 Stable weather | 🌡️ Pleasant temperatures | 🌸 Flora in bloom | ❄️ No snow at low altitudes"
+                },
+                "conclusion": "Brașov remains Romania's top mountain hiking destination, with trails for every skill level!"
+            }
+        },
+        "eventsConcerts": {
+            "title": "Events & Concerts in Brașov: Complete 2025 Guide",
+            "subtitle": "Discover epic festivals, live concerts, cultural events and traditional markets in the heart of Transylvania",
+            "chips": {
+                "location": "Brașov & Surroundings",
+                "timeframe": "Aug 2025 - Jan 2026",
+                "events": "50+ Events",
+                "genres": "All Genres"
+            },
+            "currentDate": "Today: August 16, 2025",
+            "nextEvents": "Next major events are approaching!",
+            "introduction": {
+                "paragraph1": "Brașov is one of Romania's most vibrant cultural destinations, hosting over 50 major events annually. From medieval festivals in historic fortresses to international rock concerts and charming Christmas markets, Brașov's events scene offers something for every musical and cultural taste.",
+                "paragraph2": "With iconic venues like Sala Patria, Council Square, and Râșnov Citadel, the city perfectly combines historic heritage with modern entertainment. Whether you're passionate about metal, jazz, theater, or horror films, Brașov's 2025 events calendar promises unforgettable experiences.",
+                "paragraph3": "Our guide covers all major upcoming events from August 2025, organized chronologically to help you perfectly plan your cultural weekends and holidays in Transylvania."
+            },
+            "sections": {
+                "upcomingAugust": "🔥 Imminent Events - August 2025",
+                "fallEvents": "🍂 Fall Events",
+                "winterEvents": "❄️ Winter Events",
+                "regularEvents": "📅 Regular & Smaller Events"
+            },
+            "events": {
+                "teutonicFest": {
+                    "name": "Teutonic Fest Hărman 2025",
+                    "description": "Authentic medieval festival in Hărman Fortress, celebrating 800 years since the city's founding by the Teutonic Knights. Two days of time travel to the 13th century.",
+                    "features": "Sword fighting, knightly tournaments, archery, medieval music, craft workshops, historical camp, medieval gastronomy",
+                    "headliners": "Historical reenactment groups: ANACRONISM, Terra Ultrasilvana, Knights from Călata Land, Truverii (medieval music)"
+                },
+                "concertEstival": {
+                    "name": "Summer Concert with Trei Parale Band",
+                    "description": "Outdoor summer concert with one of Romania's most beloved folk bands, in the romantic atmosphere of the Artists' Bastion.",
+                    "features": "Acoustic concert, Romanian folk repertoire, intimate atmosphere, historic venue",
+                    "headliners": "Trei Parale Band - Romanian folk music"
+                },
+                "alifantisZan": {
+                    "name": "Alifantis & Zan Anniversary Tour - 30 Years",
+                    "description": "Spectacular anniversary concert celebrating 30 years of musical collaboration between two titans of Romanian music, at the prestigious Sala Patria.",
+                    "features": "Anniversary repertoire, hits from 3 decades, extended band, special video projections",
+                    "headliners": "Nicu Alifantis & Adrian Zan - Romanian music legends"
+                },
+                "draculaFilm": {
+                    "name": "Dracula Film Festival 2025",
+                    "description": "International horror and fantasy film festival, now a tradition in Dracula's city. Screenings, awards, and themed events in multiple venues.",
+                    "features": "International horror films, Romanian short films, Dracula Digital section, themed events",
+                    "headliners": "International directors, horror actors, award-winning films"
+                },
+                "christmasMarket": {
+                    "name": "Brașov Christmas Market",
+                    "description": "The most beautiful Christmas market in Transylvania, in Council Square. Traditional huts, local crafts, mulled wine and charming holiday atmosphere.",
+                    "features": "Traditional wooden huts, handmade crafts, mulled wine and sweet bread, carol concerts, children's activities",
+                    "headliners": "Folk artisans, carol concerts, children's shows"
+                },
+                "operaFestival": {
+                    "name": "Brașov Opera Festival",
+                    "description": "Annual opera festival with prestigious Romanian and international artists, celebrating classical music excellence in Transylvania.",
+                    "features": "Classical and contemporary operas, international artists, Brașov Philharmonic Orchestra",
+                    "headliners": "Romanian and international opera singers, renowned conductors"
+                },
+                "jazzClub": {
+                    "name": "Jazz Nights Brașov",
+                    "description": "Jazz evenings every Friday in various venues throughout the city. From traditional jazz to modern fusion, for true genre lovers.",
+                    "features": "Live jazz, intimate atmosphere, local and guest artists, varied repertoire",
+                    "headliners": "Local jazz musicians and special guests"
+                },
+                "weekendMarkets": {
+                    "name": "Weekend Markets",
+                    "description": "Regular food and craft markets every weekend in Central Park. Local products, street food and relaxed weekend atmosphere.",
+                    "features": "Local street food, handmade crafts, local products, children's activities",
+                    "headliners": "Local producers, street food chefs, folk artisans"
+                }
+            },
+            "status": {
+                "imminent": "IMMINENT",
+                "confirmed": "Confirmed",
+                "planned": "Planned",
+                "annual": "Annual",
+                "recurring": "Recurring"
+            },
+            "common": {
+                "daysLeft": "days left",
+                "tickets": "Tickets",
+                "attendance": "Attendance",
+                "highlights": "Highlights",
+                "features": "Features"
+            },
+            "venues": {
+                "title": "Popular Venues in Brașov",
+                "salaPatria": {
+                    "name": "Sala Patria",
+                    "type": "Concert Hall & Theater",
+                    "description": "Brașov's premium venue for concerts and theater performances, with excellent acoustics and elegant atmosphere."
+                },
+                "councilSquare": {
+                    "name": "Council Square",
+                    "type": "Central Square & Outdoor Venue",
+                    "description": "The historic heart of Brașov, host to outdoor concerts, fairs and major cultural events."
+                },
+                "cetateaRasnov": {
+                    "name": "Râșnov Citadel",
+                    "type": "Historic Venue & Festival",
+                    "description": "Spectacular medieval fortress, the perfect location for major festivals like Rockstadt Extreme Fest."
+                },
+                "bastionulArtistilor": {
+                    "name": "Artists' Bastion",
+                    "type": "Intimate & Cultural Venue",
+                    "description": "Cultural and artistic space in the medieval fortifications, ideal for acoustic concerts and intimate events."
+                }
+            },
+            "planning": {
+                "title": "Plan Your Cultural Experience",
+                "description": "With events almost every weekend, Brașov offers a vibrant cultural scene throughout the year. From medieval festivals to rock concerts and film events.",
+                "nextEvent": {
+                    "title": "NEXT MAJOR EVENT",
+                    "event": "Teutonic Fest Hărman - August 23-24, 2025",
+                    "details": "🏰 Authentic medieval festival | ⚔️ Sword fighting | 🎭 Historical reenactments | 🍖 Medieval gastronomy"
+                },
+                "conclusion": "Brașov remains Transylvania's cultural capital, with events for all tastes and ages!"
+            }
+        },
+        "tiroliana7Scari": {
+            "title": "Tiroliana 7 Scări: Romania's Longest Zipline Adventure",
+            "subtitle": "Experience the adrenaline rush on 3,874 meters of zipline through the Piatra Mare Mountains forests, starting from the famous Seven Ladders Canyon",
+            "chips": {
+                "length": "length",
+                "sections": "sections",
+                "maxSpeed": "max speed",
+                "location": "Piatra Mare Mountains"
+            },
+            "status": {
+                "open": "OPEN - 2025 season has started!",
+                "season": "Period: May - October",
+                "booking": "Bookings made cash on-site"
+            },
+            "introduction": {
+                "paragraph1": "Tiroliana 7 Scări is Romania's longest and most spectacular zipline installation, with a total length of 3,874 meters distributed across 37 sections through the virgin forests of the Piatra Mare Massif. This unique adventure begins right at the famous Seven Ladders Canyon and takes you on an unforgettable aerial journey through the wild nature of the Carpathians.",
+                "paragraph2": "Built in stages between 2013 and 2018, the zipline offers a complete 2-3 hour experience, with speeds that can reach up to 40 km/h on the longest sections. The route largely follows the traditional tourist trail, offering spectacular views over the Șipoaia stream, waterfalls and Jurassic limestone rock formations.",
+                "paragraph3": "Located just 30 minutes from Brașov, in Dâmbul Morii village, Tiroliana 7 Scări has become one of the main adventure attractions in Transylvania, annually attracting tens of thousands of thrill-seekers from across the country and abroad."
+            },
+            "specs": {
+                "title": "Technical Specifications and Requirements",
+                "technical": "Technical Data",
+                "totalLength": "Total Length",
+                "sections": "Sections",
+                "maxSpeed": "Maximum Speed",
+                "altitude": "Altitude"
+            },
+            "requirements": {
+                "title": "Access Requirements",
+                "weight": "Weight",
+                "height": "Height",
+                "age": "Minimum Age",
+                "fitness": "Physical Fitness"
+            },
+            "options": {
+                "title": "Adventure Options",
+                "recommended": "RECOMMENDED",
+                "fullCourse": {
+                    "name": "Full Course",
+                    "description": "The complete experience on all 37 sections, through spruce forests and over spectacular waterfalls. For true adventurers!"
+                },
+                "halfCourse": {
+                    "name": "Half Course",
+                    "description": "Covering approximately half the route, ideal for beginners or those with limited time."
+                },
+                "childrenCourse": {
+                    "name": "Children's Course",
+                    "description": "Special course designed for children aged 7-14, with 4 short and safe sections, under instructor supervision."
+                }
+            },
+            "common": {
+                "duration": "Duration",
+                "sections": "Sections",
+                "distance": "Distance"
+            },
+            "pricing": {
+                "title": "Prices and Schedule 2025",
+                "ziplineTitle": "Zipline Rates",
+                "fullCourse": "Full Course",
+                "fullCourseDesc": "All 37 sections (3,874m)",
+                "halfCourse": "Half Course",
+                "halfCourseDesc": "Approximately 18 sections (~1,900m)",
+                "childrenCourse": "Children's Course",
+                "childrenCourseDesc": "4 sections for children (30 min)",
+                "canyonTitle": "Seven Ladders Canyon Rates",
+                "canyonAdults": "Adults",
+                "canyonChildren": "Children/Students"
+            },
+            "schedule": {
+                "title": "Schedule and Information",
+                "daily": "Daily Schedule",
+                "lastEntry": "Last Canyon Entry",
+                "lastDescent": "Last Zipline Descent",
+                "season": "Open Season"
+            },
+            "safety": {
+                "title": "Safety and Mandatory Regulations",
+                "equipment": {
+                    "title": "Safety Equipment",
+                    "description": "Complete equipment (harness, helmet, gloves) is included in the price and is mandatory. Basic instruction is provided free by certified instructors."
+                },
+                "instruction": {
+                    "title": "Mandatory Instructions",
+                    "description": "All participants receive detailed instructions on braking technique and zipline behavior. Following instructions is mandatory."
+                },
+                "assistance": {
+                    "title": "Professional Assistance",
+                    "description": "Qualified instructors are present on the route for assistance and emergency interventions. Children under 14 must be accompanied by adults."
+                },
+                "emergency": {
+                    "title": "Emergency Procedures",
+                    "description": "Salvamont Săcele provides emergency services. Emergency number: 112. First aid available at the entrance cabin."
+                }
+            },
+            "practical": {
+                "title": "Practical Information",
+                "howToGet": "How to Get There",
+                "directions": "📍 From Brașov: DN1 towards Predeal, Dâmbul Morii exit (30 min by car). From Brașov Station: bus 17B to Dâmbul Morii stop.",
+                "parking": "🚗 Free parking available at Dâmbul Morii. In season (July-August) and weekends we recommend arriving in the morning to find parking space.",
+                "publicTransport": "🚌 Public transport: Bus 17B from Brașov Station with direct stop in Dâmbul Morii. Buses run frequently during the day.",
+                "whatToBring": "What to Bring",
+                "equipment": {
+                    "item1": "Hiking boots or shoes with grip sole (mandatory)",
+                    "item2": "Comfortable sportswear for movement",
+                    "item3": "Waterproof jacket (in case of rain)",
+                    "item4": "ID card or passport (mandatory for equipment rental)",
+                    "item5": "Water and energy snacks for the route",
+                    "item6": "Camera (with safety neck strap)"
+                }
+            },
+            "summary": {
+                "title": "The Tiroliana 7 Scări Experience",
+                "description": "A unique aerial adventure through the most beautiful mountain massif near Brașov, combining the adrenaline of speed with the beauty of the Carpathians' virgin nature.",
+                "highlight": {
+                    "title": "COMPLETE EXPERIENCE",
+                    "experience": "3,874m of flight through Piatra Mare forests",
+                    "details": "⚡ 37 sections | 🏔️ Spectacular views | 💨 Up to 40 km/h | 🌲 Through virgin nature"
+                },
+                "conclusion": "Tiroliana 7 Scări remains Romania's most spectacular aerial adventure!"
+            }
+        }
     }
 }
