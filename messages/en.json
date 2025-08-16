@@ -28,6 +28,12 @@
             "utensils": "Utensils",
             "upTo20Seats": "Up to 20 seats",
             "fridge": "Fridge"
+        },
+        "bottomSection": {
+            "title": "Complete Facilities for Every Need",
+            "subtitle": "Everything You Need for a Perfect Stay",
+            "description": "Our facilities are designed to provide comfort and entertainment for all ages and occasions. From romantic bonfire under the stars to conference space for business meetings, birthday parties with friends, anniversary celebrations, and BBQ gatherings, we have everything you need.",
+            "additionalInfo": "Whether you're coming for a family vacation, corporate teambuilding, romantic getaway, celebrating a special birthday, anniversary milestone, or hosting a BBQ party, our modern and versatile facilities will make your stay memorable and comfortable."
         }
     },
     "attractions": {
@@ -90,6 +96,12 @@
             "mountainView": "Mountain View",
             "sunriseView": "Sunrise View",
             "sunsetView": "Sunset View"
+        },
+        "bottomSection": {
+            "title": "Comfortable Rooms for Every Group",
+            "subtitle": "Perfect Spaces for Rest and Relaxation",
+            "description": "Our rooms are designed to provide maximum comfort and tranquility for all types of travelers. From twin rooms for friends to spacious family rooms, each space is equipped with all modern amenities needed for a pleasant stay.",
+            "additionalInfo": "Whether you're traveling solo, as a couple, with family, or with friends, our rooms offer privacy, comfort, and spectacular mountain views. Each room features a personal balcony and access to all property facilities."
         }
     },
     "banner": {

@@ -28,6 +28,12 @@
             "utensils": "Ustensiles",
             "upTo20Seats": "Jusqu'à 20 places",
             "fridge": "Réfrigérateur"
+        },
+        "bottomSection": {
+            "title": "Installations Complètes pour Tous les Besoins",
+            "subtitle": "Tout Ce Dont Vous Avez Besoin pour un Séjour Parfait",
+            "description": "Nos installations sont conçues pour offrir confort et divertissement pour tous les âges et toutes les occasions. Du feu de camp romantique sous les étoiles à l'espace conférence pour les réunions d'affaires, fêtes d'anniversaire entre amis, célébrations d'anniversaires de mariage, et rassemblements barbecue, nous avons tout ce qu'il vous faut.",
+            "additionalInfo": "Que vous veniez pour des vacances en famille, un team building d'entreprise, une escapade romantique, célébrer un anniversaire spécial, un anniversaire de mariage mémorable, ou organiser une fête barbecue, nos installations modernes et polyvalentes rendront votre séjour mémorable et confortable."
         }
     },
     "attractions": {
@@ -90,6 +96,12 @@
             "mountainView": "Vue sur la Montagne",
             "sunriseView": "Vue sur le Lever du Soleil",
             "sunsetView": "Vue sur le Coucher du Soleil"
+        },
+        "bottomSection": {
+            "title": "Chambres Confortables pour Tout Groupe",
+            "subtitle": "Espaces Parfaits pour le Repos et la Détente",
+            "description": "Nos chambres sont conçues pour offrir un maximum de confort et de tranquillité à tous types de voyageurs. Des chambres twin pour amis aux chambres familiales spacieuses, chaque espace est équipé de tous les équipements modernes nécessaires pour un séjour agréable.",
+            "additionalInfo": "Que vous voyagiez seul, en couple, en famille ou entre amis, nos chambres offrent intimité, confort et vues spectaculaires sur la montagne. Chaque chambre dispose d'un balcon personnel et d'un accès à toutes les installations de la propriété."
         }
     },
     "banner": {

@@ -14,11 +14,8 @@ import {
     ExpandMore,
     RadioButtonUnchecked,
     RadioButtonChecked,
-    Whatshot,
     OutdoorGrill,
-    MeetingRoom,
     Kitchen,
-    Deck
 } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
 import { Chair, ConferenceIcon, FirepitIcon } from '@/components/CustomIcons/CustomIcons';
@@ -355,6 +352,72 @@ const FacilitiesPage = ({ locale }: FacilitiesPageProps) => {
                 </Box>
 
             ))}
+
+            {/* Bottom Information Section */}
+            <Box
+                component="section"
+                sx={{
+                    py: { xs: 6, md: 8 },
+                    backgroundColor: 'background.default',
+                    borderTop: '1px solid',
+                    borderColor: 'divider'
+                }}
+            >
+                <Container maxWidth="lg">
+                    <Box sx={{ textAlign: 'center', maxWidth: '800px', mx: 'auto' }}>
+                        <Typography
+                            variant="h1"
+                            component="h1"
+                            sx={{
+                                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+                                fontWeight: 700,
+                                color: 'primary.main',
+                                mb: 3,
+                                lineHeight: 1.2
+                            }}
+                        >
+                            {t('bottomSection.title')}
+                        </Typography>
+
+                        <Typography
+                            variant="h2"
+                            component="h2"
+                            sx={{
+                                fontSize: { xs: '1.5rem', md: '2rem' },
+                                fontWeight: 600,
+                                color: 'text.primary',
+                                mb: 4,
+                                lineHeight: 1.3
+                            }}
+                        >
+                            {t('bottomSection.subtitle')}
+                        </Typography>
+
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                fontSize: { xs: '1rem', md: '1.125rem' },
+                                color: 'text.secondary',
+                                lineHeight: 1.6,
+                                mb: 2
+                            }}
+                        >
+                            {t('bottomSection.description')}
+                        </Typography>
+
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                fontSize: { xs: '1rem', md: '1.125rem' },
+                                color: 'text.secondary',
+                                lineHeight: 1.6
+                            }}
+                        >
+                            {t('bottomSection.additionalInfo')}
+                        </Typography>
+                    </Box>
+                </Container>
+            </Box>
         </>
     );
 };

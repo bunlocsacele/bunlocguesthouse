@@ -28,6 +28,12 @@
             "utensils": "Ustensile",
             "upTo20Seats": "Până la 20 de locuri",
             "fridge": "Frigider"
+        },
+        "bottomSection": {
+            "title": "Facilități Complete Pentru Orice Nevoie",
+            "subtitle": "Tot ce ai nevoie pentru o ședere perfectă",
+            "description": "Facilitățile noastre sunt concepute pentru a oferi confort și distracție pentru toate vârstele și ocaziile. De la focul de tabără romantic sub stele până la spațiul de conferință pentru întâlniri de afaceri, petreceri de ziua de naștere cu prietenii, sărbătoriri de aniversări, și întâlniri la grătar, avem tot ce îți trebuie.",
+            "additionalInfo": "Indiferent dacă vii pentru o vacanță în familie, un teambuilding corporativ, o escapadă romantică, sărbătorirea unei zile de naștere speciale, o aniversare memorabilă, sau organizarea unei petreceri la grătar, facilitățile noastre moderne și versatile îți vor face șederea memorabilă și confortabilă."
         }
     },
     "attractions": {
@@ -90,6 +96,12 @@
             "mountainView": "Vedere la Munte",
             "sunriseView": "Priveliște la răsărit",
             "sunsetView": "Priveliște la apus"
+        },
+        "bottomSection": {
+            "title": "Camere Confortabile Pentru Orice Grup",
+            "subtitle": "Spații perfecte pentru odihnă și relaxare",
+            "description": "Camerele noastre sunt concepute pentru a oferi confort maxim și liniște pentru toate tipurile de călători. De la camere twin pentru prieteni la camere familiale spațioase, fiecare spațiu este echipat cu toate facilitățile moderne necesare pentru o ședere plăcută.",
+            "additionalInfo": "Indiferent dacă călătorești singur, în cuplu, cu familia sau cu prietenii, camerele noastre oferă intimitate, confort și priveliști spectaculoase la munte. Fiecare cameră dispune de balcon personal și acces la toate facilitățile proprietății."
         }
     },
     "banner": {
@@ -100,7 +112,7 @@
     "home": {
         "hero": {
             "title": "Cazare în Brașov Pentru Orice Ocazie",
-            "subtitle": "Poate că vrei să profiți de un weekend sau vrei să ieși cu familia, sau poate doar te-ai oprit din drumul tău prin Brașov, poate ai venit să zbori cu parapanta sau poate vrei să organizezi un teambuilding. Iarna la schi, vara pentru drumeții un eveniment sau un concert în zonă, te poți opri oricând să te cazezi.",
+            "subtitle": "Poate că vrei să profiți de un weekend sau vrei să ieși cu familia, sau poate doar te-ai oprit din drumul tău prin Brașov, poate ai venit să zbori cu parapanta sau poate vrei să organizezi un teambuilding. Iarna la schi, vara pentru drumeții, un eveniment sau un concert în zonă, te poți opri oricând să te cazezi.",
             "reasons": {
                 "weekend": {
                     "title": "Weekend de Relaxare",
@@ -136,7 +148,7 @@
                 }
             },
             "closing": {
-                "title": "Te Așteptăm Oricând",
+                "title": "Te așteptăm oricând",
                 "message": "Indiferent de sezon sau motiv, avem spațiul perfect pentru tine. Rezervă acum și bucură-te de o experiență de neuitat în Brașov."
             }
         }
