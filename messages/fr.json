@@ -7,7 +7,15 @@
         "booking": "Réserver",
         "location": "Localisation",
         "about": "À propos",
-        "blog": "Blog",
+        "blogTitle": "Blog",
+        "blog": {
+            "events": "Événements & Concerts",
+            "jiuJitsu": "Compétitions Locales de Jiu-Jitsu",
+            "marathons": "Marathons Annuels de Brașov",
+            "paragliding": "Championnat Mondial de Parapente Brașov 2023",
+            "trails": "Sentiers & Randonnées",
+            "zipline": "Tyrolienne 7 Échelles"
+        },
         "contact": "Contact"
     },
     "facilities": {

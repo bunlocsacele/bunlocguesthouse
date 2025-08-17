@@ -66,7 +66,8 @@ export default function Navbar() {
     const [roomsSubmenuOpen, setRoomsSubmenuOpen] = useState(false);
     const [facilitiesSubmenuOpen, setFacilitiesSubmenuOpen] = useState(false);
     const [locationSubmenuOpen, setLocationSubmenuOpen] = useState(false);
-    const [contactSubmenuOpen, setContactSubmenuOpen] = useState(false); // Add contact submenu state
+    const [contactSubmenuOpen, setContactSubmenuOpen] = useState(false);
+    const [blogSubmenuOpen, setBlogSubmenuOpen] = useState(false); // Add blog submenu state
     const [currentDropdown, setCurrentDropdown] = useState<string | null>(null);
 
     // Helper function to safely get room translations
@@ -88,6 +89,16 @@ export default function Navbar() {
         } catch (error) {
             console.error(`Translation error for facilities.${key}:`, error);
             return key;
+        }
+    };
+
+    // Helper function to safely get blog translations
+    const getBlogTranslation = (key: string) => {
+        try {
+            return t(`blog.${key}`);
+        } catch (error) {
+            console.error(`Translation error for navigation.blog.${key}:`, error);
+            return key.charAt(0).toUpperCase() + key.slice(1); // Fallback to capitalized key
         }
     };
 
@@ -140,6 +151,16 @@ export default function Navbar() {
         { key: 'tenisTable', href: `/${locale}/facilities`, translationKey: 'tenisTable', facilityIndex: 4 },
     ];
 
+    // Define blog categories based on your file structure
+    const blogCategories: SubNavItem[] = [
+        { key: 'events', href: `/${locale}/blog/events`, translationKey: 'events' },
+        { key: 'jiu-jitsu', href: `/${locale}/blog/jiu-jitsu`, translationKey: 'jiuJitsu' },
+        { key: 'marathons', href: `/${locale}/blog/marathons`, translationKey: 'marathons' },
+        { key: 'paragliding', href: `/${locale}/blog/paragliding`, translationKey: 'paragliding' },
+        { key: 'trails', href: `/${locale}/blog/trails`, translationKey: 'trails' },
+        { key: 'zipline', href: `/${locale}/blog/zipline`, translationKey: 'zipline' },
+    ];
+
     const navItems: NavItem[] = [
         { key: 'home', href: `/${locale}`, translationKey: 'home' },
         {
@@ -163,7 +184,13 @@ export default function Navbar() {
             hasDropdown: true,
             hasNavigationComponent: true
         },
-        { key: 'blog', href: `/${locale}/blog`, translationKey: 'blog' },
+        {
+            key: 'blog',
+            href: `/${locale}/blog`,
+            translationKey: 'blogTitle',
+            hasDropdown: true,
+            subItems: blogCategories
+        },
         {
             key: 'contact',
             href: `/${locale}/contact`,
@@ -182,7 +209,8 @@ export default function Navbar() {
         setRoomsSubmenuOpen(false);
         setFacilitiesSubmenuOpen(false);
         setLocationSubmenuOpen(false);
-        setContactSubmenuOpen(false); // Close contact submenu
+        setContactSubmenuOpen(false);
+        setBlogSubmenuOpen(false); // Close blog submenu
     };
 
     const handleMenuOpen = (event: React.MouseEvent<HTMLButtonElement>, dropdownType: string) => {
@@ -207,8 +235,12 @@ export default function Navbar() {
         setLocationSubmenuOpen(!locationSubmenuOpen);
     };
 
-    const handleContactSubmenuToggle = () => { // Add contact submenu toggle handler
+    const handleContactSubmenuToggle = () => {
         setContactSubmenuOpen(!contactSubmenuOpen);
+    };
+
+    const handleBlogSubmenuToggle = () => { // Add blog submenu toggle handler
+        setBlogSubmenuOpen(!blogSubmenuOpen);
     };
 
     const handleRoomClick = (subItem: SubNavItem) => {
@@ -225,6 +257,12 @@ export default function Navbar() {
         }
     };
 
+    const handleBlogClick = (subItem: SubNavItem) => {
+        handleMenuClose();
+        // Blog items will navigate directly to the href
+        window.location.href = subItem.href;
+    };
+
     const handleMobileRoomClick = (subItem: SubNavItem) => {
         handleDrawerClose();
         if (subItem.roomIndex !== undefined) {
@@ -239,6 +277,12 @@ export default function Navbar() {
         }
     };
 
+    const handleMobileBlogClick = (subItem: SubNavItem) => {
+        handleDrawerClose();
+        // Blog items will navigate directly to the href
+        window.location.href = subItem.href;
+    };
+
     const isActiveRoute = (href: string) => {
         if (href === `/${locale}`) {
             return pathname === href;
@@ -251,6 +295,8 @@ export default function Navbar() {
             return getRoomTranslation(subItem.translationKey);
         } else if (item.key === 'facilities') {
             return getFacilityTranslation(subItem.translationKey);
+        } else if (item.key === 'blog') {
+            return getBlogTranslation(subItem.translationKey);
         }
         return subItem.translationKey;
     };
@@ -260,6 +306,8 @@ export default function Navbar() {
             return handleRoomClick(subItem);
         } else if (item.key === 'facilities') {
             return handleFacilityClick(subItem);
+        } else if (item.key === 'blog') {
+            return handleBlogClick(subItem);
         }
     };
 
@@ -268,6 +316,8 @@ export default function Navbar() {
             return handleMobileRoomClick(subItem);
         } else if (item.key === 'facilities') {
             return handleMobileFacilityClick(subItem);
+        } else if (item.key === 'blog') {
+            return handleMobileBlogClick(subItem);
         }
     };
 
@@ -278,8 +328,10 @@ export default function Navbar() {
             return handleFacilitiesSubmenuToggle;
         } else if (itemKey === 'location') {
             return handleLocationSubmenuToggle;
-        } else if (itemKey === 'contact') { // Add contact handler
+        } else if (itemKey === 'contact') {
             return handleContactSubmenuToggle;
+        } else if (itemKey === 'blog') { // Add blog handler
+            return handleBlogSubmenuToggle;
         }
         return () => { };
     };
@@ -291,8 +343,10 @@ export default function Navbar() {
             return facilitiesSubmenuOpen;
         } else if (itemKey === 'location') {
             return locationSubmenuOpen;
-        } else if (itemKey === 'contact') { // Add contact state
+        } else if (itemKey === 'contact') {
             return contactSubmenuOpen;
+        } else if (itemKey === 'blog') { // Add blog state
+            return blogSubmenuOpen;
         }
         return false;
     };
@@ -439,7 +493,7 @@ export default function Navbar() {
                                         {t(item.translationKey)}
                                     </Button>
 
-                                    {/* Regular dropdown menu for rooms and facilities */}
+                                    {/* Regular dropdown menu for rooms, facilities, and blog */}
                                     {item.hasDropdown && item.subItems && (
                                         <Menu
                                             anchorEl={anchorEl}

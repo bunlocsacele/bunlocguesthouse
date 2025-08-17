@@ -7,7 +7,15 @@
         "booking": "Book Now",
         "location": "Location",
         "about": "About Us",
-        "blog": "Blog",
+        "blogTitle": "Blog",
+        "blog": {
+            "events": "Events & Concerts",
+            "jiuJitsu": "Local Jiu-Jitsu Competitions",
+            "marathons": "Annual Brașov Marathons",
+            "paragliding": "Brașov Paragliding World Championship 2023",
+            "trails": "Trails & Hiking",
+            "zipline": "7 Ladders Zipline"
+        },
         "contact": "Contact"
     },
     "facilities": {

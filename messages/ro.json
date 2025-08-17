@@ -7,7 +7,15 @@
         "booking": "Rezervă Acum",
         "location": "Locație",
         "about": "Despre Noi",
-        "blog": "Blog",
+        "blogTitle": "Blog",
+        "blog": {
+            "events": "Evenimente & Concerte",
+            "jiuJitsu": "Competiții Jiu-Jitsu locale",
+            "marathons": "Maratoanele Anuale din Brașov",
+            "paragliding": "Campionatul Mondial de Parapantă Brașov 2023",
+            "trails": "Trasee și dumeții",
+            "zipline": "Tiroliana 7 Scări"
+        },
         "contact": "Contact"
     },
     "facilities": {
