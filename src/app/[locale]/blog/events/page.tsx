@@ -42,18 +42,19 @@ import {
     Event
 } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
+import { use } from 'react';
 
-// Updated interface to match Next.js App Router expectations
+// Updated interface for Next.js App Router with Promise params
 interface EventsConcertsBlogPageProps {
-    params: {
+    params: Promise<{
         locale: string;
-    };
-    searchParams?: { [key: string]: string | string[] | undefined };
+    }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const EventsConcertsBlogPage: React.FC<EventsConcertsBlogPageProps> = ({ params }) => {
+    const { locale } = use(params); // Use React's use() hook to unwrap the Promise
     const t = useTranslations('blog.eventsConcerts');
-    const { locale } = params; // Extract locale from params
 
     // Events data organized by category and timeline (from Aug 16, 2025 onwards)
     const eventsData = {
