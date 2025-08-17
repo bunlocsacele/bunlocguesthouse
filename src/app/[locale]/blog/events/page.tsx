@@ -43,12 +43,17 @@ import {
 } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
 
+// Updated interface to match Next.js App Router expectations
 interface EventsConcertsBlogPageProps {
-    locale: string;
+    params: {
+        locale: string;
+    };
+    searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-const EventsConcertsBlogPage: React.FC<EventsConcertsBlogPageProps> = ({ locale }) => {
+const EventsConcertsBlogPage: React.FC<EventsConcertsBlogPageProps> = ({ params }) => {
     const t = useTranslations('blog.eventsConcerts');
+    const { locale } = params; // Extract locale from params
 
     // Events data organized by category and timeline (from Aug 16, 2025 onwards)
     const eventsData = {
