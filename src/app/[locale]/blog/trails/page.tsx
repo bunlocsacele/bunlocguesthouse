@@ -39,12 +39,18 @@ import {
     Phone
 } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
+import { use } from 'react';
 
+// Updated interface for Next.js App Router with Promise params
 interface MountainTrailsBlogPageProps {
-    locale: string;
+    params: Promise<{
+        locale: string;
+    }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-const MountainTrailsBlogPage: React.FC<MountainTrailsBlogPageProps> = ({ locale }) => {
+const MountainTrailsBlogPage: React.FC<MountainTrailsBlogPageProps> = ({ params }) => {
+    const { locale } = use(params); // Use React's use() hook to unwrap the Promise
     const t = useTranslations('blog.mountainTrails');
 
     // Mountain trails data organized by difficulty

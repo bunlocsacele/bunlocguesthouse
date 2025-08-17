@@ -26,12 +26,18 @@ import {
     Timeline
 } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
+import { use } from 'react';
 
+// Updated interface for Next.js App Router with Promise params
 interface JiuJitsuBlogPageProps {
-    locale: string;
+    params: Promise<{
+        locale: string;
+    }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-const JiuJitsuBlogPage: React.FC<JiuJitsuBlogPageProps> = ({ locale }) => {
+const JiuJitsuBlogPage: React.FC<JiuJitsuBlogPageProps> = ({ params }) => {
+    const { locale } = use(params); // Use React's use() hook to unwrap the Promise
     const t = useTranslations('blog.jiujitsu');
 
     // Competition data based on research

@@ -29,12 +29,18 @@ import {
 } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
 import ParaglidingIcon from '@mui/icons-material/Paragliding';
+import { use } from 'react';
 
+// Updated interface for Next.js App Router with Promise params
 interface ParaglidingBlogPageProps {
-    locale: string;
+    params: Promise<{
+        locale: string;
+    }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-const ParaglidingBlogPage: React.FC<ParaglidingBlogPageProps> = ({ locale }) => {
+const ParaglidingBlogPage: React.FC<ParaglidingBlogPageProps> = ({ params }) => {
+    const { locale } = use(params); // Use React's use() hook to unwrap the Promise
     const t = useTranslations('blog.paragliding');
 
     // Competition results data

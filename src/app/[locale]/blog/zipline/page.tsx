@@ -42,12 +42,18 @@ import {
     Phone
 } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
+import { use } from 'react';
 
+// Updated interface for Next.js App Router with Promise params
 interface Tiroliana7ScariBlogPageProps {
-    locale: string;
+    params: Promise<{
+        locale: string;
+    }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-const Tiroliana7ScariBlogPage: React.FC<Tiroliana7ScariBlogPageProps> = ({ locale }) => {
+const Tiroliana7ScariBlogPage: React.FC<Tiroliana7ScariBlogPageProps> = ({ params }) => {
+    const { locale } = use(params); // Use React's use() hook to unwrap the Promise
     const t = useTranslations('blog.tiroliana7Scari');
 
     // Technical specifications and pricing data

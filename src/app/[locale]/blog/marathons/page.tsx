@@ -31,12 +31,18 @@ import {
     Forest
 } from '@mui/icons-material';
 import { useTranslations } from 'next-intl';
+import { use } from 'react';
 
+// Updated interface for Next.js App Router with Promise params
 interface MarathonsBlogPageProps {
-    locale: string;
+    params: Promise<{
+        locale: string;
+    }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-const MarathonsBlogPage: React.FC<MarathonsBlogPageProps> = ({ locale }) => {
+const MarathonsBlogPage: React.FC<MarathonsBlogPageProps> = ({ params }) => {
+    const { locale } = use(params); // Use React's use() hook to unwrap the Promise
     const t = useTranslations('blog.marathons');
 
     // Annual marathons data - organized by year and status
